@@ -1,0 +1,19 @@
+/*Importacion de librerias de estilos */
+@import url(libs/bootstrap.min.css);
+@import url(libs/font-awesome.min.css);
+@import url(libs/nprogress.css);
+@import url(libs/green.css);
+@import url(libs/bootstrap-progressbar-3.3.4.min.css);
+@import url(libs/jqvmap.min.css);
+@import url(libs/custom.css);
+/*
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";*/
+
+/*# sourceMappingURL=libs.css.map */
