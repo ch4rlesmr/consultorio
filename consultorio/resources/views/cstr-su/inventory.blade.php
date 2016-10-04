@@ -5,7 +5,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Calendario <!-- <small>Click to add/edit events</small> --></h3>
+                <h3>Inventario <!-- <small>Click to add/edit events</small> --></h3>
               </div>
 
               <!-- <div class="title_right">
@@ -26,7 +26,7 @@
               <div class="col-md-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Calendario de Citas <!-- <small>Sessions</small> --></h2>
+                    <h2>Inventario de Equipos y Mobiliario <!-- <small>Sessions</small> --></h2>
                     <!-- <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -46,7 +46,34 @@
                   </div>
                   <div class="x_content">
 
-                    <div id='calendar'></div>
+                    <div class="table-responsive">
+                      <table class="table table-striped jambo_table">
+                        <thead>
+                          <tr class="headings" style="text-transform:uppercase;">
+                            <th class="text-center">Referencia</th>
+                            <th class="text-center">Elemento</th>
+                            <th class="text-center">Tipo</th>
+                            <th class="text-center">Cantidad</th>
+                            <th class="text-center">Garantia</th>
+                            <th class="text-center">Observacion</th>
+                            <th class="text-center">Estado</th>
+                            <th class="text-center">Opciones</th>
+                          </tr>
+                        </thead>
+                        <tbody style="text-align: center;">
+                          <tr>
+                            <td>Higado</td>
+                            <td>Madera</td>
+                            <td>Vesicula Biliar</td>
+                            <td>Tendon</td>
+                            <td>Uñas y Tendones</td>
+                            <td>Ojo</td>
+                            <td>Vista</td>
+                            <td>Lagrima</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
 
                   </div>
                 </div>

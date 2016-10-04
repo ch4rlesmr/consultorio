@@ -50,21 +50,21 @@
                     <div class="table-responsive">
                       <table class="table table-striped jambo_table">
                         <thead>
-                          <tr class="headings" style="text-align: center; text-transform:uppercase;">
-                            <th>Organo</th>
-                            <th>Elemento</th>
-                            <th>Viscera</th>
-                            <th>Tejido</th>
-                            <th>Nutre</th>
-                            <th>Agujero</th>
-                            <th>Sentido</th>
-                            <th>Liquido</th>
-                            <th>Color</th>
-                            <th>Sabor</th>
-                            <th>Olor</th>
-                            <th>Sentimiento</th>
-                            <th>estación</th>
-                            <th>Clima</th>
+                          <tr class="headings" style="text-transform:uppercase;">
+                            <th class="text-center">Organo</th>
+                            <th class="text-center">Elemento</th>
+                            <th class="text-center">Viscera</th>
+                            <th class="text-center">Tejido</th>
+                            <th class="text-center">Nutre</th>
+                            <th class="text-center">Agujero</th>
+                            <th class="text-center">Sentido</th>
+                            <th class="text-center">Liquido</th>
+                            <th class="text-center">Color</th>
+                            <th class="text-center">Sabor</th>
+                            <th class="text-center">Olor</th>
+                            <th class="text-center">Sentimiento</th>
+                            <th class="text-center">estación</th>
+                            <th class="text-center">Clima</th>
                           </tr>
                         </thead>
                         <tbody style="text-align: center;">

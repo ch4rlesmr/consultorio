@@ -5,7 +5,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Calendario <!-- <small>Click to add/edit events</small> --></h3>
+                <h3>Restricciones <!-- <small>Click to add/edit events</small> --></h3>
               </div>
 
               <!-- <div class="title_right">
@@ -26,7 +26,7 @@
               <div class="col-md-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Calendario de Citas <!-- <small>Sessions</small> --></h2>
+                    <h2>Restricciones Tipo de Sangre <!-- <small>Sessions</small> --></h2>
                     <!-- <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -46,7 +46,54 @@
                   </div>
                   <div class="x_content">
 
-                    <div id='calendar'></div>
+                    <div class="col-xs-2">
+                      <ul class="nav nav-tabs tabs-left">
+                        <li class="active"><a href="#bloodA" data-toggle="tab">A</a></li>
+                        <li><a href="#bloodO" data-toggle="tab">O</a></li>
+                        <li><a href="#bloodB" data-toggle="tab">B</a></li>
+                        <li><a href="#bloodAB" data-toggle="tab">AB</a></li>
+                      </ul>
+                    </div>
+
+                    <div class="col-xs-9">
+
+                      <div class="tab-content">
+
+                        <div class="tab-pane active" id="bloodA">
+                          <h2>Tipo de sangre: <strong>A</strong></h2>
+                          <p>Goodbye, Walter.  I don't owe you a damn thing.  All of this -- falling apart like this -- is on YOU.  We had a good thing, you stupid son of a bitch!  We had Fring.  We had a lab.  We had everything we needed and it all ran like clockwork.  You could've shut your mouth, cooked, and made as much money as you ever needed.  It was perfect.  But no!  You just had to blow it up.  YOU!  And your pride and your ego.  You just had to be the man.  If you'd done your job, known your place, we'd all be fine right now. </p>
+                          <p>Any other drugs in the house? Think hard; your freedom depends on it. What about guns, you got any guns in the house? Here's your story - You woke up, you found her, that's all you know. Say it. Say it, please. I woke up I found her that's all I know. Say it. I woke up I found her, that's all I know. Again. Again. Again. </p>
+                          <p>Once you call it in, the people who show up with be with the office of medical investigations. it's primarily who you'll talk to. Police officers may arrive they may not, depends on how busy a morning they're having. Typically ODs are not a high priority call. There's nothing here to incriminate you, so I'd be amazed if you got placed under arrest. However, if you do, you say nothing. You tell them you just want your lawyer. And you call Saul Goodman.</p>
+                          <p>And do I need to state the obvious? I was not here. You put on a long sleeve shirt and cover those track marks on your arm. Count down from twenty, and then you dial. Hang tough, you're in the home stretch.</p>
+                        </div>
+
+                        <div class="tab-pane" id="bloodO">
+                          <h2>Tipo de sangre: <strong>O</strong></h2>
+                          <p>Goodbye, Walter.  I don't owe you a damn thing.  All of this -- falling apart like this -- is on YOU.  We had a good thing, you stupid son of a bitch!  We had Fring.  We had a lab.  We had everything we needed and it all ran like clockwork.  You could've shut your mouth, cooked, and made as much money as you ever needed.  It was perfect.  But no!  You just had to blow it up.  YOU!  And your pride and your ego.  You just had to be the man.  If you'd done your job, known your place, we'd all be fine right now. </p>
+                          <p>Any other drugs in the house? Think hard; your freedom depends on it. What about guns, you got any guns in the house? Here's your story - You woke up, you found her, that's all you know. Say it. Say it, please. I woke up I found her that's all I know. Say it. I woke up I found her, that's all I know. Again. Again. Again. </p>
+                          <p>Once you call it in, the people who show up with be with the office of medical investigations. it's primarily who you'll talk to. Police officers may arrive they may not, depends on how busy a morning they're having. Typically ODs are not a high priority call. There's nothing here to incriminate you, so I'd be amazed if you got placed under arrest. However, if you do, you say nothing. You tell them you just want your lawyer. And you call Saul Goodman.</p>
+                          <p>And do I need to state the obvious? I was not here. You put on a long sleeve shirt and cover those track marks on your arm. Count down from twenty, and then you dial. Hang tough, you're in the home stretch.</p>
+                        </div>
+
+                        <div class="tab-pane" id="bloodB">
+                          <h2>Tipo de sangre: <strong>B</strong></h2>
+                          <p>Goodbye, Walter.  I don't owe you a damn thing.  All of this -- falling apart like this -- is on YOU.  We had a good thing, you stupid son of a bitch!  We had Fring.  We had a lab.  We had everything we needed and it all ran like clockwork.  You could've shut your mouth, cooked, and made as much money as you ever needed.  It was perfect.  But no!  You just had to blow it up.  YOU!  And your pride and your ego.  You just had to be the man.  If you'd done your job, known your place, we'd all be fine right now. </p>
+                          <p>Any other drugs in the house? Think hard; your freedom depends on it. What about guns, you got any guns in the house? Here's your story - You woke up, you found her, that's all you know. Say it. Say it, please. I woke up I found her that's all I know. Say it. I woke up I found her, that's all I know. Again. Again. Again. </p>
+                          <p>Once you call it in, the people who show up with be with the office of medical investigations. it's primarily who you'll talk to. Police officers may arrive they may not, depends on how busy a morning they're having. Typically ODs are not a high priority call. There's nothing here to incriminate you, so I'd be amazed if you got placed under arrest. However, if you do, you say nothing. You tell them you just want your lawyer. And you call Saul Goodman.</p>
+                          <p>And do I need to state the obvious? I was not here. You put on a long sleeve shirt and cover those track marks on your arm. Count down from twenty, and then you dial. Hang tough, you're in the home stretch.</p>
+                        </div>
+
+                        <div class="tab-pane" id="bloodAB">
+                          <h2>Tipo de sangre: <strong>AB</strong></h2>
+                          <p>Goodbye, Walter.  I don't owe you a damn thing.  All of this -- falling apart like this -- is on YOU.  We had a good thing, you stupid son of a bitch!  We had Fring.  We had a lab.  We had everything we needed and it all ran like clockwork.  You could've shut your mouth, cooked, and made as much money as you ever needed.  It was perfect.  But no!  You just had to blow it up.  YOU!  And your pride and your ego.  You just had to be the man.  If you'd done your job, known your place, we'd all be fine right now. </p>
+                          <p>Any other drugs in the house? Think hard; your freedom depends on it. What about guns, you got any guns in the house? Here's your story - You woke up, you found her, that's all you know. Say it. Say it, please. I woke up I found her that's all I know. Say it. I woke up I found her, that's all I know. Again. Again. Again. </p>
+                          <p>Once you call it in, the people who show up with be with the office of medical investigations. it's primarily who you'll talk to. Police officers may arrive they may not, depends on how busy a morning they're having. Typically ODs are not a high priority call. There's nothing here to incriminate you, so I'd be amazed if you got placed under arrest. However, if you do, you say nothing. You tell them you just want your lawyer. And you call Saul Goodman.</p>
+                          <p>And do I need to state the obvious? I was not here. You put on a long sleeve shirt and cover those track marks on your arm. Count down from twenty, and then you dial. Hang tough, you're in the home stretch.</p>
+                        </div>
+
+                      </div>
+                      
+                    </div>
 
                   </div>
                 </div>
@@ -56,78 +103,3 @@
         </div>
 @endsection
 
-@section('popup')
-	<!-- calendar modal -->
-    <div id="CalenderModalNew" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title" id="myModalLabel">New Calendar Entry</h4>
-          </div>
-          <div class="modal-body">
-            <div id="testmodal" style="padding: 5px 20px;">
-              <form id="antoform" class="form-horizontal calender" role="form">
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Title</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="title" name="title">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Description</label>
-                  <div class="col-sm-9">
-                    <textarea class="form-control" style="height:55px;" id="descr" name="descr"></textarea>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default antoclose" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary antosubmit">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="CalenderModalEdit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title" id="myModalLabel2">Edit Calendar Entry</h4>
-          </div>
-          <div class="modal-body">
-
-            <div id="testmodal2" style="padding: 5px 20px;">
-              <form id="antoform2" class="form-horizontal calender" role="form">
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Title</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="title2" name="title2">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Description</label>
-                  <div class="col-sm-9">
-                    <textarea class="form-control" style="height:55px;" id="descr2" name="descr"></textarea>
-                  </div>
-                </div>
-
-              </form>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default antoclose2" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary antosubmit2">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="fc_create" data-toggle="modal" data-target="#CalenderModalNew"></div>
-    <div id="fc_edit" data-toggle="modal" data-target="#CalenderModalEdit"></div>
-    <!-- /calendar modal -->
-@endsection
