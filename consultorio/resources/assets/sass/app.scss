@@ -1,12 +1,17 @@
 
-/*Importacion de librerias de estilos */
+/*Importacion de librerias de estilos 
 @import "libs/bootstrap.min";
 @import "libs/font-awesome.min";
 @import "libs/nprogress";
-@import "libs/green";
+
 @import "libs/bootstrap-progressbar-3.3.4.min";
+@import "libs/green";
 @import "libs/jqvmap.min";
+
+@import "libs/fullcalendar.min";
+@import "libs/fullcalendar.print";
 @import "libs/custom";
+*/
 
 /*
 // Fonts
@@ -17,3 +22,29 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";*/
+
+div.right-col {
+	min-height: 0 !important;
+}
+
+small.info-field {
+	font-size: 13px;
+	font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
+	line-height: 20px;
+}
+
+.form-control-feedback-input {
+	margin-top: 25px;
+}
+
+div.thumbnail.selected {
+	p {
+		color: white;
+		font-weight: bold;
+		line-height: 25px;
+	}
+}
+
+.image_picker_image {
+    max-height: 150px;
+}

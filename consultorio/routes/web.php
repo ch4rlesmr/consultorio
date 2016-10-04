@@ -18,3 +18,23 @@ Route::get('/', function () {
 Route::get('/login', function () {
 	return view('login');
 });
+
+Route::get('/calendario', function () {
+	return view('cstr-su.home');
+});
+
+Route::get('/paciente_nuevo', function () {
+	return view('cstr-su.new_patient');
+});
+
+Route::get('/restricciones', function () {
+	return view('cstr-su.restrictions');
+});
+
+Route::get('/organos', function () {
+	return view('cstr-su.organ');
+});
+
+Route::get('/inventario', function () {
+	return view('cstr-su.inventory');
+});

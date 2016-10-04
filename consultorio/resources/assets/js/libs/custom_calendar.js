@@ -108,10 +108,3 @@ $(window).load(function() {
           }]
         });
       });
-$(function () {
-	$(".image-picker").imagepicker({
-		show_label: true,
-		hide_select: false
-	});
-});
-//# sourceMappingURL=libs.js.map

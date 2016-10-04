@@ -19,7 +19,14 @@ require('laravel-elixir-vue');
 });*/
 
 elixir(function (mix) {
-	// mix.sass(['app.scss'], 'public/css/libs/libs.css');
+	//mix.sass(['app.scss'], 'public/css/properties.css');
 	mix.sass('app.scss');
-	mix.scripts(['libs/jquery.min.js', 'libs/bootstrap.min.js', 'libs/nprogress.js', 'libs/fastclick.js'], 'public/js/libs/libs.js');
+	mix.scripts(['libs/custom_calendar.js', 'libs/basic_func.js'],
+				'public/js/libs/libs.js');
 });
+
+/*
+'libs/jquery.min.js', 'libs/bootstrap.min.js', 'libs/fastclick.js',
+				'libs/nprogress.js', 'libs/moment.min.js', 'libs/fullcalendar.min.js',
+				'libs/custom.js', 
+*/

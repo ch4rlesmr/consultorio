@@ -20,23 +20,8 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";*/
-div.right-col {
-  min-height: 0 !important; }
-
-small.info-field {
+small .info-field {
   font-size: 13px;
-  font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
-  line-height: 20px; }
+  font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif; }
 
-.form-control-feedback-input {
-  margin-top: 25px; }
-
-div.thumbnail.selected p {
-  color: white;
-  font-weight: bold;
-  line-height: 25px; }
-
-.image_picker_image {
-  max-height: 150px; }
-
-/*# sourceMappingURL=app.css.map */
+/*# sourceMappingURL=properties.css.map */

@@ -9,30 +9,78 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Consultorio | Login</title>
+    <title>Consultorio</title>
 
-    <!-- <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
-    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-    <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
-    <link href="../build/css/custom.min.css" rel="stylesheet"> -->
-    <link href="css/libs/libs.css" rel="stylesheet">
+    <!-- <link href="css/libs.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/libs.css')}}"/>    -->
+    
+    <link href="css/libs/bootstrap.min.css" rel="stylesheet">
+    <link href="css/libs/font-awesome.min.css" rel="stylesheet">
+    <link href="css/libs/nprogress.css" rel="stylesheet">
+    <link href="css/libs/fullcalendar.min.css" rel="stylesheet">
+    <link href="css/libs/fullcalendar.print.css" rel="stylesheet" media="print">
+    <link href="css/libs/custom.min.css" rel="stylesheet">
+    <link href="css/libs/image-picker.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+    
   </head>
 
   <body class="nav-md">
 
-    @yield('content')
+    <div class="container body">
+      <div class="main_container">
+        
+        <!-- lateral menu left_col -->
+        @yield('lateral_menu')
+        <!-- /lateral menu left_col -->
 
-    <!-- <script src="../vendors/jquery/dist/jquery.min.js"></script>
-    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
-    <script src="../vendors/nprogress/nprogress.js"></script>
-    <script src="../vendors/Chart.js/dist/Chart.min.js"></script>
-    <script src="../build/js/custom.min.js"></script> -->
+        <!-- top navigation -->        
+        @yield('top_bar')
+        <!-- /top navigation -->
 
-    <script href="js/libs/libs.js"></script>
+        <!-- page content -->
+        @yield('content')
+        <!-- /page content -->        
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    @yield('popup')
+    
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/fastclick.js"></script>
+    <script src="js/nprogress.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/fullcalendar.min.js"></script>
+    <script src="js/es.js"></script>
+    <script src="js/jquery.smartWizard.js"></script>
+    <script src="js/image-picker.js"></script>
+    <script src="js/custom.min.js"></script>
+
+    <script src="{{ asset('js/libs/libs.js') }}"></script>
+    <!-- <script>
+      $(document).ready(function() {
+        $('#wizard').smartWizard();
+
+        $('#wizard_verticle').smartWizard({
+          transitionEffect: 'slide'
+        });
+
+        $('.buttonNext').addClass('btn btn-success');
+        $('.buttonPrevious').addClass('btn btn-primary');
+        $('.buttonFinish').addClass('btn btn-default');
+      });
+    </script> -->
+
   </body>
 
 </html>
