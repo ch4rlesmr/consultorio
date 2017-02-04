@@ -20,9 +20,25 @@ require('laravel-elixir-vue');
 
 elixir(function (mix) {
 	//mix.sass(['app.scss'], 'public/css/properties.css');
+	mix.sass(['lib/bootstrap.min.scss', 'lib/font-awesome.min.scss', 'lib/jquery-ui.min.scss',
+		'lib/nprogress.scss', 'lib/basic.min.scss',
+		'lib/dropzone.min.scss', 'lib/custom.min.scss',
+		'lib/image-picker.scss'], 
+			'public/css/libs/libs.css');
 	mix.sass('app.scss');
-	mix.scripts(['libs/custom_calendar.js', 'libs/basic_func.js'],
-				'public/js/libs/libs.js');
+	mix.scripts(['libs/jquery.min.js', 'libs/jquery-ui.min.js', 'libs/bootstrap.min.js',
+		'libs/fastclick.js', 'libs/nprogress.js',
+		'libs/moment.min.js', 'libs/fullcalendar.min.js',
+		'libs/es.js', 'libs/jquery.smartWizard.js', 'libs/dropzone.min.js',// 'libs/dropzone-amd-module.min.js',
+		'libs/image-picker.js', 'libs/validator.js', 'libs/jquery-numeric.js'],
+			'public/js/lib/libs.js'); 
+
+	mix.scripts(['libs/custom_calendar.js', 'libs/basic_func.js', 'libs/custom.min.js'],
+			'public/js/app.js');
+
+	/*mix.scripts(['libs/custom_calendar.js', 'libs/basic_func.js'],
+			'public/js/libs/libs.js');*/
+
 });
 
 /*

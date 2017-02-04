@@ -9,7 +9,7 @@
             <!-- menu profile quick info -->
             <div class="profile">
               <div class="profile_pic">
-                <img src="images/admin.png" alt="..." class="img-circle profile_img">
+                <img src="/images/admin.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
@@ -26,7 +26,7 @@
                 <h3>General</h3>
                 <ul class="nav side-menu">
                   <li>
-                    <a href="{{ url('calendario') }}"><i class="fa fa-table"></i> Calendario<!--  <span class="fa fa-chevron-down"></span> --></a>
+                    <a href="{{ url('dra/calendario') }}"><i class="fa fa-table"></i> Calendario<!--  <span class="fa fa-chevron-down"></span> --></a>
                     <!-- <ul class="nav child_menu" style="display:block;">
                       <li class="current-page"><a href="#"> Agenda </a></li>
                     </ul> -->
@@ -61,26 +61,26 @@
                       <li class="current-page"><a href="calendar.html">Calendar</a></li>
                     </ul> -->
                   </li>
-                  <!-- <li><a><i class="fa fa-child"></i> Paciente <span class="fa fa-chevron-down"></span></a> -->
-                  <li><a href="{{ url('paciente_nuevo') }}"><i class="fa fa-child"></i> Paciente <!-- <span class="fa fa-chevron-down"></span> --></a>
+                  <!-- <li><a><i class="fa fa-child"></i> Paciente <span class="fa fa-chevron-down"></span></a> url('paciente_nuevo')-->
+                  <li><a href="{{ action('PatientController@index') }}"><i class="fa fa-child"></i> Paciente <!-- <span class="fa fa-chevron-down"></span> --></a>
                     <!-- <ul class="nav child_menu">
                       <li><a href="#">Paciente opt1</a></li>
                       <li><a href="#">Paciente opt2</a></li>
                     </ul> -->
                   </li>
-                  <li><a href="{{ url('restricciones') }}"><i class="fa fa-exclamation"></i> Restricciones <!-- <span class="fa fa-chevron-down"></span> --></a>
+                  <li><a href="{{ url('dra/restricciones') }}"><i class="fa fa-exclamation"></i> Restricciones <!-- <span class="fa fa-chevron-down"></span> --></a>
                     <!-- <ul class="nav child_menu">
                       <li><a href="#">Chart JS</a></li>
                       <li><a href="#">Chart JS2</a></li>
                     </ul> -->
                   </li>
-                  <li><a href="{{ url('organos') }}"><i class="fa fa-heart"></i> Organos <!-- <span class="fa fa-chevron-down"></span> --></a>
+                  <li><a href="{{ url('dra/organos') }}"><i class="fa fa-heart"></i> Organos <!-- <span class="fa fa-chevron-down"></span> --></a>
                     <!-- <ul class="nav child_menu">
                       <li><a href="#">Fixed Sidebar</a></li>
                       <li><a href="#">Fixed Footer</a></li>
                     </ul> -->
                   </li>
-                  <li><a href="{{ url('inventario') }}"><i class="fa fa-archive"></i> Inventario <!-- <span class="fa fa-chevron-down"></span> --></a>
+                  <li><a href="{{ action('ProductController@index') }}"><i class="fa fa-archive"></i> Inventario <!-- <span class="fa fa-chevron-down"></span> --></a>
                     <!-- <ul class="nav child_menu">
                       <li><a href="#">Equipos</a></li>
                       <li><a href="#">Mobiliario</a></li>

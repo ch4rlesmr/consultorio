@@ -14,14 +14,17 @@
     <!-- <link href="css/libs.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{asset('css/libs.css')}}"/>    -->
     
-    <link href="css/libs/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="css/libs/bootstrap.min.css" rel="stylesheet">
     <link href="css/libs/font-awesome.min.css" rel="stylesheet">
-    <link href="css/libs/nprogress.css" rel="stylesheet">
-    <link href="css/libs/fullcalendar.min.css" rel="stylesheet">
-    <link href="css/libs/fullcalendar.print.css" rel="stylesheet" media="print">
-    <link href="css/libs/custom.min.css" rel="stylesheet">
+    <link href="css/libs/nprogress.css" rel="stylesheet"> -->
+    <link href="{{ asset('css/libs/fullcalendar.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/libs/fullcalendar.print.css') }}" rel="stylesheet" media="print">
+    <!--<link href="css/libs/custom.min.css" rel="stylesheet">
     <link href="css/libs/image-picker.css" rel="stylesheet">
-    <link href="css/app.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">-->
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/libs/libs.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}"/>
     
   </head>
 
@@ -55,7 +58,7 @@
 
     @yield('popup')
     
-    <script src="js/jquery.min.js"></script>
+    <!--<script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/fastclick.js"></script>
     <script src="js/nprogress.js"></script>
@@ -66,7 +69,11 @@
     <script src="js/image-picker.js"></script>
     <script src="js/custom.min.js"></script>
 
-    <script src="{{ asset('js/libs/libs.js') }}"></script>
+    <script src="{{ asset('js/libs/libs.js') }}"></script>-->
+    <meta name="_token" content="{!! csrf_token() !!}" />
+    <script type="text/javascript" src="{!! asset('js/lib/libs.js') !!}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+
     <!-- <script>
       $(document).ready(function() {
         $('#wizard').smartWizard();

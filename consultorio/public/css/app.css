@@ -36,7 +36,36 @@ div.thumbnail.selected p {
   font-weight: bold;
   line-height: 25px; }
 
+.form-control.has-feedback-left {
+  padding-left: 40px; }
+
 .image_picker_image {
   max-height: 150px; }
+
+.form-control-feedback {
+  z-index: 1; }
+
+.stepContainer {
+  height: auto !important;
+  overflow-x: visible !important; }
+
+.manage-rows-form {
+  margin-top: 12px; }
+
+.rm-field {
+  display: none; }
+
+.form-group {
+  min-height: 80px; }
+
+.item .alert {
+  display: block;
+  float: none;
+  margin: 0;
+  border-radius: 0;
+  padding: 0 3px;
+  width: auto; }
+  .item .alert::after {
+    content: none; }
 
 /*# sourceMappingURL=app.css.map */

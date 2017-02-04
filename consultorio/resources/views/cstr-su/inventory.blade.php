@@ -24,7 +24,62 @@
 
             <div class="row">
               <div class="col-md-12">
+
                 <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Busqueda Inventario</h2>&nbsp;
+                    <ul class="nav navbar-left panel_toolbox">
+
+                      <li><a class="collapse-link pull-right"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <div class="well">
+
+                      <form action="" class="form-horizontal form-label-left">
+
+                        <div class="col-md-5 col-md-offset-1">
+                          <label class="control-label" for="first-name">Referencia</label>
+                          <div>
+                            <input type="text" id="first-name2" required="required" class="form-control">
+                          </div>
+                        </div>
+
+                        <div class="col-md-5">
+                          <label class="control-label" for="first-name">Elemento</label>
+                          <div>
+                            <input type="text" id="first-name2" required="required" class="form-control">
+                          </div>
+                        </div>
+
+                        <div class="col-md-5 col-md-offset-1">
+                          <label class="control-label" for="first-name">Tipo</label>
+                          <div>
+                            <input type="text" id="first-name2" required="required" class="form-control">
+                          </div>
+                        </div>
+
+                        <div class="col-md-5">
+                          <label class="control-label" for="first-name">Estado</label>
+                          <div>
+                            <input type="text" id="first-name2" required="required" class="form-control">
+                          </div>
+                        </div>
+
+                        <div class="col-md-4 col-md-offset-5">
+                          <br>
+                          <button type ="submit" class="btn btn-success">Buscar !</button>
+                        </div>
+
+                      </form>
+                    </div>  
+                  </div>
+                </div>
+
+                <div class="x_panel">
+
                   <div class="x_title">
                     <h2>Inventario de Equipos y Mobiliario <!-- <small>Sessions</small> --></h2>
                     <!-- <ul class="nav navbar-right panel_toolbox">
@@ -42,6 +97,9 @@
                       <li><a class="close-link"><i class="fa fa-close"></i></a>
                       </li>
                     </ul> -->
+                    <a href="{{ action('ProductController@create') }}" class="pull-right btn btn-success">
+                      <i class="fa fa-plus-circle" aria-hidden="true"></i> <strong>Añadir Nuevo Producto</strong>
+                    </a>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -53,7 +111,6 @@
                             <th class="text-center">Referencia</th>
                             <th class="text-center">Elemento</th>
                             <th class="text-center">Tipo</th>
-                            <th class="text-center">Cantidad</th>
                             <th class="text-center">Garantia</th>
                             <th class="text-center">Observacion</th>
                             <th class="text-center">Estado</th>
@@ -65,7 +122,6 @@
                             <td>Higado</td>
                             <td>Madera</td>
                             <td>Vesicula Biliar</td>
-                            <td>Tendon</td>
                             <td>Uñas y Tendones</td>
                             <td>Ojo</td>
                             <td>Vista</td>
