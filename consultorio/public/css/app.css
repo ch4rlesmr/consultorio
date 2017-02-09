@@ -68,4 +68,7 @@ div.thumbnail.selected p {
   .item .alert::after {
     content: none; }
 
+table.inventory-list tr td {
+  vertical-align: middle; }
+
 /*# sourceMappingURL=app.css.map */

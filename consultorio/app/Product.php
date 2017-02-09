@@ -6,8 +6,44 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model {
     //
-    protected $table = 'product_types';
-    protected $fillable = ['id_product', 'name', 'warranty', 'observation', 'status'];
+    protected $table = 'products';
+    protected $fillable = ['id_product', 'name', 'warranty', 'observation', 'product_type_id', 'status', 'reference'];
+    protected $primaryKey = 'id_product';
 
+    public function scopeSearch($query, $reference, $name, $type, $status) {
+    	return $query
+    		->where('reference','LIKE','%'.$reference.'%')
+    		->where('name','LIKE','%'.$name.'%')
+    		->where('product_type_id','LIKE','%'.$type.'%')
+    		->where('status','LIKE','%'.$status.'%');
+    }
+
+    public function product_type() {
+    	return $this->belongsTo("App\ProductType","product_type_id", "id_type");
+    }
+
+    public function getStatus () {
+    	switch ( $this->status ) {
+    		case 'E':
+    			return 'Excelente';
+    			break;
+    		case 'B':
+    			return 'Bueno';
+    			break;
+    		case 'R':
+    			return 'Regular';
+    			break;
+    		case 'M':
+    			return 'Mal';
+    			break;
+    		case 'P':
+    			return 'Pesimo';
+    			break;
+    		
+    		default:
+    			# code...
+    			break;
+    	}
+    }
 
 }

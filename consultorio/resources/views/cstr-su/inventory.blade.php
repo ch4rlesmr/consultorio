@@ -41,36 +41,48 @@
                       <form action="" class="form-horizontal form-label-left">
 
                         <div class="col-md-5 col-md-offset-1">
-                          <label class="control-label" for="first-name">Referencia</label>
+                          <label class="control-label">Referencia</label>
                           <div>
-                            <input type="text" id="first-name2" required="required" class="form-control">
+                            <input type="text" id="reference-inventory" name="reference-inventory" class="form-control">
                           </div>
                         </div>
 
                         <div class="col-md-5">
-                          <label class="control-label" for="first-name">Elemento</label>
+                          <label class="control-label">Elemento</label>
                           <div>
-                            <input type="text" id="first-name2" required="required" class="form-control">
+                            <input type="text" id="name-inventory" name="name-inventory" class="form-control">
                           </div>
                         </div>
 
                         <div class="col-md-5 col-md-offset-1">
-                          <label class="control-label" for="first-name">Tipo</label>
+                          <label class="control-label">Tipo</label>
                           <div>
-                            <input type="text" id="first-name2" required="required" class="form-control">
+                            <select class="select2_single form-control" tabindex="0" name="type-inventory" id="type-inventory">
+                              <option selected="true" disabled="disabled">Escoger Tipo</option>
+                              @foreach ($types as $productType)
+                                <option value="{{ $productType->id_type }}">{{ $productType->name_type }}</option>
+                              @endforeach
+                            </select>
                           </div>
                         </div>
 
                         <div class="col-md-5">
                           <label class="control-label" for="first-name">Estado</label>
                           <div>
-                            <input type="text" id="first-name2" required="required" class="form-control">
+                            <select class="select2_single form-control" tabindex="0" name="status-inventory" id="status-inventory" name="status-inventory">
+                              <option selected="true" disabled="disabled">Escoger Estado</option>
+                              <option value="E">Excelente</option>
+                              <option value="B">Bueno</option>
+                              <option value="R">Regular</option>
+                              <option value="M">Mal</option>
+                              <option value="P">Pesimo</option>
+                            </select>
                           </div>
                         </div>
 
                         <div class="col-md-4 col-md-offset-5">
                           <br>
-                          <button type ="submit" class="btn btn-success">Buscar !</button>
+                          <button type ="submit" class="btn btn-success"><span class="fa fa-search"></span> <strong>Buscar !</strong></button>
                         </div>
 
                       </form>
@@ -105,31 +117,39 @@
                   <div class="x_content">
 
                     <div class="table-responsive">
-                      <table class="table table-striped jambo_table">
+                      <table class="table table-striped jambo_table inventory-list">
                         <thead>
                           <tr class="headings" style="text-transform:uppercase;">
                             <th class="text-center">Referencia</th>
                             <th class="text-center">Elemento</th>
                             <th class="text-center">Tipo</th>
                             <th class="text-center">Garantia</th>
-                            <th class="text-center">Observacion</th>
                             <th class="text-center">Estado</th>
-                            <th class="text-center">Opciones</th>
+                            <th width="28%" class="text-center">Opciones</th>
                           </tr>
                         </thead>
                         <tbody style="text-align: center;">
+                          @foreach($products as $product)
                           <tr>
-                            <td>Higado</td>
-                            <td>Madera</td>
-                            <td>Vesicula Biliar</td>
-                            <td>Uñas y Tendones</td>
-                            <td>Ojo</td>
-                            <td>Vista</td>
-                            <td>Lagrima</td>
+                            <td>{{ $product->reference }}</td>
+                            <td>{{ $product->name }}</td>
+                            <td>{{ $product->product_type->name_type }}</td>
+                            <td>{{ $product->warranty }}</td>
+                            <td>
+                              {{ $product->getStatus() }}
+                            </td>
+                            <td>
+                              <a href="#" type="button" class="btn btn-success "><span class="fa fa-eye"></span>  Ver</a>
+                              <a href="{{ action('ProductController@edit',$product->id_product) }}" type="button" class="btn btn-warning "><span class="fa fa-pencil"></span> Editar</a>
+                              <a href="#" type="button" class="btn btn-danger "><span class="fa fa-trash"></span> Borrar</a>
+                            </td>
                           </tr>
+                          @endforeach
                         </tbody>
                       </table>
                     </div>
+
+                    <a href="#" class="btn btn-primary pull-right"><span class="fa fa-print"></span> <strong>Imprimir Lista de Inventario</strong></a>
 
                   </div>
                 </div>
