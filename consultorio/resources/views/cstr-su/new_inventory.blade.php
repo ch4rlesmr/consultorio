@@ -31,9 +31,6 @@
                     @else
                           {{ Form::open( array( 'action' => 'ProductController@store', 'method' => 'POST', 'class' => 'form-horizontal form-label-left inventory', 'novalidate' => 'novalidate' ) ) }}
                     @endif
-
-                    <!-- <form method="POST" action="{{ action('ProductController@store') }}" class="form-horizontal form-label-left inventory" novalidate>
-                          {!! csrf_field() !!} -->
                           
                           <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -75,18 +72,18 @@
                                 <div  class="col-md-4 col-sm-2 col-xs-12 form-group item">
                                   <small class="info-field has-feedback-left">Estado del Elemento</small>
                                   <select class="select2_single form-control has-feedback-left" tabindex="0" name="status-inventory" id="status-inventory" required>
-                                    <option value="E" @if ( $product->status === 'E' ) {{ 'selected' }} @endif>Excelente</option>
-                                    <option value="B" @if ( $product->status === 'B' ) {{ 'selected' }} @endif>Bueno</option>
-                                    <option value="R" @if ( $product->status === 'R' ) {{ 'selected' }} @endif>Regular</option>
-                                    <option value="M" @if ( $product->status === 'M' ) {{ 'selected' }} @endif>Mal</option>
-                                    <option value="P" @if ( $product->status === 'P' ) {{ 'selected' }} @endif>Pesimo</option>
+                                    <option value="E" @if ( isset($product) )  @if ( $product->status === 'E' ) {{ 'selected' }} @endif @endif>Excelente</option>
+                                    <option value="B" @if ( isset($product) ) @if ( $product->status === 'B' ) {{ 'selected' }} @endif @endif>Bueno</option>
+                                    <option value="R" @if ( isset($product) ) @if ( $product->status === 'R' ) {{ 'selected' }} @endif @endif>Regular</option>
+                                    <option value="M" @if ( isset($product) ) @if ( $product->status === 'M' ) {{ 'selected' }} @endif @endif>Mal</option>
+                                    <option value="P" @if ( isset($product) ) @if ( $product->status === 'P' ) {{ 'selected' }} @endif @endif>Pesimo</option>
                                   </select>
                                   <span class="fa fa-list-alt form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                 </div>
 
                                 <div class="col-md-12 col-sm-6 col-xs-12 form-group item">
                                   <small class="info-field">Descripción del Elemento de inventario </small>
-                                  <textarea class="form-control" rows="5" placeholder="Descripción" name="description-inventory">"{{ isset( $product ) ? $product->observation : '' }}"</textarea>
+                                  <textarea class="form-control" rows="5" placeholder="Descripción" name="description-inventory">{{ isset( $product ) ? $product->observation : '' }}</textarea>
                                 </div>
 
                                 <div class="form-group pull-right">
@@ -96,7 +93,6 @@
                               </div>
                             </div>
                           </div>
-                        <!-- </form> -->
                         {{ Form::close() }}
                      
                   </div>

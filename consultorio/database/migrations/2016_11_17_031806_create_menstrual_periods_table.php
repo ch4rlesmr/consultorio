@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHabitPatientsTable extends Migration
+class CreateMenstrualPeriodsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateHabitPatientsTable extends Migration
      */
     public function up()
     {
-        Schema::create('habit_patients', function (Blueprint $table) {
+        Schema::create('menstrual_periods', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('habit_frecuency',['DAY','HALFDAY','WEEK','MONTH','YEAR'])->nullable();
-            $table->float('habit_lot', 7, 3);
-            $table->enum('units',['MINUTE','HOUR'])->nullable();
-            $table->integer('habit_id')->unsigned();
-            $table->foreign('habit_id')->references('id')->on('habits')->onDelete('cascade');
+            $table->enum('type',['RE','IRR']);
+            $table->integer('frecuency');
+            $table->integer('duration');
             $table->integer('patient_id')->unsigned();
             $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
             $table->timestamps();
@@ -33,6 +31,6 @@ class CreateHabitPatientsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('habit_patients');
+        Schema::dropIfExists('menstrual_periods');
     }
 }

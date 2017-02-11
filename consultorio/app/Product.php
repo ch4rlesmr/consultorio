@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model {
     //
     protected $table = 'products';
-    protected $fillable = ['id_product', 'name', 'warranty', 'observation', 'product_type_id', 'status', 'reference'];
-    protected $primaryKey = 'id_product';
+    protected $fillable = ['id', 'name', 'warranty', 'observation', 'product_type_id', 'status', 'reference'];
 
     public function scopeSearch($query, $reference, $name, $type, $status) {
     	return $query
@@ -19,7 +18,7 @@ class Product extends Model {
     }
 
     public function product_type() {
-    	return $this->belongsTo("App\ProductType","product_type_id", "id_type");
+    	return $this->belongsTo("App\ProductType","product_type_id");
     }
 
     public function getStatus () {

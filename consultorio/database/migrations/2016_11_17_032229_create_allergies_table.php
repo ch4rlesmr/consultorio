@@ -15,7 +15,7 @@ class CreateAllergiesTable extends Migration
     {
         Schema::create('allergies', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('allergie_name');
+            $table->string('name');
             $table->timestamps();
         });
     }

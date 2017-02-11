@@ -139,7 +139,7 @@
                               {{ $product->getStatus() }}
                             </td>
                             <td>
-                              <a href="#" type="button" class="btn btn-success "><span class="fa fa-eye"></span>  Ver</a>
+                              <a href="#" type="button" class="btn btn-success "  data-toggle="modal" data-target="#inventoryDetail"><span class="fa fa-eye"></span>  Ver</a>
                               <a href="{{ action('ProductController@edit',$product->id_product) }}" type="button" class="btn btn-warning "><span class="fa fa-pencil"></span> Editar</a>
                               <a href="#" type="button" class="btn btn-danger "><span class="fa fa-trash"></span> Borrar</a>
                             </td>
@@ -161,35 +161,26 @@
 
 @section('popup')
 	<!-- calendar modal -->
-    <div id="CalenderModalNew" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="inventoryDetail" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
 
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title" id="myModalLabel">New Calendar Entry</h4>
+            <h4 class="modal-title" id="myModalLabel">Detalle Inventario</h4>
           </div>
           <div class="modal-body">
-            <div id="testmodal" style="padding: 5px 20px;">
-              <form id="antoform" class="form-horizontal calender" role="form">
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Title</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="title" name="title">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Description</label>
-                  <div class="col-sm-9">
-                    <textarea class="form-control" style="height:55px;" id="descr" name="descr"></textarea>
-                  </div>
-                </div>
-              </form>
+            <div class="x_content">
+              <h4 class="col-md-2">Referencia</h4>
+              <div class="col-md-10 well">
+                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde aliquid magni similique expedita consequuntur nulla, ea voluptate porro, iure natus a suscipit dolorum officia, cupiditate voluptatum optio tempore quo cumque.</span>
+              </div>
             </div>
+            <div class="clearfix"></div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default antoclose" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary antosubmit">Save changes</button>
+            <a href="#" type="button" class="btn btn-success" data-dismiss="modal"><span class="fa fa-check-circle"></span> <strong>Aceptar</strong></a>
+            <!-- <button type="button" class="btn btn-primary antosubmit">Save changes</button> -->
           </div>
         </div>
       </div>

@@ -15,9 +15,11 @@ class CreateAllergyPatientsTable extends Migration
     {
         Schema::create('allergy_patients', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('description_allergie');
+            $table->text('description');
+            $table->integer('patient_id')->unsigned();
+            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
             $table->integer('allergie_id')->unsigned();
-            $table->foreign('allergie_id')->references('id')->on('allergies');
+            $table->foreign('allergie_id')->references('id')->on('allergies')->onDelete('cascade');
             $table->timestamps();
         });
     }

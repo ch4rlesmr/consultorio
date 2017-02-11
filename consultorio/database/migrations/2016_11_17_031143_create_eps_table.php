@@ -16,6 +16,7 @@ class CreateEpsTable extends Migration
         Schema::create('eps', function (Blueprint $table) {
             $table->increments('id');
             $table->string('eps_name');
+            $table->string('eps_abbreviation');
             $table->timestamps();
         });
     }

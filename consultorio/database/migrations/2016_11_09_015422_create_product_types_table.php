@@ -4,19 +4,20 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterTableEps extends Migration
+class CreateProductTypesTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
+
     public function up() {
-
-        Schema::table('eps', function (Blueprint $table) {
-            $table->string('eps_abbreviation');
+        Schema::create('product_types', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name_type');
+            $table->timestamps();
         });
-
     }
 
     /**
@@ -25,9 +26,7 @@ class AlterTableEps extends Migration
      * @return void
      */
     public function down() {
-
-        Schema::table('eps', function (Blueprint $table) {
-            $table->dropColumn('eps_abbreviation');
-        });
+        Schema::dropIfExists('product_types');
     }
+
 }

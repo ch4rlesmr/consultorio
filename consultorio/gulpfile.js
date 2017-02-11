@@ -33,7 +33,7 @@ elixir(function (mix) {
 		'libs/image-picker.js', 'libs/validator.js', 'libs/jquery-numeric.js'],
 			'public/js/lib/libs.js'); 
 
-	mix.scripts(['libs/custom_calendar.js', 'libs/basic_func.js', 'libs/custom.min.js'],
+	mix.scripts(['libs/custom_calendar.js', 'libs/basic_func.js', 'libs/custom.min.js', 'libs/_inventario.js'],
 			'public/js/app.js');
 
 	/*mix.scripts(['libs/custom_calendar.js', 'libs/basic_func.js'],

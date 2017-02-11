@@ -21,13 +21,16 @@ class CreateInspectionsTable extends Migration
             $table->text('motivation');
             $table->text('treatment_initiated'); // --> el paciente puede tener varios tratamientos ya iniciados ??? esto requiere nueva tabla
             $table->integer('hlar_num'); // hlar --> How long ago did rise (Cuanto hace que subio)
-            $table->string('hlar_time');
+            $table->enum('hlar_time',['D','M','Y'])->default('D');
             $table->float('hlar_weight', 7, 3);
-            $table->string('feeling'); // --> Pueden ser varios sentimientos del paciente requiere de nueva tabla ??
-            $table->string('integrity');
-            $table->string('movements');
-            $table->enum('attitude', ['YING', 'YANG']);
+            $table->enum('integrity',['COMPLETE','INCOMPLETE'])->nullable();
+            $table->enum('movement',['NORMAL','ANORMAL'])->nullable();
+            $table->enum('attitude', ['YING', 'YANG'])->nullable();
             $table->string('planning');
+            $table->integer('patient_id')->unsigned();
+            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
+            $table->integer('feeling_id')->unsigned()->nullable();
+            $table->foreign('feeling_id')->references('id')->on('feelings')->onDelete('cascade');
             $table->timestamps();
         });
     }

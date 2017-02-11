@@ -16,8 +16,10 @@ class CreateDiseasePatientsTable extends Migration
         Schema::create('disease_patients', function (Blueprint $table) {
             $table->increments('id');
             $table->string('family')->nullable();
+            $table->integer('patient_id')->unsigned();
+            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
             $table->integer('disease_id')->unsigned();
-            $table->foreign('disease_id')->references('id')->on('diseases');
+            $table->foreign('disease_id')->references('id')->on('diseases')->onDelete('cascade');;
             $table->timestamps();
         });
     }

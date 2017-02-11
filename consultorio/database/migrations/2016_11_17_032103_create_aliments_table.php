@@ -15,10 +15,10 @@ class CreateAlimentsTable extends Migration
     {
         Schema::create('aliments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('detail_food');
-            $table->string('place_food');
+            $table->enum('detail',['BREAKFAST','MIDMORNING','LUNCH','MIDAFTERNOON','BREAK','DINNER'])->nullable();
+            $table->enum('place_food',['HOME','OFFICE','STREET','OTHER'])->nullable();
             $table->integer('food_id')->unsigned();
-            $table->foreign('food_id')->references('id')->on('foods');
+            $table->foreign('food_id')->references('id')->on('foods')->onDelete('cascade');;
             $table->timestamps();
         });
     }
