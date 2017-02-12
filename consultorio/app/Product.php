@@ -45,4 +45,18 @@ class Product extends Model {
     	}
     }
 
+    public function getPresentation () {
+        switch ( $this->presentation ) {
+            case 'U':
+                return 'Unidad';
+                break;
+            case 'P':
+                return 'Paquete';
+                break;
+            default:
+                # code...
+                break;
+        }
+    }
+
 }

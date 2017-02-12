@@ -49,6 +49,10 @@ Route::group(['prefix' => 'dra', 'middleware' => ['web', 'auth']], function () {
 	Route::resource('paciente_nuevo', 'PatientController');
 	Route::resource('inventario', 'ProductController');
 
+	Route::get('dra/inventario/exportProductsToExcel',[
+        'uses'=>'ProductController@exportProductsToExcel',
+        'as'=>'dra.inventario.exportProductsToExcel']);
+
 	Route::get('/restricciones', function () {
 		return view('cstr-su.restrictions');
 	})->name('dra.restricciones');

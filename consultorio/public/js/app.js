@@ -579,6 +579,9 @@ $(function () {
 		$('#type-detail').text(productInfo.type);
 		$('#warranty-detail').text(productInfo.product.warranty);
 		$('#status-detail').text(productInfo.status);
+		$('#quantity-detail').text(productInfo.product.quantity);
+		$('#trademark-detail').text(productInfo.product.trademark);
+		$('#presentation-detail').text(productInfo.presentation);
 		$('#description-detail').text(productInfo.product.observation);
 	}
 

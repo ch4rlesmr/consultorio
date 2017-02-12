@@ -8,6 +8,7 @@ use Response;
 use App\ProductType;
 use App\Product;
 use Redirect;
+use Excel;
 
 class ProductController extends Controller {
     /**
@@ -18,8 +19,9 @@ class ProductController extends Controller {
 
     public function index(Request $request) {
 
-        $products = Product::search($request->input('reference-inventory'), $request->input('name-inventory'), $request->input('type-inventory'), $request->input('status-inventory'))->get();
+        $products = Product::search($request->input('reference-inventory'), $request->input('name-inventory'), $request->input('type-inventory'), $request->input('status-inventory'))->paginate(5);
         $productTypes = ProductType::all();
+        // $ids = implode(',', $products->pluck('id')->toArray());
 
         return view('cstr-su.inventory', ['products' => $products, "types" => $productTypes]);
     }
@@ -57,6 +59,9 @@ class ProductController extends Controller {
         $product->status = $request->input('status-inventory');
         $product->observation = $request->input('description-inventory');
         $product->reference = $request->input('reference-inventory');
+        $product->quantity = $request->input('quantity-inventory');
+        $product->trademark = $request->input('trademark-inventory');
+        $product->presentation = $request->input('presentation-inventory');
 
         $product->save();
         //dd($product);
@@ -74,9 +79,10 @@ class ProductController extends Controller {
         $product = Product::find($id);
         $product_type = $product->product_type->name_type;
         $product_status = $product->getStatus();
+        $product_presentation = $product->getPresentation();
 
         if($request->ajax()){
-            return Response::json(['product' => $product, 'type' => $product_type, 'status' => $product_status],201);
+            return Response::json(['product' => $product, 'type' => $product_type, 'status' => $product_status, 'presentation' => $product_presentation],201);
          }
         
     }
@@ -111,6 +117,9 @@ class ProductController extends Controller {
         $product->status = $request->input('status-inventory');
         $product->observation = $request->input('description-inventory');
         $product->reference = $request->input('reference-inventory');
+        $product->quantity = $request->input('quantity-inventory');
+        $product->trademark = $request->input('trademark-inventory');
+        $product->presentation = $request->input('presentation-inventory');
 
         $product->save();
         return redirect()->action('ProductController@index');
@@ -122,8 +131,7 @@ class ProductController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
-    {
+    public function destroy(Request $request, $id) {
         $product = Product::find($id);
         $deleted = $product->delete();
 
@@ -131,4 +139,49 @@ class ProductController extends Controller {
             return Response::json(['deleted' => $deleted],201);
          }
     }
+
+    public function exportProductsToExcel() {
+        
+        $products = Product::all();
+
+        Excel::create('lista_inventario', function($excel) use($products) {
+           
+           $excel->sheet('listado', function ($sheet) use($products) {
+               
+               $sheet->appendRow( array('Inventario ID', 
+                            'REFERENCIA', 
+                            'NOMBRE', 'GARANTIA', 
+                            'TIPO INVENTARIO', 
+                            'ESTADO', 'CANTIDAD', 
+                            'MARCA', 
+                            'PRESENTACION', 
+                            'OBSERVACION') );
+               $sheet->row(1, function ($row) {
+                   
+                   $row->setFontWeight('bold');
+                   
+               });
+               
+               foreach ($products as $product) {
+                   $sheet->appendRow( array($product->id, 
+                                $product->reference,
+                                $product->name,
+                                $product->warranty,
+                                $product->product_type->name_type,
+                                $product->getStatus(),
+                                $product->quantity,
+                                $product->trademark,
+                                $product->getPresentation(),
+                                $product->observation) );
+               }
+               
+                              
+           });
+
+           //$excel->set{$PHPExcel_Style_NumberFormat::FORMAT_NUMBER_00}();
+           
+       })->download('xls');
+
+    }
+
 }

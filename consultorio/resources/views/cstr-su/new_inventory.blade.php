@@ -81,9 +81,30 @@
                                   <span class="fa fa-list-alt form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                 </div>
 
+                                <div class="col-md-4 col-sm-6 col-xs-12 form-group item">
+                                  <small class="info-field">Cantidad</small>
+                                  <input type="text" class="form-control has-feedback-left num_input" placeholder="Cantidad" name="quantity-inventory" id="quantity-inventory" value="{{ isset( $product ) ? $product->quantity : 1 }}">
+                                  <span class="fa fa-file-text form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
+                                </div>
+
+                                <div class="col-md-4 col-sm-6 col-xs-12 form-group item">
+                                  <small class="info-field">Marca</small>
+                                  <input type="text" class="form-control has-feedback-left" placeholder="Marca" name="trademark-inventory" id="trademark-inventory" value="{{ isset( $product ) ? $product->trademark : '' }}">
+                                  <span class="fa fa-file-text form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
+                                </div>
+
+                                <div  class="col-md-4 col-sm-2 col-xs-12 form-group item">
+                                  <small class="info-field has-feedback-left">Presentación</small>
+                                  <select class="select2_single form-control has-feedback-left" tabindex="0" name="presentation-inventory" id="presentation-inventory" required>
+                                    <option value="U" @if ( isset($product) )  @if ( $product->presentation === 'U' ) {{ 'selected' }} @endif @endif>Unidad</option>
+                                    <option value="P" @if ( isset($product) ) @if ( $product->presentation === 'P' ) {{ 'selected' }} @endif @endif>Paquete</option>
+                                  </select>
+                                  <span class="fa fa-list-alt form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
+                                </div>
+
                                 <div class="col-md-12 col-sm-6 col-xs-12 form-group item">
-                                  <small class="info-field">Descripción del Elemento de inventario </small>
-                                  <textarea class="form-control" rows="5" placeholder="Descripción" name="description-inventory">{{ isset( $product ) ? $product->observation : '' }}</textarea>
+                                  <small class="info-field">Observación del Elemento de inventario </small>
+                                  <textarea class="form-control" rows="5" placeholder="Observación" name="description-inventory">{{ isset( $product ) ? $product->observation : '' }}</textarea>
                                 </div>
 
                                 <div class="form-group pull-right">

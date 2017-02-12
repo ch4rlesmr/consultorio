@@ -149,7 +149,18 @@
                       </table>
                     </div>
 
-                    <a href="#" class="btn btn-primary pull-right"><span class="fa fa-print"></span> <strong>Imprimir Lista de Inventario</strong></a>
+                    <div class="col-md-6">
+                      {{ $products->appends([
+                        'name' => Request::get('name'),
+                        'reference' => Request::get('reference'),
+                        'type' => Request::get('product_type'),
+                        'status' => Request::get('status')
+                      ]) }}
+                    </div>
+                    <div class="col-md-6">
+                      <a href="{{ route('dra.inventario.exportProductsToExcel') }}" class="btn btn-primary pull-right"><span class="fa fa-file-excel-o"></span> <strong>Descargar Lista de Inventario</strong></a>
+                      
+                    </div>
 
                   </div>
                 </div>
@@ -199,6 +210,24 @@
                 <div class="tile-stats">
                   <p>Estado</p>
                   <h3 id="status-detail"></h3>
+                </div>
+              </div>
+              <div class="animated flipInY col-md-4">
+                <div class="tile-stats">
+                  <p>Cantidad</p>
+                  <h3 id="quantity-detail"></h3>
+                </div>
+              </div>
+              <div class="animated flipInY col-md-4">
+                <div class="tile-stats">
+                  <p>Marca</p>
+                  <h3 id="trademark-detail"></h3>
+                </div>
+              </div>
+              <div class="animated flipInY col-md-4">
+                <div class="tile-stats">
+                  <p>Presentación</p>
+                  <h3 id="presentation-detail"></h3>
                 </div>
               </div>
               <div class="animated flipInY col-md-12">
