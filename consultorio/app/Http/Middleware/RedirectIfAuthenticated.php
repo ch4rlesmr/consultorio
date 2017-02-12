@@ -18,7 +18,14 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+            $user = Auth::user();
+
+            if ($user->isSuperadmin()){
+                return redirect()->route('dra.calendario');
+            } else {
+                return redirect()->route('citas');
+            }
+            //return redirect('/home');
         }
 
         return $next($request);

@@ -27,7 +27,7 @@
                 <div class="x_panel">
                   <div class="x_content">
                     @if ( isset( $product ) )
-                        {{ Form::open( array( 'action' => array('ProductController@update', $product->id_product), 'method' => 'PUT', 'class' => 'form-horizontal form-label-left inventory', 'novalidate' => 'novalidate' ) ) }}
+                        {{ Form::open( array( 'action' => array('ProductController@update', $product->id), 'method' => 'PUT', 'class' => 'form-horizontal form-label-left inventory', 'novalidate' => 'novalidate' ) ) }}
                     @else
                           {{ Form::open( array( 'action' => 'ProductController@store', 'method' => 'POST', 'class' => 'form-horizontal form-label-left inventory', 'novalidate' => 'novalidate' ) ) }}
                     @endif
@@ -49,7 +49,7 @@
 
                                 <div class="col-md-4 col-sm-6 col-xs-12 form-group item">
                                   <small class="info-field">Garantia</small>
-                                  <input data-validate-length-range="2" data-validate-words="1" type="text" class="form-control has-feedback-left" placeholder="Inventario" name="warranty-inventory" id="warranty-inventory" value="{{ isset( $product ) ? $product->warranty : '' }}" required>
+                                  <input type="text" class="form-control has-feedback-left" placeholder="Inventario" name="warranty-inventory" id="warranty-inventory" value="{{ isset( $product ) ? $product->warranty : '' }}">
                                   <span class="fa fa-file-text form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                 </div>
 
@@ -57,9 +57,9 @@
                                   <small class="info-field has-feedback-left">Tipo Inventario</small>
                                   <select class="select2_single form-control has-feedback-left" tabindex="0" name="inventory-type" id="inventory-type" required>
                                     @foreach ($types as $productType)
-                                      <option value="{{ $productType->id_type }}"
+                                      <option value="{{ $productType->id }}"
                                         @if ( isset($product) )
-                                          @if ( $productType->id_type === $product->product_type_id )
+                                          @if ( $productType->id === $product->product_id )
                                             {{ 'selected' }}
                                           @endif
                                         @endif

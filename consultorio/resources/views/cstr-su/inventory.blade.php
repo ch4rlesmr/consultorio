@@ -138,10 +138,10 @@
                             <td>
                               {{ $product->getStatus() }}
                             </td>
-                            <td>
-                              <a href="#" type="button" class="btn btn-success "  data-toggle="modal" data-target="#inventoryDetail"><span class="fa fa-eye"></span>  Ver</a>
-                              <a href="{{ action('ProductController@edit',$product->id_product) }}" type="button" class="btn btn-warning "><span class="fa fa-pencil"></span> Editar</a>
-                              <a href="#" type="button" class="btn btn-danger "><span class="fa fa-trash"></span> Borrar</a>
+                            <td data-product-id="{{ $product->id }}">
+                              <a href="#" type="button" class="btn btn-success product_detail" data-toggle="modal" data-target="#inventoryDetail"><span class="fa fa-eye"></span>  Ver</a>
+                              <a href="{{ action('ProductController@edit',$product->id) }}" type="button" class="btn btn-warning "><span class="fa fa-pencil"></span> Editar</a>
+                              <a href="#" type="button" class="btn btn-danger product_delete" data-toggle="modal" data-target="#inventoryDelete"><span class="fa fa-trash"></span> Borrar</a>
                             </td>
                           </tr>
                           @endforeach
@@ -166,20 +166,108 @@
         <div class="modal-content">
 
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> -->
             <h4 class="modal-title" id="myModalLabel">Detalle Inventario</h4>
           </div>
           <div class="modal-body">
-            <div class="x_content">
-              <h4 class="col-md-2">Referencia</h4>
-              <div class="col-md-10 well">
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde aliquid magni similique expedita consequuntur nulla, ea voluptate porro, iure natus a suscipit dolorum officia, cupiditate voluptatum optio tempore quo cumque.</span>
+            <div class="">
+              <div class="animated flipInY col-md-6">
+                <div class="tile-stats">
+                  <p>Referencia</p>
+                  <h3 id="reference-detail"></h3>
+                </div>
+              </div>
+              <div class="animated flipInY col-md-6">
+                <div class="tile-stats">
+                  <p>Elemento</p>
+                  <h3 id="name-detail"></h3>
+                </div>
+              </div>
+              <div class="animated flipInY col-md-4">
+                <div class="tile-stats">
+                  <p>Tipo</p>
+                  <h3 id="type-detail"></h3>
+                </div>
+              </div>
+              <div class="animated flipInY col-md-4">
+                <div class="tile-stats">
+                  <p>Garantia</p>
+                  <h3 id="warranty-detail"></h3>
+                </div>
+              </div>
+              <div class="animated flipInY col-md-4">
+                <div class="tile-stats">
+                  <p>Estado</p>
+                  <h3 id="status-detail"></h3>
+                </div>
+              </div>
+              <div class="animated flipInY col-md-12">
+                <div class="tile-stats">
+                  <p>Descripción</p>
+                  <h4 id="description-detail"></h4>
+                </div>
               </div>
             </div>
             <div class="clearfix"></div>
           </div>
           <div class="modal-footer">
             <a href="#" type="button" class="btn btn-success" data-dismiss="modal"><span class="fa fa-check-circle"></span> <strong>Aceptar</strong></a>
+            <!-- <button type="button" class="btn btn-primary antosubmit">Save changes</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!--     <div id="CalenderModalEdit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title" id="myModalLabel2">Edit Calendar Entry</h4>
+          </div>
+          <div class="modal-body">
+
+            <div id="testmodal2" style="padding: 5px 20px;">
+              <form id="antoform2" class="form-horizontal calender" role="form">
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Title</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" id="title2" name="title2">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Description</label>
+                  <div class="col-sm-9">
+                    <textarea class="form-control" style="height:55px;" id="descr2" name="descr"></textarea>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default antoclose2" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary antosubmit2">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div id="inventoryDelete" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> -->
+            <h4 class="modal-title" id="myModalLabel">Eliminar Inventario</h4>
+          </div>
+          <div class="modal-body">
+            <h4>¿ Desea realmente eliminar el elemento del inventario que fue seleccionado ?</h4>
+          </div>
+          <div class="modal-footer">
+            <a href="#" type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times-circle"></span> <strong>Cancelar</strong></a>
+            <a href="#" type="button" class="btn btn-success confirm_del"><span class="fa fa-check-circle"></span> <strong>Aceptar</strong></a>
             <!-- <button type="button" class="btn btn-primary antosubmit">Save changes</button> -->
           </div>
         </div>

@@ -43,7 +43,7 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+            <form class="form-horizontal" role="form" method="POST" action="{{ action('Auth\LoginController@login') }}">
               {{ csrf_field() }}
 
               <h1>Iniciar Sesion</h1>

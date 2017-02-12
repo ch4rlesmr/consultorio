@@ -48,7 +48,7 @@
               {{ csrf_field() }} -->
             <!-- {!! Form::open(['url' => 'foo/bar']) !!} -->
             
-            {{ Form::open(array('url' => 'registro','method'=>'post', 'class' => 'mode2', 'novalidate')) }}
+            {{ Form::open(array('action' => 'Auth\RegisterController@register', 'method'=>'POST', 'class' => 'mode2', 'novalidate')) }}
 
               <h1>Registrar usuario</h1>
               <div class="item form-group">

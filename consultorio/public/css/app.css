@@ -71,4 +71,7 @@ div.thumbnail.selected p {
 table.inventory-list tr td {
   vertical-align: middle; }
 
+.modal-footer {
+  text-align: center; }
+
 /*# sourceMappingURL=app.css.map */

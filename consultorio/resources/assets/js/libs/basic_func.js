@@ -99,6 +99,7 @@ $(function () {
 	});
 
 	$('.num_input').numeric(); //agregar validacion para ingreso unico de numeros para campos de formulario
+
 	var next = 1;
 	var next_aliment = 1;
 	var next_habit = 1;

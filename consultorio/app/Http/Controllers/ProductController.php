@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use Response;
 use App\ProductType;
 use App\Product;
 use Redirect;
@@ -68,7 +69,15 @@ class ProductController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
+    public function show(Request $request, $id) {
+        
+        $product = Product::find($id);
+        $product_type = $product->product_type->name_type;
+        $product_status = $product->getStatus();
+
+        if($request->ajax()){
+            return Response::json(['product' => $product, 'type' => $product_type, 'status' => $product_status],201);
+         }
         
     }
 
@@ -113,8 +122,13 @@ class ProductController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+        $deleted = $product->delete();
+
+        if($request->ajax()){
+            return Response::json(['deleted' => $deleted],201);
+         }
     }
 }
