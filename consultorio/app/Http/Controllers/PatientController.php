@@ -10,7 +10,14 @@ use App\Eps;
 class PatientController extends Controller {
 
 	public function index () {
+		return view('cstr-su.patients');
+	}
 
+	public function show ($id) {
+		return view('cstr-su.patient_detail');
+	}
+
+	public function create () {
 		$epsList = Eps::all();
 
 		return view('cstr-su.new_patient', ["epsList" => $epsList]);

@@ -46,7 +46,7 @@ Route::group(['prefix' => 'dra', 'middleware' => ['web', 'auth']], function () {
 		return view('cstr-su.new_patient');
 	})->name('dra.paciente_nuevo');*/
 
-	Route::resource('paciente_nuevo', 'PatientController');
+	Route::resource('paciente', 'PatientController');
 	Route::resource('inventario', 'ProductController');
 
 	Route::get('dra/inventario/exportProductsToExcel',[
