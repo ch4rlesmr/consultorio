@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Response;
 use App\Eps;
-
+use App\BloodType;
+use App\AcademicLevel;
 class PatientController extends Controller {
 
 	public function index () {
@@ -19,8 +20,10 @@ class PatientController extends Controller {
 
 	public function create () {
 		$epsList = Eps::all();
+		$bloodTypes = BloodType::all();
+		$academicLevels = AcademicLevel::all();
 
-		return view('cstr-su.new_patient', ["epsList" => $epsList]);
+		return view('cstr-su.new_patient', ["epsList" => $epsList,"blood_types"=>$bloodTypes,"academic_levels"=>$academicLevels]);
 	}
 
 	public function store (Request $request) {
