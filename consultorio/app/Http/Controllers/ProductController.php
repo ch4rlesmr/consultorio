@@ -22,7 +22,7 @@ class ProductController extends Controller {
         $products = Product::search($request->input('reference-inventory'), $request->input('name-inventory'), $request->input('type-inventory'), $request->input('status-inventory'))->paginate(5);
         $productTypes = ProductType::all();
         // $ids = implode(',', $products->pluck('id')->toArray());
-
+        //Modify controller
         return view('cstr-su.inventory', ['products' => $products, "types" => $productTypes]);
     }
 
