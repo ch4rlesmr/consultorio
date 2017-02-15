@@ -7,25 +7,31 @@ $(window).load(function() {
             categoryClass;
 
         var calendar = $('#calendar').fullCalendar({
+          locale: 'es',
           header: {
-            left: 'prev,next today',
+            left: 'prev, next, today',
             center: 'title',
             right: 'month,agendaWeek,agendaDay'
           },
+          defaultView: 'agendaDay',
+          navLinks: true,
+          businessHours: {
+            dow: [1,2,3,4,5,6],
+            start: '08:00',
+            end: '20:00'  
+          },
+          minTime: "07:00",
+          maxTime: "20:00",
           selectable: true,
-          selectHelper: true,
+          editable: false,
           hiddenDays: [ 0 ], //--> para ocultar dias de la semana [0 al 6]
           selectConstraint: 'businessHours',
-          // eventConstraint: 'businessHours',
-          businessHours:{
-            start: '10:00',
-            end:   '18:00',
-            dow: [ 1, 2, 3, 4, 5, 6 ]
-          },
-          defaultView: 'agendaDay',
-          fixedWeekCount: false,
+          allDaySlot: false,
+          slotDuration: '00:15:00',
+          axisFormat: 'h(:mm) a',
+          slotMinutes: 15,
 
-          /*select: function(start, end, allDay) {
+          select: function(start, end, allDay) {
             $('#fc_create').click();
 
             started = start;
@@ -76,7 +82,7 @@ $(window).load(function() {
             });
 
             calendar.fullCalendar('unselect');
-          },*/
+          },
           //editable: false, --> para arrastrar los eventos
           editable: false,
           events: [{
