@@ -151,9 +151,9 @@
 
                       </div> -->
                       @if(isset($patient))
-                        {!! Form::open(array("route"=>["paciente.update", $patient->id], "method"=>"PUT")) !!}
+                        {!! Form::open(array("route"=>["paciente.update", $patient->id], "method"=>"PUT","id"=>"form_patient")) !!}
                       @else
-                        {!! Form::open(array("route"=>"paciente.store", "method"=>"POST")) !!}
+                        {!! Form::open(array("route"=>"paciente.store", "method"=>"POST","id"=>"form_patient")) !!}
                       @endif
                         <div id="step-1">
                           <h2 class="StepTitle">Datos Básicos</h2>						
@@ -203,7 +203,7 @@
 
                         					<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback item">
                         						<small class="info-field">Dirección</small>
-  					                        <input data-validate-length-range="2" data-validate-words="2" type="text" class="form-control has-feedback-left" placeholder="Dirección" name="address-patient" id="address-patient" required>
+  					                        <input data-validate-length-range="2" type="text" class="form-control has-feedback-left" placeholder="Dirección" name="address-patient" id="address-patient" required>
   					                        <span class="fa fa-home form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                         					</div>
 
@@ -330,9 +330,9 @@
                                   <div  class="  col-md-3 col-sm-3 col-xs-12 form-group  item">
                                     <small class="info-field has-feedback-left">Días, meses o años</small>
                                     <select class="select2_single form-control has-feedback-left" tabindex="0" name="time-ago-units" id="time-ago-units" required>
-                                      <option value="D">Días</option>
-                                      <option value="M">Meses</option>
-                                      <option value="A">Años</option>
+                                      @foreach(App\Inspection::timeUnits() as $key => $value)
+                                        <option value="{{ $key }}">{{ $value }}</option>
+                                      @endforeach
                                     </select>
                                     <span class="fa fa-list-alt form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                   </div>
@@ -346,9 +346,9 @@
                                   <div  class="col-md-3 col-sm-3 col-xs-12 form-group  item">
                                     <small class="info-field has-feedback-left">Sentimiento</small>
                                     <select class="select2_single form-control has-feedback-left" tabindex="0" name="feeling" id="feeling" required>
-                                      <option value="Alegria">Alegria</option>
-                                      <option value="Ira">Ira</option>
-                                      <option value="Desilucion">Desilucion</option>
+                                      @foreach($feelings as $feeling)
+                                        <option value="{{ $feeling->id }}">{{ $feeling->name }}</option>
+                                      @endforeach
                                     </select>
                                     <span class="fa fa-list-alt form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                   </div>
@@ -380,8 +380,9 @@
                                         <div  class="col-md-3 col-sm-3 col-xs-12 form-group item">
                                           <small class="info-field has-feedback-left">Posición y Actitud</small>
                                           <select class="select2_single form-control has-feedback-left" tabindex="0" name="position-attitude" id="position-attitude" required>
-                                            <option value="YING">YING</option>
-                                            <option value="YANG">YANG</option>
+                                            @foreach(App\Inspection::attitudes() as $key => $value)
+                                            <option value="{{ $key }}">{{ $value }}</option>
+                                            @endforeach
                                           </select>
                                           <span class="fa fa-list-alt form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                         </div>
@@ -389,8 +390,9 @@
                                         <div  class="col-md-3 col-sm-3 col-xs-12 form-group item">
                                           <small class="info-field has-feedback-left">Integridad</small>
                                           <select class="select2_single form-control has-feedback-left" tabindex="0" name="integrity" id="integrity" required>
-                                            <option value="C">Completo</option>
-                                            <option value="I">Incompleto</option>
+                                            @foreach(App\Inspection::integrities() as $key => $value)
+                                              <option value="{{ $key }}">{{ $value }}</option>
+                                            @endforeach
                                           </select>
                                           <span class="fa fa-list-alt form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                         </div>
@@ -398,8 +400,9 @@
                                         <div  class="col-md-3 col-sm-3 col-xs-12 form-group item">
                                           <small class="info-field has-feedback-left">Movimientos</small>
                                           <select class="select2_single form-control has-feedback-left" tabindex="0" name="movements" id="movements" required>
-                                            <option value="N">Normales</option>
-                                            <option value="A">Anormales</option>
+                                            @foreach(App\Inspection::movements() as $key => $value )
+                                              <option value="{{ $key }}">{{ $value }}</option>
+                                            @endforeach
                                           </select>
                                           <span class="fa fa-list-alt form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                         </div>
@@ -440,22 +443,19 @@
                                       <small class="info-field">Momento del día</small>
                                       <!-- <input type="text" class="form-control has-feedback-left" placeholder="Meta"> -->
                                       <select class="select2_single form-control has-feedback-left day-moment" tabindex="0" name="day-moment" required>
-                                        <option value="M">Mañana</option>
-                                        <option value="MM">Media mañana</option>
-                                        <option value="MD">Medio día</option>
-                                        <option value="T">Tarde</option>
-                                        <option value="N">Noche</option>
+                                        @foreach(App\Aliment::details() as $key => $value)
+                                          <option value="{{ $key }}">{{ $value }}</option>
+                                        @endforeach
                                       </select>
                                       <span class="fa fa-file-text form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                     </div>
 
                                     <div  class="col-md-3 col-sm-3 col-xs-12 form-group item">
                                       <small class="info-field has-feedback-left place-food" name="place-food">Lugar</small>
-                                      <select class="select2_single form-control has-feedback-left" tabindex="0" name="place-food" required>
-                                        <option value="C">Casa</option>
-                                        <option value="O">Oficina</option>
-                                        <option value="CA">Calle</option>
-                                        <option value="OT">Otro</option>
+                                      <select class="select2_single form-control has-feedback-left place-moment" tabindex="0" name="place-food" required>
+                                        @foreach(App\Aliment::placesFood() as $key => $value)
+                                          <option value="{{ $key }}">{{ $value }}</option>
+                                        @endforeach
                                       </select>
                                       <span class="fa fa-list-alt form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                     </div>
@@ -468,6 +468,7 @@
                                   </div>
 
                                   <div class="pull-right manage-rows-form">
+                                    <input type="hidden" id="input_aliments" name="input_aliments"/>
                                     <button type="button" class="btn btn-round btn-danger rm-field"><i class="fa fa-chevron-circle-up"></i> Eliminar Alimento</button>
                                     <button type="button" class="btn btn-round btn-warning add-field"><i class="fa fa-chevron-circle-down"></i> Agregar Alimento</button>
                                   </div>
@@ -506,12 +507,10 @@
 
                                     <div class="col-md-3 col-sm-3 col-xs-12 form-group item">
                                       <small class="info-field has-feedback-left frecuency-habit">Frecuencia</small>
-                                      <select class="select2_single form-control has-feedback-left" tabindex="0" name="frecuency-habit" required>
-                                        <option value="C">Diario</option>
-                                        <option value="O">Semanal</option>
-                                        <option value="CA">Fin de semana</option>
-                                        <option value="CA">Casualmente</option>
-                                        <option value="CA">Mensual</option>
+                                      <select class="select2_single form-control has-feedback-left frecuency-habit" tabindex="0" name="frecuency-habit" required>
+                                        @foreach(App\HabitPatient::frecuencies() as $key => $value)
+                                          <option value="{{ $key }}">{{ $value }}</option>
+                                        @endforeach
                                       </select>
                                       <span class="fa fa-list-alt form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                     </div>
@@ -525,10 +524,9 @@
                                     <div class="col-md-3 col-sm-3 col-xs-12 form-group item">
                                       <small class="info-field has-feedback-left">Unidad Tiempo</small>
                                       <select class="select2_single form-control has-feedback-left time-habit-unit" tabindex="0" name="time-habit-unit" required>
-                                        <option value="C">Segundos</option>
-                                        <option value="O">Minutos</option>
-                                        <option value="CA">Horas</option>
-                                        <option value="CA">Días</option>
+                                        @foreach(App\HabitPatient::units() as $key => $value)
+                                          <option value="{{ $key }}">{{ $value }}</option>
+                                        @endforeach
                                       </select>
                                       <span class="fa fa-list-alt form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                     </div>
@@ -540,6 +538,7 @@
                                   </div>
 
                                   <div class="pull-right manage-rows-form">
+                                    <input type="hidden" id="input_habits" name="input_habits"/>
                                     <button type="button" class="btn btn-round btn-danger rm-field-habit"><i class="fa fa-chevron-circle-up"></i> Eliminar Alimento</button>
                                     <button type="button" class="btn btn-round btn-warning add-field-habit"><i class="fa fa-chevron-circle-down"></i> Agregar Alimento</button>
                                   </div>

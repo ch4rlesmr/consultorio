@@ -355,22 +355,22 @@ $(document).ready(function() {
 
     function leaveAStepCallback(obj, context){
 
-        var validatedStep;
+       /* var validatedStep;
 
         if (context.fromStep > context.toStep) {
             return true;
         } else {
             validatedStep = validateFormStep();
         }
-
+*/
         //alert("Leaving step " + context.fromStep + " to go to step " + context.toStep);
-        alert("Paso " + context.fromStep +  " validado ? = " + validatedStep);
+        //alert("Paso " + context.fromStep +  " validado ? = " + validatedStep);
         //return validateSteps(context.fromStep); // return false to stay on step and true to continue navigation 
-        return validatedStep;
+        return true;
     }
 
     function onFinishCallback(objs, context){
-        if (validateFormStep()) {
+        /*if (validateFormStep()) {
           alert('Guardar');
           var datosForm = {data: JSON.stringify(app.dataFormPatient)}
           app.httpPost('dra/paciente_nuevo', datosForm,
@@ -379,7 +379,38 @@ $(document).ready(function() {
             }, function (response){
             console.log(response);
             });
-        }
+        } */
+        var aliments = [];
+        $("#aliments .fields-container").each(function(){
+            var aliment = {};
+            var dayMoment = $(this).find(".day-moment").val();
+            var placeMoment = $(this).find(".place-moment").val();
+            var food = $(this).find(".food").val();
+            aliment.day_moment = dayMoment;
+            aliment.place = placeMoment;
+            aliment.food = food;
+            aliments.push(aliment);
+            console.log(aliment);
+        });
+        $("#input_aliments").val(JSON.stringify(aliments));
+        //$("#form_patient").submit();
+
+        var habits = [];
+        $("#habits .habit-container").each(function(){
+            var habit = {};
+            var nameHabit = $(this).find("habit-name").val();
+            var frecuency = $(this).find("frecuency-habit").val();
+            var timeHabit = $(this).find("time-habit").val();
+            var timeUnits = $(this).find("time-habit-unit").val();
+            var description = $(this).find("habit-description").val();
+            habit.name = nameHabit;
+            habit.frecuency = frecuency;
+            habit.time = timeHabit;
+            habit.units = timeUnits;
+            habit.description = description;
+            habits.push(habit);
+        });
+        $("#input_habits").val(JSON.stringify(habits));
     }
 
     $('#wizard_verticle').smartWizard({
