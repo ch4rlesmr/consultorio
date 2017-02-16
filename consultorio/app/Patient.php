@@ -28,4 +28,8 @@ class Patient extends Model
     public function academic_level(){
     	return $this->belongsTo("App\AcademicLevel","academic_level_id");	
     }
+
+    public function inspection(){
+        return $this->hasOne('App\Inspection', 'patient_id');
+    }
 }

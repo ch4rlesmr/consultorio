@@ -547,10 +547,9 @@
                                   <div class="col-md-4 col-sm-4 col-xs-12 form-group item">
                                     <small class="info-field has-feedback-left">Metodo</small>
                                     <select class="select2_single form-control has-feedback-left" tabindex="0" name="planify-method" id="planify-method">
-                                      <option value="P">Preservativo</option>
-                                      <option value="PA">Pildoras</option>
-                                      <option value="PA">Inyecciones</option>
-                                      <option value="O">Otros</option>
+                                      @foreach($planning_methods as $method)
+                                        <option value="{{ $method->id }}">{{ $method->name }}</option>
+                                      @endforeach
                                     </select>
                                     <span class="fa fa-list-alt form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                   </div>
@@ -565,8 +564,9 @@
                                   <div class="col-md-4 col-sm-4 col-xs-12 form-group item">
                                     <small class="info-field has-feedback-left">Tipo</small>
                                     <select class="select2_single form-control has-feedback-left" tabindex="0" name="menstruation-type" id="menstruation-type">
-                                      <option value="Regular">Regular</option>
-                                      <option value="Irregular">Irregular</option>
+                                      @foreach(App\MenstrualPeriod::types() as $key => $value)
+                                        <option value="{{ $key }}">{{ $value }}</option>
+                                      @endforeach
                                     </select>
                                     <span class="fa fa-list-alt form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                   </div>
@@ -662,9 +662,9 @@
 
                                       <div class="col-md-12 col-sm-12 col-xs-12 form-group item">
                                         <select class="image-picker" name="face-type" id="face-type" required>
-                                          <option data-img-src="/images/body_parts/face_type/f_redonda.png"value="0">Redonda</option>
-                                          <option data-img-src="/images/body_parts/face_type/f_frenteAlta.png"value="1">Frente Alta</option>
-                                          <option data-img-src="/images/body_parts/face_type/f_mandibulaPronunciada.png"value="2">Mandibula Pronunciada</option>
+                                          <option data-img-src="/images/body_parts/face_type/f_redonda.png"value="RE">Redonda</option>
+                                          <option data-img-src="/images/body_parts/face_type/f_frenteAlta.png"value="FA">Frente Alta</option>
+                                          <option data-img-src="/images/body_parts/face_type/f_mandibulaPronunciada.png"value="MP">Mandibula Pronunciada</option>
                                           <!-- <option data-img-src="/images/body_parts/face_type/1_rectangle.png"value="3">Hexagonal</option>
                                           <option data-img-src="/images/body_parts/face_type/1_rectangle.png"value="4">Otro</option> -->
                                         </select>
@@ -676,9 +676,9 @@
                                       <p class="lead">Lengua</p>
                                       <div class="col-md-12 col-sm-12 col-xs-12 form-group item">
                                         <select class="image-picker" name="tongue-type" id="tongue-type" required>
-                                          <option data-img-src="/images/body_parts/tongue_type/1_rounded.png" value="0">Redondeada</option>
-                                          <option data-img-src="/images/body_parts/tongue_type/1_rounded.png" value="1">Puntuda</option>
-                                          <option data-img-src="/images/body_parts/tongue_type/1_rounded.png" value="2">Otra</option>
+                                          <option data-img-src="/images/body_parts/tongue_type/1_rounded.png" value="RE">Redondeada</option>
+                                          <option data-img-src="/images/body_parts/tongue_type/1_rounded.png" value="PU">Puntuda</option>
+                                          <option data-img-src="/images/body_parts/tongue_type/1_rounded.png" value="OT">Otra</option>
                                         </select>
                                       </div>
                                     </div>
@@ -687,12 +687,12 @@
                                       <p class="lead">Ojos</p>
                                       <div class="col-md-12 col-sm-12 col-xs-12 form-group item">
                                         <select class="image-picker" name="eyes-type" id="eyes-type" required>
-                                          <option data-img-src="/images/body_parts/eye_type/e_equilibradosSanos.png" value="0">Equilibrados y Sanos</option>
-                                          <option data-img-src="/images/body_parts/eye_type/e_sanpakuYin.png" value="1">Sanpaku Ying</option>
-                                          <option data-img-src="/images/body_parts/eye_type/e_sanpakuYang.png" value="2">Sanpaku Yang</option>
-                                          <option data-img-src="/images/body_parts/eye_type/e_saltones.png" value="2">Saltones</option>
-                                          <option data-img-src="/images/body_parts/eye_type/e_parisLondres.png" value="2">París y Londres</option>
-                                          <option data-img-src="/images/body_parts/eye_type/e_bizcos.png" value="2">Bizcos</option>
+                                          <option data-img-src="/images/body_parts/eye_type/e_equilibradosSanos.png" value="ES">Equilibrados y Sanos</option>
+                                          <option data-img-src="/images/body_parts/eye_type/e_sanpakuYin.png" value="SYING">Sanpaku Ying</option>
+                                          <option data-img-src="/images/body_parts/eye_type/e_sanpakuYang.png" value="SYANG">Sanpaku Yang</option>
+                                          <option data-img-src="/images/body_parts/eye_type/e_saltones.png" value="SALT">Saltones</option>
+                                          <option data-img-src="/images/body_parts/eye_type/e_parisLondres.png" value="PL">París y Londres</option>
+                                          <option data-img-src="/images/body_parts/eye_type/e_bizcos.png" value="BI">Bizcos</option>
                                         </select>
                                       </div>
                                     </div>
@@ -701,8 +701,8 @@
                                       <p class="lead">Nariz</p>
                                       <div class="col-md-12 col-sm-12 col-xs-12 form-group item">
                                         <select class="image-picker" name="nose-type" id="nose-type" required>
-                                          <option data-img-src="/images/body_parts/nose_type/n_puntiaguda.png"value="0">Puntiaguda y Delgada</option>
-                                          <option data-img-src="/images/body_parts/nose_type/n_dilatada.png"value="1">Dilatada con Puntos Rojos</option>
+                                          <option data-img-src="/images/body_parts/nose_type/n_puntiaguda.png"value="PD">Puntiaguda y Delgada</option>
+                                          <option data-img-src="/images/body_parts/nose_type/n_dilatada.png"value="DPR">Dilatada con Puntos Rojos</option>
                                           <!-- <option data-img-src="/images/body_parts/tongue_type/1_rounded.png"value="2">Otra</option> -->
                                         </select>
                                       </div>
@@ -712,10 +712,10 @@
                                       <p class="lead">Labios</p>
                                       <div class="col-md-12 col-sm-12 col-xs-12 form-group item">
                                         <select class="image-picker" name="lips-type" id="lips-type" required>
-                                          <option data-img-src="/images/body_parts/lips_type/l_sanos.png" value="0">Sanos y Uniformemente desarrollados</option>
-                                          <option data-img-src="/images/body_parts/lips_type/l_superiorGrueso.png" value="1">Superior Grueso, Inferior Delgado</option>
-                                          <option data-img-src="/images/body_parts/lips_type/l_inferiorGrueso.png" value="2">Superior Delgado, Inferior Grueso</option>
-                                          <option data-img-src="/images/body_parts/lips_type/l_mismoGrosor.png" value="2">Del mismo Grosor</option>
+                                          <option data-img-src="/images/body_parts/lips_type/l_sanos.png" value="SU">Sanos y Uniformemente desarrollados</option>
+                                          <option data-img-src="/images/body_parts/lips_type/l_superiorGrueso.png" value="SGID">Superior Grueso, Inferior Delgado</option>
+                                          <option data-img-src="/images/body_parts/lips_type/l_inferiorGrueso.png" value="SDIG">Superior Delgado, Inferior Grueso</option>
+                                          <option data-img-src="/images/body_parts/lips_type/l_mismoGrosor.png" value="MG">Del mismo Grosor</option>
                                         </select>
                                       </div>
                                     </div>
@@ -724,14 +724,14 @@
                                       <p class="lead">Uñas</p>
                                       <div class="col-md-12 col-sm-12 col-xs-12 form-group item">
                                         <select class="image-picker" name="nails-type" id="nails-type" required>
-                                          <option data-img-src="/images/body_parts/nails_type/n_triangular.png" value="0">Triangular - Constitución Ying</option>
-                                          <option data-img-src="/images/body_parts/nails_type/n_redonda.png" value="1">Redonda - Constitución Yang</option>
-                                          <option data-img-src="/images/body_parts/nails_type/n_estriasVerticales.png" value="2">Estrias Verticales - Hepáticos</option>
-                                          <option data-img-src="/images/body_parts/nails_type/n_cuadrada.png" value="2">Cuadrada - HTA</option>
-                                          <option data-img-src="/images/body_parts/nails_type/n_curvada.png" value="2">Curvada- Pulmonar, Respiratorio</option>
-                                          <option data-img-src="/images/body_parts/nails_type/n_acucarachada.png" value="2">Acucarachada - Anemia Tensión Arterial Baja</option>
-                                          <option data-img-src="/images/body_parts/nails_type/n_protuberanciaTransversal.png" value="2">Protuberancia Transversal - Lombrices</option>
-                                          <option data-img-src="/images/body_parts/nails_type/u_grietas.png" value="2">Grietas - Desnutrición Mala Digestión</option>
+                                          <option data-img-src="/images/body_parts/nails_type/n_triangular.png" value="TCYING">Triangular - Constitución Ying</option>
+                                          <option data-img-src="/images/body_parts/nails_type/n_redonda.png" value="RCYANG">Redonda - Constitución Yang</option>
+                                          <option data-img-src="/images/body_parts/nails_type/n_estriasVerticales.png" value="EVH">Estrias Verticales - Hepáticos</option>
+                                          <option data-img-src="/images/body_parts/nails_type/n_cuadrada.png" value="HTA">Cuadrada - HTA</option>
+                                          <option data-img-src="/images/body_parts/nails_type/n_curvada.png" value="CPR">Curvada- Pulmonar, Respiratorio</option>
+                                          <option data-img-src="/images/body_parts/nails_type/n_acucarachada.png" value="AATAB">Acucarachada - Anemia Tensión Arterial Baja</option>
+                                          <option data-img-src="/images/body_parts/nails_type/n_protuberanciaTransversal.png" value="PTL">Protuberancia Transversal - Lombrices</option>
+                                          <option data-img-src="/images/body_parts/nails_type/u_grietas.png" value="GDMD">Grietas - Desnutrición Mala Digestión</option>
                                         </select>
                                       </div>
                                     </div>
@@ -745,7 +745,7 @@
                             </div>
                           </form>
                         </div>
-
+                        <!--
                         <div id="step-6">
                           <h2 class="StepTitle">Signos y Tratamiento</h2>
 
@@ -754,7 +754,7 @@
                               <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="x_panel" id="medicine">
 
-                                  <!-- <div class="fields-container" id="aliment-row" data-row="1"> -->
+                                  
                                     <h2 class="StepTitle">Signos</h2>
 
                                     <div class="col-md-4 col-sm-6 col-xs-12 form-group item">
@@ -824,11 +824,11 @@
                                       <button type="button" class="btn btn-round btn-warning add-field-medicine"><i class="fa fa-chevron-circle-down"></i> Agregar Medicina</button>
                                     </div>
 
-                                <!-- </div> -->
                               </div>
                             </div>
                           </form>
                         </div>
+                        -->
                       {!! Form::close() !!}
                     </div>
                     <!-- End SmartWizard Content -->

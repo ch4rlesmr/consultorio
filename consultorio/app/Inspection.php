@@ -23,4 +23,12 @@ class Inspection extends Model
     public static function movements(){
     	return ["NORMAL"=>"Normal","ANORMAL"=>"Anormal"];
     }
+
+    public function patient(){
+        return $this->belongsTo("App\Patient","patient_id");
+    }
+
+    public function feeling(){
+        return $this->belongsTo("App\Feeling","feeling_id");
+    }    
 }
