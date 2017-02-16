@@ -393,15 +393,13 @@ $(document).ready(function() {
             var aliment = {};
             var dayMoment = $(this).find(".day-moment").val();
             var placeMoment = $(this).find(".place-moment").val();
-            var food = $(this).find(".food").val();
+            var foodId = $(this).find(".food_id").val();
             aliment.day_moment = dayMoment;
             aliment.place = placeMoment;
-            aliment.food = food;
-            aliments.push(aliment);
-            console.log(aliment);
+            aliment.food_id = foodId;
         });
         $("#input_aliments").val(JSON.stringify(aliments));
-        //$("#form_patient").submit();
+        $("#form_patient").submit();
 
         var habits = [];
         $("#habits .habit-container").each(function(){

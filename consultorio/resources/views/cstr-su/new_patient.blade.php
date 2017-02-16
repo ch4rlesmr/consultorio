@@ -157,7 +157,7 @@
                       @endif
                         <div id="step-1">
                           <h2 class="StepTitle">Datos Básicos</h2>						
-                          <form class="form-horizontal form-label-left form-data" id="basic-data-form" novalidate>
+                          <div class="form-horizontal form-label-left form-data" id="basic-data-form" novalidate>
                           	<div class="row">
                           		<div class="col-md-12 col-sm-12 col-xs-12">
                           			<div class="x_panel">
@@ -286,13 +286,13 @@
                           			</div>
                           		</div>
                           	</div>
-                          </form>
+                          </div>
 
                         </div>
                         <div id="step-2">
 
                           <h2 class="StepTitle">Metas, intentos y motivación</h2>           
-                          <form class="form-horizontal form-label-left form-data" novalidate>
+                          <div class="form-horizontal form-label-left form-data" novalidate>
                             <div class="row">
                               <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="x_panel">
@@ -420,7 +420,7 @@
                                 </div>
                               </div>
                             </div>
-                          </form>
+                          </div>
 
                         </div>
                         <div id="step-3">
@@ -433,7 +433,7 @@
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
                             in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                           </p> -->
-                          <form class="form-horizontal form-label-left form-data" novalidate>
+                          <div class="form-horizontal form-label-left form-data" novalidate>
                             <div class="row">
                               <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="x_panel" id="aliments">
@@ -462,7 +462,11 @@
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group item">
                                       <small class="info-field">Alimento</small>
-                                      <input type="text" class="form-control has-feedback-left food" placeholder="Alimento" name="food" required>
+                                      <select class="select2_single form-control has-feedback-left food_id" tabindex="0" name="food_id" required>
+                                        @foreach($foods as $food)
+                                          <option value="{{ $food->id }}">{{ $food->name }}</option>
+                                        @endforeach
+                                      </select>
                                       <span class="fa fa-file-text form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                     </div>
                                   </div>
@@ -476,7 +480,7 @@
                                 </div>
                               </div>
                             </div>
-                          </form>
+                          </div>
                         </div>
                         <div id="step-4">
                           <h2 class="StepTitle">Habitos, Alergias y Antecedentes</h2>
@@ -491,7 +495,7 @@
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
                             in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                           </p> -->
-                          <form class="form-horizontal form-label-left form-data" novalidate>
+                          <div class="form-horizontal form-label-left form-data" novalidate>
                             <div class="row">
                               <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="x_panel" id="habits">
@@ -586,12 +590,12 @@
                                 </div>
                               </div>
                             </div>
-                          </form>
+                          </div>
                         </div>
 
                         <div id="step-5">
                           <h2 class="StepTitle">Diagnostico</h2>
-                          <form class="form-horizontal form-label-left form-data" novalidate>
+                          <div class="form-horizontal form-label-left form-data" novalidate>
                             <div class="row">
 
                               <div class="col-md-6 col-sm-6 col-xs-12">
@@ -743,7 +747,7 @@
                               </div>
 
                             </div>
-                          </form>
+                          </div>
                         </div>
                         <!--
                         <div id="step-6">

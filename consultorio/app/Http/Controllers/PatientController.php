@@ -12,6 +12,9 @@ use App\Feeling;
 use Carbon\Carbon;
 use App\PlanningMethod;
 use App\Inspection;
+use App\Food;
+use App\Aliment;
+use App\Patient;
 
 class PatientController extends Controller {
 
@@ -29,8 +32,10 @@ class PatientController extends Controller {
 		$academicLevels = AcademicLevel::all();
 		$feelings = Feeling::all();
 		$planningMethods = PlanningMethod::all();
+		$foods = Food::all();
 		return view('cstr-su.new_patient', ["epsList" => $epsList,"blood_types"=>$bloodTypes,
-			"academic_levels"=>$academicLevels,"feelings"=>$feelings,"planning_methods"=>$planningMethods]);
+			"academic_levels"=>$academicLevels,"feelings"=>$feelings,"planning_methods"=>$planningMethods,
+			"foods"=>$foods]);
 	}
 
 	public function store (Request $request) {
@@ -47,7 +52,7 @@ class PatientController extends Controller {
 		//STEP 1
 		$name = $request->input("name-patient");
 		$surname = $request->input("lastname-patient");
-		$dateBirth = Carbon::parse($request->input("dob-patient"));
+		$dateBirth = Carbon::createFromFormat('d/m/Y',$request->input("dob-patient"))->toDateTimeString();
 		$age = $request->input("age-patient");
 		$typeDocument = $request->input("type-document");
 		$numberDocument = $request->input("number-document");
@@ -99,7 +104,7 @@ class PatientController extends Controller {
 		if($inspection == null){
 			$inspection = new Inspection;
 		}
-		$inspection->size = $initialSize;
+		$inspection->size = $initialSize == null ? 0 : $initialSize;
 		$inspection->goal = $goalWeight;
 		$inspection->min_weight = $minWeight;
 		$inspection->max_weight = $maxWeight;
@@ -113,7 +118,7 @@ class PatientController extends Controller {
 		$inspection->attitude = $attitude;
 		$inspection->patient_id = $patient->id;
 		$inspection->feeling_id = $idFeeling;
-		$inspection->observation = $observations;
+		$inspection->observation = $obvervations;
 		$inspection->others = $others;
 		$inspection->save();
 		//STEP 3
@@ -122,18 +127,20 @@ class PatientController extends Controller {
 		foreach($aliments as $aliment){
 			$dayMoment = $aliment->day_moment;
 			$place = $aliment->place;
-			$food = $aliment->food;
+			$foodId = $aliment->food_id;
 		}
 
 		//STEP 4
 		$habits = $request->input("input_habits");
 		$habits = json_decode($habits);
-		foreach($habits as $habit){
-			$name = $habit->name;
-			$frecuency = $habit->frecuency;
-			$time = $habit->time;
-			$units = $habit->units;
-			$description = $habit->description;
+		if(is_array($habits) && false){
+			foreach($habits as $habit){
+				$name = $habit->name;
+				$frecuency = $habit->frecuency;
+				$time = $habit->time;
+				$units = $habit->units;
+				$description = $habit->description;
+			}
 		}
 		$idPlanningMethod = $request->input("planify-method");
 		$descriptionMethod = $request->input("method-description");
