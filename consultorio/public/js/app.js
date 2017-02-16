@@ -6,6 +6,8 @@ $(window).load(function() {
             started,
             categoryClass;
 
+            
+
         var calendar = $('#calendar').fullCalendar({
           locale: 'es',
           header: {
