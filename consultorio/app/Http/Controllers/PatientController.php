@@ -99,6 +99,7 @@ class PatientController extends Controller {
 		if($inspection == null){
 			$inspection = new Inspection;
 		}
+		$inspection->size = $initialSize;
 		$inspection->goal = $goalWeight;
 		$inspection->min_weight = $minWeight;
 		$inspection->max_weight = $maxWeight;
@@ -112,7 +113,9 @@ class PatientController extends Controller {
 		$inspection->attitude = $attitude;
 		$inspection->patient_id = $patient->id;
 		$inspection->feeling_id = $idFeeling;
-
+		$inspection->observation = $observations;
+		$inspection->others = $others;
+		$inspection->save();
 		//STEP 3
 		$aliments = $request->input("input_aliments");
 		$aliments = json_decode($aliments);
