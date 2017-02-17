@@ -26,10 +26,11 @@
                 <h3>General</h3>
                 <ul class="nav side-menu">
                   <li>
-                    <a href="{{ url('dra/calendario') }}"><i class="fa fa-table"></i> Calendario<!--  <span class="fa fa-chevron-down"></span> --></a>
-                    <!-- <ul class="nav child_menu" style="display:block;">
-                      <li class="current-page"><a href="#"> Agenda </a></li>
-                    </ul> -->
+                    <a><i class="fa fa-table"></i> Citas <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu" style="display:block;">
+                      <li class="current-page"><a href="{{ url('dra/calendario') }}"> Calendario </a></li>
+                      <li class="current-page"><a href="{{ url('dra/citas') }}"> Citas </a></li>
+                    </ul>
                   </li>
                   <!-- <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">

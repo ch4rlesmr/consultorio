@@ -61,6 +61,10 @@ Route::group(['prefix' => 'dra', 'middleware' => ['web', 'auth']], function () {
 		return view('cstr-su.organ');
 	})->name('dra.organos');
 
+	Route::get('/citas', function () {
+		return view('cstr-su.appointment');
+	})->name('dra.citas');
+
 	/*Route::get('/inventario', function () {
 		return view('cstr-su.inventory');
 	})->name('inventario');*/

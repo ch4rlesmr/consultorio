@@ -14,7 +14,11 @@ class SetColumnIdNumberToUniquePatients extends Migration
     public function up()
     {
         Schema::table('patients', function (Blueprint $table) {
-            $table->string("id_number")->unique()->change();
+            $table->dropColumn("id_number");
+            
+        });
+        Schema::table('patients', function (Blueprint $table) {
+            $table->string("id_number")->unique();
         });
     }
 
@@ -26,7 +30,10 @@ class SetColumnIdNumberToUniquePatients extends Migration
     public function down()
     {
         Schema::table('patients', function (Blueprint $table) {
-            $table->string("id_number")->change();
+            $table->dropColumn("id_number");
+        });
+        Schema::table('patients', function (Blueprint $table) {
+            $table->string("id_number");
         });
     }
 }
