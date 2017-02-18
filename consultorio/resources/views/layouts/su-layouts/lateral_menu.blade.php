@@ -1,7 +1,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Consultorio</span></a>
+              <a href="index.html" class="site_title"><!-- <i class="fa fa-paw"></i> --> <span>Consultorio</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -12,8 +12,8 @@
                 <img src="/images/admin.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>Welcome,</span>
-                <h2>John Doe</h2>
+                <span>Bienvenida,</span>
+                <h2>Luz Helena</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -23,7 +23,8 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section active">
-                <h3>General</h3>
+                <!-- <h3>General</h3> -->
+                <h3>&nbsp;</h3>
                 <ul class="nav side-menu">
                   <li>
                     <a><i class="fa fa-table"></i> Citas <span class="fa fa-chevron-down"></span></a>

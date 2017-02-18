@@ -2138,7 +2138,7 @@ var validator = (function($){
     /* general text messages
     */
     message = {
-        invalid         : 'invalid input',
+        /*invalid         : 'invalid input',
         checked         : 'must be checked',
         empty           : 'please put something here',
         min             : 'input is too short',
@@ -2152,7 +2152,22 @@ var validator = (function($){
         password_repeat : 'passwords do not match',
         repeat          : 'no match',
         complete        : 'input is not complete',
-        select          : 'Please select an option'
+        select          : 'Please select an option'*/
+        invalid         : 'Entrada no valida',
+        checked         : 'Complete campo',
+        empty           : 'Complete campo',
+        min             : 'Complete campo',
+        max             : 'Complete campo',
+        number_min      : 'Complete campo',
+        number_max      : 'Complete campo',
+        url             : 'Complete campo',
+        number          : 'Complete campo',
+        email           : 'Complete campo',
+        email_repeat    : 'Complete campo',
+        password_repeat : 'Complete campo',
+        repeat          : 'Complete campo',
+        complete        : 'Complete campo',
+        select          : 'Complete campo'
     };
 
     if(!window.console){

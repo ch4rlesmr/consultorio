@@ -209,7 +209,19 @@ var app = {
 
 $(function () {
 
-	$('.datepicker').datepicker(); //agregar date picker jQuery UI para campos de fecha en formularios
+	// $('.single_cal1').daterangepicker({
+	// 	singleDatePicker: true,
+	// 	showDropdowns: true,
+	// 	calender_style: "picker_1"
+	// }, function(start, end, label) {
+	// 	console.log(start.toISOString(), end.toISOString(), label);
+	// });
+
+	$('.datepicker').datepicker({
+		changeMonth: true,
+		changeYear: true,
+		yearRange: "-100:+0",
+	}); //agregar date picker jQuery UI para campos de fecha en formularios
 
 	$(".image-picker").imagepicker({
 		show_label: true,

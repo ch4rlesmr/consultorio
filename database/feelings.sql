@@ -1,4 +1,19 @@
-INSERT INTO `feelings` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Alegría', '2017-02-14 05:00:00', '2017-02-14 05:00:00'),
-(2, 'Tristeza', '2017-02-14 05:00:00', '2017-02-14 05:00:00'),
-(3, 'Angustia', '2017-02-14 05:00:00', '2017-02-14 05:00:00');
+INSERT INTO `feelings` (`id`, `name`, `created_at`, `updated_at`) VALUES (1, 'Abrumado', '2017-02-14 05:00:00', '2017-02-14 05:00:00');
+INSERT INTO `feelings` (`id`, `name`, `created_at`, `updated_at`) VALUES (2, 'Aburrido', '2017-02-14 05:00:00', '2017-02-14 05:00:00');
+INSERT INTO `feelings` (`id`, `name`, `created_at`, `updated_at`) VALUES (3, 'Ansioso', '2017-02-14 05:00:00', '2017-02-14 05:00:00');
+INSERT INTO `feelings` (`id`, `name`, `created_at`, `updated_at`) VALUES (4, 'Apartado', '2017-02-14 05:00:00', '2017-02-14 05:00:00');
+INSERT INTO `feelings` (`id`, `name`, `created_at`, `updated_at`) VALUES (5, 'Atrapado', '2017-02-14 05:00:00', '2017-02-14 05:00:00');
+INSERT INTO `feelings` (`id`, `name`, `created_at`, `updated_at`) VALUES (6, 'Competencia', '2017-02-14 05:00:00', '2017-02-14 05:00:00');
+INSERT INTO `feelings` (`id`, `name`, `created_at`, `updated_at`) VALUES (7, 'Culpabilidad', '2017-02-14 05:00:00', '2017-02-14 05:00:00');
+INSERT INTO `feelings` (`id`, `name`, `created_at`, `updated_at`) VALUES (8, 'Decepción', '2017-02-14 05:00:00', '2017-02-14 05:00:00');
+INSERT INTO `feelings` (`id`, `name`, `created_at`, `updated_at`) VALUES (9, 'Enamorado', '2017-02-14 05:00:00', '2017-02-14 05:00:00');
+INSERT INTO `feelings` (`id`, `name`, `created_at`, `updated_at`) VALUES (10, 'Envidia', '2017-02-14 05:00:00', '2017-02-14 05:00:00');
+INSERT INTO `feelings` (`id`, `name`, `created_at`, `updated_at`) VALUES (11, 'Felicidad', '2017-02-14 05:00:00', '2017-02-14 05:00:00');
+INSERT INTO `feelings` (`id`, `name`, `created_at`, `updated_at`) VALUES (12, 'Frustración', '2017-02-14 05:00:00', '2017-02-14 05:00:00');
+INSERT INTO `feelings` (`id`, `name`, `created_at`, `updated_at`) VALUES (13, 'Impotencia', '2017-02-14 05:00:00', '2017-02-14 05:00:00');
+INSERT INTO `feelings` (`id`, `name`, `created_at`, `updated_at`) VALUES (14, 'Incomodidad', '2017-02-14 05:00:00', '2017-02-14 05:00:00');
+INSERT INTO `feelings` (`id`, `name`, `created_at`, `updated_at`) VALUES (15, 'Preocupacion', '2017-02-14 05:00:00', '2017-02-14 05:00:00');
+INSERT INTO `feelings` (`id`, `name`, `created_at`, `updated_at`) VALUES (16, 'Rabia', '2017-02-14 05:00:00', '2017-02-14 05:00:00');
+INSERT INTO `feelings` (`id`, `name`, `created_at`, `updated_at`) VALUES (17, 'Soledad', '2017-02-14 05:00:00', '2017-02-14 05:00:00');
+INSERT INTO `feelings` (`id`, `name`, `created_at`, `updated_at`) VALUES (18, 'Susto', '2017-02-14 05:00:00', '2017-02-14 05:00:00');
+INSERT INTO `feelings` (`id`, `name`, `created_at`, `updated_at`) VALUES (19, 'Vanidad', '2017-02-14 05:00:00', '2017-02-14 05:00:00');
