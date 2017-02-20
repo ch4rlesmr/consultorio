@@ -749,7 +749,7 @@
                             </div>
                           </div>
                         </div>
-                        <!--
+                        
                         <div id="step-6">
                           <h2 class="StepTitle">Signos y Tratamiento</h2>
 
@@ -832,7 +832,7 @@
                             </div>
                           </form>
                         </div>
-                        -->
+                        
                       {!! Form::close() !!}
                     </div>
                     <!-- End SmartWizard Content -->
