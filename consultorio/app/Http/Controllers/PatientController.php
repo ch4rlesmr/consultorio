@@ -58,6 +58,7 @@ class PatientController extends Controller {
 		$numberDocument = $request->input("number-document");
 		$address = $request->input("address-patient");
 		$phone = $request->input("phone-patient");
+		$job = $request->input('job-patient');
 		$email = $request->input("email-patient");
 		$idEps = $request->input("eps-patient");
 		$idBloodType = $request->input("blood-type");

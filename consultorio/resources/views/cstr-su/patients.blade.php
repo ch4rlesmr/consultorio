@@ -30,37 +30,30 @@
             <form action="" class="form-horizontal form-label-left">
 
               <div class="col-md-5 col-md-offset-1">
-                <label class="control-label">Referencia</label>
+                <label class="control-label">Documento de Identificación</label>
                 <div>
-                  <input type="text" id="reference-inventory" name="reference-inventory" class="form-control">
+                  <input type="text" id="document-patient" name="document-patient" class="form-control">
                 </div>
               </div>
 
               <div class="col-md-5">
-                <label class="control-label">Elemento</label>
+                <label class="control-label">Nombre Paciente</label>
                 <div>
-                  <input type="text" id="name-inventory" name="name-inventory" class="form-control">
+                  <input type="text" id="name-patient" name="name-patient" class="form-control">
                 </div>
               </div>
 
               <div class="col-md-5 col-md-offset-1">
-                <label class="control-label">Tipo</label>
+                <label class="control-label">Fecha Próxima Cita</label>
                 <div>
-                  <input type="text" id="name-inventory" name="name-inventory" class="form-control">
+                  <input type="text" id="date-patient" name="date-patient" class="form-control">
                 </div>
               </div>
 
               <div class="col-md-5">
-                <label class="control-label" for="first-name">Estado</label>
+                <label class="control-label" for="first-name">Telefono</label>
                 <div>
-                  <select class="select2_single form-control" tabindex="0" name="status-inventory" id="status-inventory" name="status-inventory">
-                    <option selected="true" disabled="disabled">Escoger Estado</option>
-                    <option value="E">Excelente</option>
-                    <option value="B">Bueno</option>
-                    <option value="R">Regular</option>
-                    <option value="M">Mal</option>
-                    <option value="P">Pesimo</option>
-                  </select>
+                  <input type="text" id="phone-patient" name="phone-patient" class="form-control">
                 </div>
               </div>
 
@@ -114,12 +107,8 @@
               <div class="col-xs-12 bottom text-center">
                 
                 <div class="col-xs-12 col-sm-12 emphasis">
-                  <a href="" class="btn btn-success">
-                    <i class="fa fa-eye"> </i> Detalle
-                  </a>
-                  <a href="" class="btn btn-warning">
-                    <i class="fa fa-pencil"> </i> Editar
-                  </a>
+                  <a href="{{ action('PatientController@show', 2) }}" class="btn btn-success"><i class="fa fa-eye"> </i> Detalle</a>
+                  <!-- <a href="" class="btn btn-warning"><i class="fa fa-pencil"> </i> Editar</a> -->
                 </div>
               </div>
             </div>
@@ -145,12 +134,8 @@
               <div class="col-xs-12 bottom text-center">
                 
                 <div class="col-xs-12 col-sm-12 emphasis">
-                  <a href="" class="btn btn-success">
-                    <i class="fa fa-eye"> </i> Detalle
-                  </a>
-                  <a href="" class="btn btn-warning">
-                    <i class="fa fa-pencil"> </i> Editar
-                  </a>
+                  <a href="{{ action('PatientController@show', 2) }}" class="btn btn-success"><i class="fa fa-eye"> </i> Detalle</a>
+                  <!-- <a href="" class="btn btn-warning"><i class="fa fa-pencil"> </i> Editar</a> -->
                 </div>
               </div>
             </div>
@@ -179,9 +164,7 @@
                   <a href="{{ action('PatientController@show', 2) }}" class="btn btn-success">
                     <i class="fa fa-eye"> </i> Detalle
                   </a>
-                  <a href="" class="btn btn-warning">
-                    <i class="fa fa-pencil"> </i> Editar
-                  </a>
+                  <!-- <a href="" class="btn btn-warning"><i class="fa fa-pencil"> </i> Editar</a> -->
                 </div>
               </div>
             </div>

@@ -29,11 +29,14 @@ $(window).load(function() {
           hiddenDays: [ 0 ], //--> para ocultar dias de la semana [0 al 6]
           selectConstraint: 'businessHours',
           allDaySlot: false,
-          slotDuration: '00:15:00',
+          slotDuration: '00:20:00',
           axisFormat: 'h(:mm) a',
-          slotMinutes: 15,
+          slotMinutes: 20,
 
           select: function(start, end, allDay) {
+
+            // console.log(calendar.fullCalendar('getView').name);
+
             $('#fc_create').click();
 
             started = start;
@@ -67,6 +70,7 @@ $(window).load(function() {
 
               return false;
             });
+
           },
           eventClick: function(calEvent, jsEvent, view) {
             $('#fc_edit').click();
@@ -86,7 +90,7 @@ $(window).load(function() {
             calendar.fullCalendar('unselect');
           },
           //editable: false, --> para arrastrar los eventos
-          editable: false,
+          // editable: false,
           events: [{
             title: 'All Day Event',
             start: new Date(y, m, 1)
@@ -226,6 +230,22 @@ $(function () {
 	$(".image-picker").imagepicker({
 		show_label: true,
 		// hide_select: false
+	});
+
+	$('#dob-patient').change(function () {
+		var dateString = $(this).val().toString();
+
+		dateString = dateString.split('/');
+		var dob = new Date( dateString[2], (dateString[1] -1), dateString[0] );
+
+		var today = new Date();
+		var years = today.getFullYear() - dob.getFullYear();
+
+		dob.setFullYear(today.getFullYear());
+		if (today < dob) { years--; }
+
+		$('#age-patient').val(years);
+
 	});
 
 	$('.num_input').numeric(); //agregar validacion para ingreso unico de numeros para campos de formulario
@@ -369,24 +389,24 @@ $(document).ready(function() {
         labelNext:'Siguiente', // label for Next button
     	labelPrevious:'Anterior', // label for Previous button
     	labelFinish:'Guardar',
+        keyNavigation: false,
     	onLeaveStep:leaveAStepCallback,
         onFinish:onFinishCallback
     });
 
     function leaveAStepCallback(obj, context){
 
-       /* var validatedStep;
+        var validatedStep;
 
         if (context.fromStep > context.toStep) {
             return true;
         } else {
             validatedStep = validateFormStep();
         }
-*/
         //alert("Leaving step " + context.fromStep + " to go to step " + context.toStep);
         //alert("Paso " + context.fromStep +  " validado ? = " + validatedStep);
         //return validateSteps(context.fromStep); // return false to stay on step and true to continue navigation 
-        return true;
+        return validatedStep;
     }
 
     function onFinishCallback(objs, context){
@@ -444,11 +464,12 @@ $(document).ready(function() {
     }
 
     function validateFormStep() {
-        var formElement = $('body').find('form.form-data:visible');
+        var formElement = $('body').find('div.form-data:visible');
         return validateForm($(formElement));
     }
 
     function validateForm(formElement) {
+        console.log($(formElement));
 
         var submit = true;
         // evaluate the form using generic validaing

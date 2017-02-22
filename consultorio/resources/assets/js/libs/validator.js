@@ -31,20 +31,20 @@ var validator = (function($){
         complete        : 'input is not complete',
         select          : 'Please select an option'*/
         invalid         : 'Entrada no valida',
-        checked         : 'Complete campo',
-        empty           : 'Complete campo',
-        min             : 'Complete campo',
-        max             : 'Complete campo',
-        number_min      : 'Complete campo',
-        number_max      : 'Complete campo',
-        url             : 'Complete campo',
-        number          : 'Complete campo',
-        email           : 'Complete campo',
-        email_repeat    : 'Complete campo',
-        password_repeat : 'Complete campo',
-        repeat          : 'Complete campo',
+        checked         : 'Seleccione opción',
+        empty           : 'Campo vacio',
+        min             : 'Entrada incompleta',
+        max             : 'Entrada muy larga',
+        number_min      : 'Entrada incompleta',
+        number_max      : 'Entrada muy larga',
+        url             : 'URL no valida',
+        number          : 'Campo númerico',
+        email           : 'Email no valido',
+        email_repeat    : 'No coincide el Email',
+        password_repeat : 'No coincide la contraseña',
+        repeat          : 'No coincide',
         complete        : 'Complete campo',
-        select          : 'Complete campo'
+        select          : 'Seleccione opción'
     };
 
     if(!window.console){

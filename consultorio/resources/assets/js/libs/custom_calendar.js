@@ -29,11 +29,14 @@ $(window).load(function() {
           hiddenDays: [ 0 ], //--> para ocultar dias de la semana [0 al 6]
           selectConstraint: 'businessHours',
           allDaySlot: false,
-          slotDuration: '00:15:00',
+          slotDuration: '00:20:00',
           axisFormat: 'h(:mm) a',
-          slotMinutes: 15,
+          slotMinutes: 20,
 
           select: function(start, end, allDay) {
+
+            // console.log(calendar.fullCalendar('getView').name);
+
             $('#fc_create').click();
 
             started = start;
@@ -67,6 +70,7 @@ $(window).load(function() {
 
               return false;
             });
+
           },
           eventClick: function(calEvent, jsEvent, view) {
             $('#fc_edit').click();
@@ -86,7 +90,7 @@ $(window).load(function() {
             calendar.fullCalendar('unselect');
           },
           //editable: false, --> para arrastrar los eventos
-          editable: false,
+          // editable: false,
           events: [{
             title: 'All Day Event',
             start: new Date(y, m, 1)

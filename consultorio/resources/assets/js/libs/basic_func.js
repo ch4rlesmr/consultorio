@@ -110,6 +110,22 @@ $(function () {
 		// hide_select: false
 	});
 
+	$('#dob-patient').change(function () {
+		var dateString = $(this).val().toString();
+
+		dateString = dateString.split('/');
+		var dob = new Date( dateString[2], (dateString[1] -1), dateString[0] );
+
+		var today = new Date();
+		var years = today.getFullYear() - dob.getFullYear();
+
+		dob.setFullYear(today.getFullYear());
+		if (today < dob) { years--; }
+
+		$('#age-patient').val(years);
+
+	});
+
 	$('.num_input').numeric(); //agregar validacion para ingreso unico de numeros para campos de formulario
 
 	var next = 1;

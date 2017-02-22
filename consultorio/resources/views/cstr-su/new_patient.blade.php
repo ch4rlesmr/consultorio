@@ -155,7 +155,7 @@
                       @else
                         {!! Form::open(array("route"=>"paciente.store", "method"=>"POST","id"=>"form_patient")) !!}
                       @endif
-                        <div id="step-1">
+                        <div id="step-1" class="form-data">
                           <h2 class="StepTitle">Datos Básicos</h2>						
                           <div class="form-horizontal form-label-left form-data" id="basic-data-form" novalidate>
                           	<div class="row">
@@ -207,11 +207,17 @@
   					                        <span class="fa fa-home form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                         					</div>
 
-                          				<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback item">
-                          					<small class="info-field">Telefono</small>
-  					                        <input data-validate-length-range="6" type="text" class="form-control has-feedback-left" placeholder="Telefono" name="phone-patient" id="phone-patient" required>
-  					                        <span class="fa fa-phone-square form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
-                        					</div>
+                                  <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback item">
+                                    <small class="info-field">Telefono</small>
+                                    <input data-validate-length-range="6" type="text" class="form-control has-feedback-left" placeholder="Telefono" name="phone-patient" id="phone-patient" required>
+                                    <span class="fa fa-phone-square form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
+                                  </div>
+
+                                  <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback item">
+                                    <small class="info-field">Ocupación</small>
+                                    <input type="text" class="form-control has-feedback-left" placeholder="Ocupación" name="job-patient" id="job-patient" required>
+                                    <span class="fa fa-home form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
+                                  </div>
                     
                       					<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback item">
                       						  <small class="info-field">Correo Electronico</small>
@@ -289,7 +295,7 @@
                           </div>
 
                         </div>
-                        <div id="step-2">
+                        <div id="step-2" class="form-data">
 
                           <h2 class="StepTitle">Metas, intentos y motivación</h2>           
                           <div class="form-horizontal form-label-left form-data" novalidate>
@@ -423,7 +429,7 @@
                           </div>
 
                         </div>
-                        <div id="step-3">
+                        <div id="step-3" class="form-data">
                           <h2 class="StepTitle">Alimentación</h2>
                           <!-- <p>
                             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
@@ -482,7 +488,7 @@
                             </div>
                           </div>
                         </div>
-                        <div id="step-4">
+                        <div id="step-4" class="form-data">
                           <h2 class="StepTitle">Habitos, Alergias y Antecedentes</h2>
                           <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -593,7 +599,7 @@
                           </div>
                         </div>
 
-                        <div id="step-5">
+                        <div id="step-5" class="form-data">
                           <h2 class="StepTitle">Diagnostico</h2>
                           <div class="form-horizontal form-label-left form-data" novalidate>
                             <div class="row">
@@ -750,7 +756,7 @@
                           </div>
                         </div>
                         
-                        <div id="step-6">
+                        <div id="step-6" class="form-data">
                           <h2 class="StepTitle">Signos y Tratamiento</h2>
 
                           <form class="form-horizontal form-label-left form-data" novalidate>
