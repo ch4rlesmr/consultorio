@@ -13,7 +13,7 @@ class Inspection extends Model
     }
 
     public static function attitudes(){
-    	return ["YIN"=>"Ying","YANG"=>"Yang"];
+    	return ["YIN"=>"Yin","YANG"=>"Yang"];
     }
 
     public static function integrities(){

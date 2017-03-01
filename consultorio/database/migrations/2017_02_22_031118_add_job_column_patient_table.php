@@ -14,7 +14,7 @@ class AddJobColumnPatientTable extends Migration
     public function up()
     {
         Schema::table('patients', function (Blueprint $table) { //agregar a la tabla de pacientes el campo de trabajo u ocupacion
-            $table->string("job");
+            $table->string("job")->nullable();
         });
         Schema::table('inspections', function (Blueprint $table) { //Cambio en el enum de actitude, no es YING la correccion es YIN
             $table->dropColumn("attitude");

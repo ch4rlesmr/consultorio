@@ -52,7 +52,7 @@ div.thumbnail.selected p {
 .manage-rows-form {
   margin-top: 12px; }
 
-.rm-field {
+.rm-field, .rm-field-habit, .rm-field-medicine {
   display: none; }
 
 .form-group {

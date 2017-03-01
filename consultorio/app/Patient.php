@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Aliment;
 
 class Patient extends Model
 {
@@ -32,4 +33,9 @@ class Patient extends Model
     public function inspection(){
         return $this->hasOne('App\Inspection', 'patient_id');
     }
+
+    public function aliments () {
+        return $this->hasMany('App\Aliment', 'patient_id');
+    }
+
 }

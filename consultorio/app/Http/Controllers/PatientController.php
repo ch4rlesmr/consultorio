@@ -10,11 +10,15 @@ use App\BloodType;
 use App\AcademicLevel;
 use App\Feeling;
 use Carbon\Carbon;
-use App\PlanningMethod;
 use App\Inspection;
 use App\Food;
 use App\Aliment;
 use App\Patient;
+use App\HabitPatient;
+use App\MenstrualPeriod;
+use App\PlanningMethod;
+use App\PlanningPatient;
+use App\Diagnosis;
 
 class PatientController extends Controller {
 
@@ -82,7 +86,10 @@ class PatientController extends Controller {
 		$patient->civil_status = $civilStatus;
 		$patient->academic_level_id = $idLevelAcdemic;
 		$patient->economic_level = $economicLevel;
-		$patient->save();
+		$patient->job = $job;
+
+		$saved = $patient->save();
+
 
 		//STEP 2
 		$initialSize = $request->input("initial-size");//--
@@ -121,48 +128,81 @@ class PatientController extends Controller {
 		$inspection->feeling_id = $idFeeling;
 		$inspection->observation = $obvervations;
 		$inspection->others = $others;
+		$inspection->patient_id = $patient->id;
+
 		$inspection->save();
+
 		//STEP 3
 		$aliments = $request->input("input_aliments");
 		$aliments = json_decode($aliments);
+
 		foreach($aliments as $aliment){
-			$dayMoment = $aliment->day_moment;
+
+			$alimentObject = new Aliment();
+
+			$moment = $aliment->day_moment;
 			$place = $aliment->place;
 			$foodId = $aliment->food_id;
+
+			$alimentObject->detail = $moment;
+			$alimentObject->place_food = $place;
+			$alimentObject->food_id = $foodId;
+			$alimentObject->patient_id = $patient->id;
+
+			$alimentObject->save();
+
 		}
 
 		//STEP 4
 		$habits = $request->input("input_habits");
 		$habits = json_decode($habits);
-		if(is_array($habits) && false){
-			foreach($habits as $habit){
-				$name = $habit->name;
-				$frecuency = $habit->frecuency;
-				$time = $habit->time;
-				$units = $habit->units;
-				$description = $habit->description;
-			}
+		print_r( $habits );
+
+		foreach($habits as $habit){
+			$habitPatient = new HabitPatient();
+
+			$habitPatient->habit_name = $habit->name;
+			$habitPatient->habit_frecuency = $habit->frecuency;
+			$habitPatient->habit_lot = $habit->time;
+			$habitPatient->units = $habit->units;
+			$habitPatient->habit_description = $habit->description;
+			$habitPatient->patient_id = $patient->id;
+
+			$habitPatient->save();
+
 		}
-		$idPlanningMethod = $request->input("planify-method");
-		$descriptionMethod = $request->input("method-description");
-		$typePeriod = $request->input("menstruation-type");
-		$frecuencyDays = $request->input("menstruation-frecuency");
-		$durationDays = $request->input("menstruation-duration");
+
+		$planningPatient = new PlanningPatient();
+		$planningPatient->planning_method_id = $request->input("planify-method");
+		$planningPatient->description = $request->input("method-description");
+		$planningPatient->patient_id = $patient->id;
+		$planningPatient->save();
+
+		$menstruationPatient = new MenstrualPeriod();
+		$menstruationPatient->type = $request->input("menstruation-type");
+		$menstruationPatient->frecuency = $request->input("menstruation-frecuency");
+		$menstruationPatient->duration = $request->input("menstruation-duration");
+		$menstruationPatient->patient_id = $patient->id;
+		$menstruationPatient->save();
 
 		//STEP 5
-		$id_c = $request->input("intestiny-heart");
-		$p_ig = $request->input("intestiny-lung");
-		$h_vb = $request->input("liver-vesicle");
-		$e_v = $request->input("stomach-vessel");
-		$ra_v = $request->input("kidney-bladder");
-		$rf_tp_pc = $request->input("kidney-pericardium");
+		$patientDiagnosis = new Diagnosis();
+		$patientDiagnosis->id_c = $request->input("intestiny-heart");
+		$patientDiagnosis->p_ig = $request->input("intestiny-lung");
+		$patientDiagnosis->h_vb = $request->input("liver-vesicle");
+		$patientDiagnosis->e_v = $request->input("stomach-vessel");
+		$patientDiagnosis->ra_v = $request->input("kidney-bladder");
+		$patientDiagnosis->rf_tp_pc = $request->input("kidney-pericardium");
 
-		$typeFace = $request->input("face-type");
-		$typeTongue = $request->input("tongue-type");
-		$typeEyes = $request->input("eyes-type");
-		$typeNose = $request->input("nose-type");
-		$typeLips = $request->input("lips-type");
-		$typeNail = $request->input("nails-type");
+		$patientDiagnosis->type_face = $request->input("face-type");
+		$patientDiagnosis->type_tongue = $request->input("tongue-type");
+		$patientDiagnosis->type_eyes = $request->input("eyes-type");
+		$patientDiagnosis->type_nose = $request->input("nose-type");
+		$patientDiagnosis->type_lips = $request->input("lips-type");
+		$patientDiagnosis->type_nails = $request->input("nails-type");
+		$patientDiagnosis->patient_id = $patient->id;
+
+		$patientDiagnosis->save();
 
 		dd($request);
 

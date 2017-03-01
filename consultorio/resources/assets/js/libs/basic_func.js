@@ -240,14 +240,15 @@ $(function () {
 		$(rowDelete).fadeOut('slow');
 		$(rowDelete).remove();
 		next_medicine --;
+		
 
-		verifyChild();
+		verifyMedicineChild();
 	});
 
 	function verifyMedicineChild() {
 
 		var rowsLength = $('#medicine .medicines-container').length;
-		console.log('Numero de alimentos: ' + rowsLength);
+		console.log('Numero de medicinas: ' + rowsLength);
 
 		if (rowsLength > 1) {
 			$('.rm-field-medicine').fadeIn('slow');

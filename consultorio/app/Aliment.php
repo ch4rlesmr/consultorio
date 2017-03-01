@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Patient;
 
 class Aliment extends Model
 {
@@ -14,5 +15,9 @@ class Aliment extends Model
 
     public static function placesFood(){
     	return ['HOME'=>'Casa','OFFICE'=>'Oficina','STREET'=>'Calle','OTHER'=>'Otro'];
+    }
+
+    public function patient () {
+    	return $this->belongsTo('App\Patient', 'patient_id');
     }
 }

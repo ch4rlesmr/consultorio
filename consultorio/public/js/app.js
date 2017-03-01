@@ -362,14 +362,15 @@ $(function () {
 		$(rowDelete).fadeOut('slow');
 		$(rowDelete).remove();
 		next_medicine --;
+		
 
-		verifyChild();
+		verifyMedicineChild();
 	});
 
 	function verifyMedicineChild() {
 
 		var rowsLength = $('#medicine .medicines-container').length;
-		console.log('Numero de alimentos: ' + rowsLength);
+		console.log('Numero de medicinas: ' + rowsLength);
 
 		if (rowsLength > 1) {
 			$('.rm-field-medicine').fadeIn('slow');
@@ -406,7 +407,10 @@ $(document).ready(function() {
         //alert("Leaving step " + context.fromStep + " to go to step " + context.toStep);
         //alert("Paso " + context.fromStep +  " validado ? = " + validatedStep);
         //return validateSteps(context.fromStep); // return false to stay on step and true to continue navigation 
+        
         return validatedStep;
+        // return true;
+
     }
 
     function onFinishCallback(objs, context){
@@ -429,18 +433,20 @@ $(document).ready(function() {
             aliment.day_moment = dayMoment;
             aliment.place = placeMoment;
             aliment.food_id = foodId;
+            aliments.push(aliment);
         });
+        console.log(aliments);
         $("#input_aliments").val(JSON.stringify(aliments));
-        $("#form_patient").submit();
+        
 
         var habits = [];
         $("#habits .habit-container").each(function(){
             var habit = {};
-            var nameHabit = $(this).find("habit-name").val();
-            var frecuency = $(this).find("frecuency-habit").val();
-            var timeHabit = $(this).find("time-habit").val();
-            var timeUnits = $(this).find("time-habit-unit").val();
-            var description = $(this).find("habit-description").val();
+            var nameHabit = $(this).find(".habit-name").val();
+            var frecuency = $(this).find(".frecuency-habit").val();
+            var timeHabit = $(this).find(".time-habit").val();
+            var timeUnits = $(this).find(".time-habit-unit").val();
+            var description = $(this).find(".habit-description").val();
             habit.name = nameHabit;
             habit.frecuency = frecuency;
             habit.time = timeHabit;
@@ -448,7 +454,22 @@ $(document).ready(function() {
             habit.description = description;
             habits.push(habit);
         });
+        console.log(habits);
         $("#input_habits").val(JSON.stringify(habits));
+
+        var medicines = [];
+        $("#medicines .medicines-container").each(function(){
+            var medicine = {};
+            var nameMedicine = $(this).find("medicine-name").val();
+            var typeMedicine = $(this).find("medicine-type").val();
+
+            medicine.name = nameMedicine;
+            medicine.type = typeMedicine;
+            medicines.push(medicine);
+        });
+        $("#input_medicines").val(JSON.stringify(habits));
+
+        $("#form_patient").submit();
     }
 
     $('#wizard_verticle').smartWizard({

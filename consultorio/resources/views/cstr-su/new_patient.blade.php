@@ -153,7 +153,7 @@
                       @if(isset($patient))
                         {!! Form::open(array("route"=>["paciente.update", $patient->id], "method"=>"PUT","id"=>"form_patient")) !!}
                       @else
-                        {!! Form::open(array("route"=>"paciente.store", "method"=>"POST","id"=>"form_patient")) !!}
+                        {!! Form::open(array("route"=>"paciente.store", "method"=>"POST","id"=>"form_patient", "novalidate" => "novalidate", "autocomplete" => "off")) !!}
                       @endif
                         <div id="step-1" class="form-data">
                           <h2 class="StepTitle">Datos Básicos</h2>						
@@ -284,6 +284,7 @@
               										</div>
 
                                   <div class="col-md-6 col-sm-6 col-xs-12 form-group item">
+                                    
                                     <!-- <div id="dropZoneArea" class="x_content upload-area" style="height: 250px; width: 100%; border: 1px solid red;">
                                       <form action="form_upload.html" class="dropzone dz-clickable dz-started"></form>
                                     </div>-->
@@ -360,9 +361,10 @@
                                   </div>
 
                                   <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback item">                         
-                                  <small class="info-field">Tratamientos Iniciados</small>
-                                  <input type="text" class="form-control has-feedback-left" placeholder="Tratamientos Iniciados" name="started-treatment" id="started-treatment">
-                                    <span class="fa fa-slack form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
+                                    <small class="info-field">Tratamientos Iniciados</small>
+                                    <!-- <input type="text" class="form-control has-feedback-left" placeholder="Tratamientos Iniciados" name="started-treatment" id="started-treatment">
+                                    <span class="fa fa-slack form-control-feedback form-control-feedback-input left" aria-hidden="true"></span> -->
+                                    <textarea rows="2" class="form-control" name="started-treatment" id="started-treatment"></textarea>
                                   </div>
 
                                   <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback item">
@@ -383,7 +385,7 @@
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                       <div class="x_panel">
 
-                                        <div  class="col-md-3 col-sm-3 col-xs-12 form-group item">
+                                        <div  class="col-md-4 col-sm-3 col-xs-12 form-group item">
                                           <small class="info-field has-feedback-left">Posición y Actitud</small>
                                           <select class="select2_single form-control has-feedback-left" tabindex="0" name="position-attitude" id="position-attitude" required>
                                             @foreach(App\Inspection::attitudes() as $key => $value)
@@ -393,7 +395,7 @@
                                           <span class="fa fa-list-alt form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                         </div>
 
-                                        <div  class="col-md-3 col-sm-3 col-xs-12 form-group item">
+                                        <div  class="col-md-4 col-sm-3 col-xs-12 form-group item">
                                           <small class="info-field has-feedback-left">Integridad</small>
                                           <select class="select2_single form-control has-feedback-left" tabindex="0" name="integrity" id="integrity" required>
                                             @foreach(App\Inspection::integrities() as $key => $value)
@@ -403,7 +405,7 @@
                                           <span class="fa fa-list-alt form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                         </div>
 
-                                        <div  class="col-md-3 col-sm-3 col-xs-12 form-group item">
+                                        <div  class="col-md-4 col-sm-3 col-xs-12 form-group item">
                                           <small class="info-field has-feedback-left">Movimientos</small>
                                           <select class="select2_single form-control has-feedback-left" tabindex="0" name="movements" id="movements" required>
                                             @foreach(App\Inspection::movements() as $key => $value )
@@ -413,7 +415,7 @@
                                           <span class="fa fa-list-alt form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                         </div>
 
-                                        <div class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback item">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback item">
                                           <small class="info-field">Otros</small>
                                           <input type="text" class="form-control has-feedback-left" placeholder="Otros" name="other-inspection" id="other-inspection">
                                           <span class="fa fa-home form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
@@ -516,7 +518,7 @@
                                     </div>
 
                                     <div class="col-md-3 col-sm-3 col-xs-12 form-group item">
-                                      <small class="info-field has-feedback-left frecuency-habit">Frecuencia</small>
+                                      <small class="info-field has-feedback-left">Frecuencia</small>
                                       <select class="select2_single form-control has-feedback-left frecuency-habit" tabindex="0" name="frecuency-habit" required>
                                         @foreach(App\HabitPatient::frecuencies() as $key => $value)
                                           <option value="{{ $key }}">{{ $value }}</option>
@@ -543,14 +545,15 @@
 
                                     <div class="col-md-12 col-sm-12 col-xs-12 item">
                                       <small class="info-field has-feedback-left">Descripción Habito</small>
-                                      <textarea class="form-control habit-description" rows="3" name="habit-description"></textarea>
+                                      <!-- <textarea class="form-control habit-description" rows="3" name="habit-description"></textarea> -->
+                                      <input type="text" class="form-control habit-description" placeholder="Descripcion" name="habit-description">
                                     </div>
                                   </div>
 
                                   <div class="pull-right manage-rows-form">
                                     <input type="hidden" id="input_habits" name="input_habits"/>
-                                    <button type="button" class="btn btn-round btn-danger rm-field-habit"><i class="fa fa-chevron-circle-up"></i> Eliminar Alimento</button>
-                                    <button type="button" class="btn btn-round btn-warning add-field-habit"><i class="fa fa-chevron-circle-down"></i> Agregar Alimento</button>
+                                    <button type="button" class="btn btn-round btn-danger rm-field-habit"><i class="fa fa-chevron-circle-up"></i> Eliminar Habito</button>
+                                    <button type="button" class="btn btn-round btn-warning add-field-habit"><i class="fa fa-chevron-circle-down"></i> Agregar Habito</button>
                                   </div>
 
                                   <h2 class="col-md-12 StepTitle">Planifica</h2>
@@ -592,6 +595,8 @@
                                     <input type="text" class="form-control has-feedback-left num_input" placeholder="Duración Días" name="menstruation-duration" id="menstruation-duration">
                                     <span class="fa fa-file-text form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                   </div>
+
+                                  <!-- <button type="submit" class="btn btn-warning">Guardar Paso</button> -->
 
                                 </div>
                               </div>
@@ -804,32 +809,41 @@
                                     </div>
 
                                     <h2 class="col-md-12 StepTitle">Tratamiento</h2>
+                                    <div class="col-md-12 col-sm-6 col-xs-12 form-group item">
+                                      <small class="info-field">Diagnostico</small>
+                                      <input type="text" class="form-control has-feedback-left" placeholder="Diagnostico" name="patient-diagnostic" id="patient-diagnostic" required>
+                                      <span class="fa fa-file-text form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
+                                    </div>
+
                                     <div class="col-md-12 col-sm-12 col-xs-12 item">
                                       <small class="info-field has-feedback-left">Descripción Tratamiento</small>
                                       <textarea class="form-control" rows="5" name="treatment-description" id="treatment-description" required></textarea>
                                     </div>
 
-                                    <div class="medicines-container" id="medicine-row" data-row="1">
+                                    <div class="x_panel" id="medicines">
+                                      <div class="medicines-container" id="medicine-row" data-row="1">
 
-                                      <div class="col-md-8 col-sm-8 col-xs-12 form-group item">
-                                        <small class="info-field">Nombre Medicina</small>
-                                        <input type="text" class="form-control has-feedback-left medicine-name" placeholder="Nombre Medicina" name="medicine-name">
-                                        <span class="fa fa-file-text form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
+                                        <div class="col-md-8 col-sm-8 col-xs-12 form-group item">
+                                          <small class="info-field">Nombre Medicina</small>
+                                          <input type="text" class="form-control has-feedback-left medicine-name" placeholder="Nombre Medicina" name="medicine-name">
+                                          <span class="fa fa-file-text form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
+                                        </div>
+
+                                        <div class="col-md-4 col-sm-4 col-xs-12 form-group item">
+                                          <small class="info-field has-feedback-left">Tipo Medicina</small>
+                                          <select class="select2_single form-control has-feedback-left medicine-type" tabindex="0" name="medicine-type" required>
+                                            <option value="M">Medicamento</option>
+                                            <option value="V">Vitamina</option>
+                                            <option value="O">Otro</option>
+                                          </select>
+                                          <span class="fa fa-list-alt form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
+                                        </div>
+
                                       </div>
-
-                                      <div class="col-md-4 col-sm-4 col-xs-12 form-group item">
-                                        <small class="info-field has-feedback-left">Tipo Medicina</small>
-                                        <select class="select2_single form-control has-feedback-left medicine-type" tabindex="0" name="medicine-type" required>
-                                          <option value="M">Medicamento</option>
-                                          <option value="V">Vitamina</option>
-                                          <option value="O">Otro</option>
-                                        </select>
-                                        <span class="fa fa-list-alt form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
-                                      </div>
-
                                     </div>
 
                                     <div class="pull-right manage-rows-form">
+                                      <input type="hidden" id="input_medicines" name="input_medicines" />
                                       <button type="button" class="btn btn-round btn-danger rm-field-medicine"><i class="fa fa-chevron-circle-up"></i> Eliminar Medicina</button>
                                       <button type="button" class="btn btn-round btn-warning add-field-medicine"><i class="fa fa-chevron-circle-down"></i> Agregar Medicina</button>
                                     </div>
