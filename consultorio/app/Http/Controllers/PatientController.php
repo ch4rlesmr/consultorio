@@ -207,5 +207,9 @@ class PatientController extends Controller {
 		dd($request);
 
 	}
+
+	public function registerPatientCalendar (Request $request) {
+		
+	}
     
 }

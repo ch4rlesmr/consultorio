@@ -46,8 +46,15 @@ Route::group(['prefix' => 'dra', 'middleware' => ['web', 'auth']], function () {
 		return view('cstr-su.new_patient');
 	})->name('dra.paciente_nuevo');*/
 
+	Route::get('/seguimiento', function () {
+		return view('cstr-su.new_tracing');
+	});
+
+	Route::get('/citas', ['uses' => 'MeetingController@listMeetings']);
+
 	Route::resource('paciente', 'PatientController');
 	Route::resource('inventario', 'ProductController');
+	Route::resource('agenda', 'MeetingController');
 
 	Route::get('dra/inventario/exportProductsToExcel',[
         'uses'=>'ProductController@exportProductsToExcel',
@@ -61,9 +68,9 @@ Route::group(['prefix' => 'dra', 'middleware' => ['web', 'auth']], function () {
 		return view('cstr-su.organ');
 	})->name('dra.organos');
 
-	Route::get('/citas', function () {
+	/*Route::get('/citas', function () {
 		return view('cstr-su.appointment');
-	})->name('dra.citas');
+	})->name('dra.citas');*/
 
 	/*Route::get('/inventario', function () {
 		return view('cstr-su.inventory');

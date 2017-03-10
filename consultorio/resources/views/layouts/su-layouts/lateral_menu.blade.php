@@ -29,8 +29,8 @@
                   <li>
                     <a><i class="fa fa-table"></i> Citas <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu" style="display:block;">
-                      <li class="current-page"><a href="{{ url('dra/calendario') }}"> Calendario </a></li>
-                      <li class="current-page"><a href="{{ url('dra/citas') }}"> Citas </a></li>
+                      <li class="current-page"><a href="{{ route('agenda.index') }}"> Calendario </a></li>
+                      <li class="current-page"><a href="{{ action('MeetingController@listMeetings') }}"> Citas </a></li>
                     </ul>
                   </li>
                   <!-- <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>

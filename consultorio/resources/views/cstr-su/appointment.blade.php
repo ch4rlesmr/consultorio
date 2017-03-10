@@ -117,28 +117,29 @@
                       <table class="table table-striped jambo_table inventory-list">
                         <thead>
                           <tr class="headings" style="text-transform:uppercase;">
-                            <th class="text-center">Nº Identificación</th>
-                            <th class="text-center">Nombre Paciente</th>
                             <th class="text-center">Fecha</th>
+                            <th class="text-center">Nombre Paciente</th>
+                            <th class="text-center">Nº Identificación</th>
                             <th class="text-center">Tipo Cita</th>
                             <th class="text-center">Confirmación</th>
                             <th width="28%" class="text-center">Opciones</th>
                           </tr>
                         </thead>
                         <tbody style="text-align: center;">
-                          
-                          <tr>
-                            <td>Referencia</td>
-                            <td>Referencia</td>
-                            <td>Referencia</td>
-                            <td>Referencia</td>
-                            <td>Referencia</td>
-                            <td data-product-id="">
+                          @foreach ($meetings as $meeting)
+                            <tr>
+                              <td>{{ $meeting->start_meeting }}</td>
+                              <td>{{ $meeting->patient->name . ' ' . $meeting->patient->last_name }}</td>
+                              <td>{{ $meeting->patient->id_number }}</td>
+                              <td>{{ $meeting->meetingType() }}</td>
+                              <td>{{ $meeting->meeting_status }}</td>
+                              <td data-meeting-id="{{ $meeting->id }}">
                               <a href="#" type="button" class="btn btn-success product_detail" data-toggle="modal" data-target="#inventoryDetail"><span class="fa fa-eye"></span>  Ver</a>
                               <a href="" type="button" class="btn btn-warning "><span class="fa fa-pencil"></span> Editar</a>
                               <a href="#" type="button" class="btn btn-danger product_delete" data-toggle="modal" data-target="#inventoryDelete"><span class="fa fa-trash"></span> Borrar</a>
                             </td>
-                          </tr>
+                            </tr>
+                          @endforeach
                           
                         </tbody>
                       </table>

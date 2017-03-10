@@ -13,7 +13,7 @@ $(window).load(function() {
           header: {
             left: 'prev, next, today',
             center: 'title',
-            right: 'month,agendaWeek,agendaDay'
+            right: 'month,agendaWeek,agendaDay,listMonth'
           },
           defaultView: 'agendaDay',
           navLinks: true,
@@ -30,26 +30,58 @@ $(window).load(function() {
           selectConstraint: 'businessHours',
           allDaySlot: false,
           slotDuration: '00:20:00',
-          axisFormat: 'h(:mm) a',
+          axisFormat: 'hh:mm p',
           slotMinutes: 20,
+          ignoreTimezone: true,
+          timezone: "local",
 
-          select: function(start, end, allDay) {
+          select: function(start, end, jsEvent, view) {
 
             // console.log(calendar.fullCalendar('getView').name);
+            console.log(start, end, jsEvent, view);
+            console.log(view.name + ' --> nombre de vista');
 
             $('#fc_create').click();
 
-            started = start;
-            ended = end;
-            console.log('inicio: ',start, 'fin: ',end,'allday: ', allDay);
+            startAgenda = moment(start._d).format('YYYY-MM-DD hh:mm');
+            console.log('formato fecha hora: ' + startAgenda);
 
-            $(".antosubmit").on("click", function() {
-              var title = $("#title").val();
-              if (end) {
-                ended = end;
+            // $("#register_calendar_patient #save_new_patient").on("click", function() {
+            $("#register_calendar_patient").on("submit", function() {
+              
+              if ( !validator.checkAll($('#register_calendar_patient')) ) {
+                return false;
+              } else {
+                
+                data = {
+                  name_patient: $('#name-patient').val(),
+                  lastname_patient: $('#lastname-patient').val(),
+                  document_type: $('#type-document').val(),
+                  number_document: $('#number-document').val(),
+                  phone_patient: $('#phone-patient').val(),
+                  email_patient: $('#email-patient').val(),
+                  address_patient: $('#address-patient').val(),
+                  start: startAgenda
+                };
+
+                $('#date-agenda').val(startAgenda);
+
+                console.log('la info de la cita para nuevo paciente: ', data);
+                return true;
+
+                // app.httpPost('dra/agenda', data, 
+                //   function onSuccess(response) {
+                //     console.log(response);
+                //   }, function onError(response) {
+                //     console.log(response);
+                //   }
+                // );
+
               }
 
-              categoryClass = $("#event_type").val();
+            });
+
+              /*categoryClass = $("#event_type").val();
 
               if (title) {
                 calendar.fullCalendar('renderEvent', {
@@ -68,15 +100,18 @@ $(window).load(function() {
 
               $('.antoclose').click();
 
-              return false;
-            });
+              return false;*/
+            
 
           },
           eventClick: function(calEvent, jsEvent, view) {
-            $('#fc_edit').click();
-            $('#title2').val(calEvent.title);
+            /*$('#title2').val(calEvent.title);
 
-            console.log(calEvent, jsEvent, view);
+            console.log(calEvent, jsEvent, view);*/
+
+            console.log(view.name + ' --> nombre de vista');
+            if ( view.name !== 'month' ) {
+            $('#fc_edit').click();
 
             categoryClass = $("#event_type").val();
 
@@ -88,6 +123,12 @@ $(window).load(function() {
             });
 
             calendar.fullCalendar('unselect');
+
+            } else {
+              $('#calendar').fullCalendar('changeView', 'agendaDay');
+              // $('#calendar').fullCalendar('gotoDate', start);
+            }
+
           },
           //editable: false, --> para arrastrar los eventos
           // editable: false,
@@ -227,10 +268,10 @@ $(function () {
 		yearRange: "-100:+0",
 	}); //agregar date picker jQuery UI para campos de fecha en formularios
 
-	$(".image-picker").imagepicker({
+	/*$(".image-picker").imagepicker({
 		show_label: true,
 		// hide_select: false
-	});
+	});*/
 
 	$('#dob-patient').change(function () {
 		var dateString = $(this).val().toString();
@@ -339,6 +380,7 @@ $(function () {
 
 	$('.add-field-medicine').click(function (e) {
 		e.preventDefault();
+		alert('agregar medicina');
 		var rowFields = $('#medicine .medicines-container').first().clone();
 		$(rowFields).find('input, textarea').val("");
 		next_medicine ++;
@@ -562,7 +604,7 @@ $(document).ready(function() {
     /*Validacion de formularios*/
     validator.message['date'] = 'not a real date';
 
-    $('form')
+    $('form, #register_calendar_patient')
     .on('blur', 'input[required], input.optional, select[required], select.required', validator.checkField)
     .on('change', 'input.datepicker, select[required], select.required', validator.checkField)
     .on('keypress', 'input[required][pattern]', validator.keypress);

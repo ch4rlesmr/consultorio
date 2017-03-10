@@ -4,10 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Aliment;
+use App\Meeting;
 
 class Patient extends Model
 {
     protected $table = 'patients';
+    protected $fillable = [
+        'id', 'name', 'last_name', 'birthdate', 'civil_status', 'address',
+        'phone', 'blood_type_id', 'gender', 'email', 'number_children',
+        'academic_level_id', 'academic_level_id', 'created_at', 'updated_at',
+        'type_id_number', 'id_number', 'job'
+    ];
 
 
     public static function all_types_id(){
@@ -36,6 +43,10 @@ class Patient extends Model
 
     public function aliments () {
         return $this->hasMany('App\Aliment', 'patient_id');
+    }
+
+    public function meetings () {
+        return $this->hasMany('App\Meeting', 'patient_id');
     }
 
 }

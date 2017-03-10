@@ -76,7 +76,8 @@
               </ul>
               <div id="myTabContent" class="tab-content">
                 <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-                  <form class="form-horizontal form-label-left form-data mode2" id="basic-data-form" novalidate="">
+                  <!-- <form class="form-horizontal form-label-left form-data mode2" id="basic-data-form" novalidate=""> -->
+                  {!! Form::open(array("action"=>"MeetingController@store", "method"=>"POST","id"=>"register_calendar_patient", "novalidate" => "novalidate", "autocomplete" => "off")) !!}
                     <div class="row">
                       <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
@@ -95,10 +96,9 @@
                           <div class="col-md-2 col-sm-2 col-xs-12 form-group item">
                             <small class="info-field has-feedback-left">Tipo Documento</small>
                             <select class="select2_single form-control has-feedback-left" tabindex="0" name="type-document" id="type-document" required="">
-                              <option value="C.C">C.C</option>
-                              <option value="T.I">T.I</option>
-                              <option value="C.E">C.E</option>
-                              <option value="PASAPORTE">PASAPORTE</option>
+                              @foreach (App\Patient::all_types_id() as $key => $value)
+                                <option value="{{ $key }}">{{ $value}}</option>
+                              @endforeach
                             </select>
                             <span class="fa fa-list-alt form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                           </div>
@@ -115,21 +115,30 @@
                             <span class="fa fa-phone-square form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                           </div>
             
-                        <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback item">
+                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback item">
                             <small class="info-field">Correo Electronico</small>
                             <input type="email" class="form-control has-feedback-left" placeholder="Correo Electrónico" name="email-patient" id="email-patient" required="">
                             <span class="fa fa-envelope form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                           </div>
 
+                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback item">
+                            <small class="info-field">Dirección</small>
+                            <input type="text" class="form-control has-feedback-left" placeholder="Dirección" name="address-patient" id="address-patient" required="">
+                            <span class="fa fa-home form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
+                          </div>
+
+                          <input type="hidden" name="date-agenda" id="date-agenda">
+
                           <div class="col-md-12 col-sm-6 col-xs-12 form-group item">
                             <button type="button" class="btn btn-default antoclose" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary antosubmit">Guardar Cita</button>
+                            <button type="submit" class="btn btn-primary" id="save_new_patient">Guardar Cita</button>
                           </div> 
 
                         </div>
                       </div>
                     </div>
-                  </form>
+                    {!! Form::close() !!}
+                  <!-- </form> -->
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
                   <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo

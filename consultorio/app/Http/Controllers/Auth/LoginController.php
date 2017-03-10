@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\MeetingController;
+use App\Meeting;
 
 class LoginController extends Controller
 {
@@ -50,7 +52,7 @@ class LoginController extends Controller
             $user = Auth::user();
 
             if ($user->isSuperadmin()){
-                return redirect()->route('dra.calendario');
+                 return redirect()->route('agenda.index');
             } else {
                 return redirect()->route('citas');
             }

@@ -105,10 +105,10 @@ $(function () {
 		yearRange: "-100:+0",
 	}); //agregar date picker jQuery UI para campos de fecha en formularios
 
-	$(".image-picker").imagepicker({
+	/*$(".image-picker").imagepicker({
 		show_label: true,
 		// hide_select: false
-	});
+	});*/
 
 	$('#dob-patient').change(function () {
 		var dateString = $(this).val().toString();
@@ -217,6 +217,7 @@ $(function () {
 
 	$('.add-field-medicine').click(function (e) {
 		e.preventDefault();
+		alert('agregar medicina');
 		var rowFields = $('#medicine .medicines-container').first().clone();
 		$(rowFields).find('input, textarea').val("");
 		next_medicine ++;
