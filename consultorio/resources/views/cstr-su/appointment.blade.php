@@ -4,7 +4,7 @@
 <div class="right_col" role="main">
             <div class="page-title">
               <div class="title_left">
-                <h3>Inventario <!-- <small>Click to add/edit events</small> --></h3>
+                <h3>Citas <!-- <small>Click to add/edit events</small> --></h3>
               </div>
 
               <!-- <div class="title_right">
@@ -26,7 +26,7 @@
 
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Busqueda Inventario</h2>&nbsp;
+                    <h2>Busqueda por Cita</h2>&nbsp;
                     <ul class="nav navbar-left panel_toolbox">
 
                       <li><a class="collapse-link pull-right"><i class="fa fa-chevron-up"></i></a>
@@ -68,11 +68,9 @@
                           <div>
                             <select class="select2_single form-control" tabindex="0" name="status-inventory" id="status-inventory" name="status-inventory">
                               <option selected="true" disabled="disabled">Escoger Estado</option>
-                              <option value="E">Excelente</option>
-                              <option value="B">Bueno</option>
-                              <option value="R">Regular</option>
-                              <option value="M">Mal</option>
-                              <option value="P">Pesimo</option>
+                              <option value="ACTV">Confirmada</option>
+                              <option value="CANC">Cancelada</option>
+                              <option value="DONE">Cumplida</option>
                             </select>
                           </div>
                         </div>
