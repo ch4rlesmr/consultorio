@@ -27,7 +27,7 @@
         <div class="x_content">
           <div class="well">
 
-            <form action="" class="form-horizontal form-label-left">
+            <form action="" class="form-horizontal form-label-left" autocomplete="off">
 
               <div class="col-md-5 col-md-offset-1">
                 <label class="control-label">Documento de Identificación</label>
@@ -46,7 +46,7 @@
               <div class="col-md-5 col-md-offset-1">
                 <label class="control-label">Fecha Próxima Cita</label>
                 <div>
-                  <input type="text" id="date-patient" name="date-patient" class="form-control">
+                  <input type="text" id="date-patient" name="date-patient" class="form-control datepicker" readonly>
                 </div>
               </div>
 
@@ -87,11 +87,12 @@
           </div>
           <div class="col-md-4 col-sm-4 col-xs-12 profile_details"></div>
 
+          @foreach ($patients as $patient)
           <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
             <div class="well profile_view">
               <div class="col-sm-12">
                 <div class="left col-xs-7">
-                  <h2>Nicole Pearson Nicole</h2>
+                  <h2>{{ $patient->name . ' ' . $patient->last_name }}</h2>
                   <p><strong>Tratamiento: </strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit </p>
                 </div>
                 <div class="right col-xs-5 text-center">
@@ -99,7 +100,7 @@
                 </div>
                 <div class="left col-xs-12">
                   <ul class="list-unstyled">
-                    <li><i class="fa fa-phone"></i> <strong>Telefono:</strong> <span>7721736</span></li>
+                    <li><i class="fa fa-phone"></i> <strong>Telefono:</strong> <span>{{ $patient->phone }}</span></li>
                     <li><i class="fa fa-calendar"></i> <strong>Prox. Cita:</strong> <span>28 Julio 2007 - 9:30 AM</span> </li>
                   </ul>
                 </div>
@@ -107,69 +108,13 @@
               <div class="col-xs-12 bottom text-center">
                 
                 <div class="col-xs-12 col-sm-12 emphasis">
-                  <a href="{{ action('PatientController@show', 2) }}" class="btn btn-success"><i class="fa fa-eye"> </i> Detalle</a>
+                  <a href="{{ action( 'PatientController@show', $patient->id ) }}" class="btn btn-success"><i class="fa fa-eye"> </i> Detalle</a>
                   <!-- <a href="" class="btn btn-warning"><i class="fa fa-pencil"> </i> Editar</a> -->
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
-            <div class="well profile_view">
-              <div class="col-sm-12">
-                <div class="left col-xs-7">
-                  <h2>Nicole Pearson Nicole</h2>
-                  <p><strong>Tratamiento: </strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit </p>
-                </div>
-                <div class="right col-xs-5 text-center">
-                  <img src="/images/user.png" alt="" class="img-circle img-responsive">
-                </div>
-                <div class="left col-xs-12">
-                  <ul class="list-unstyled">
-                    <li><i class="fa fa-phone"></i> <strong>Telefono:</strong> <span>7721736</span></li>
-                    <li><i class="fa fa-calendar"></i> <strong>Prox. Cita:</strong> <span>28 Julio 2007 - 9:30 AM</span> </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-xs-12 bottom text-center">
-                
-                <div class="col-xs-12 col-sm-12 emphasis">
-                  <a href="{{ action('PatientController@show', 2) }}" class="btn btn-success"><i class="fa fa-eye"> </i> Detalle</a>
-                  <!-- <a href="" class="btn btn-warning"><i class="fa fa-pencil"> </i> Editar</a> -->
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
-            <div class="well profile_view">
-              <div class="col-sm-12">
-                <div class="left col-xs-7">
-                  <h2>Nicole Pearson Nicole</h2>
-                  <p><strong>Tratamiento: </strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit </p>
-                </div>
-                <div class="right col-xs-5 text-center">
-                  <img src="/images/user.png" alt="" class="img-circle img-responsive">
-                </div>
-                <div class="left col-xs-12">
-                  <ul class="list-unstyled">
-                    <li><i class="fa fa-phone"></i> <strong>Telefono:</strong> <span>7721736</span></li>
-                    <li><i class="fa fa-calendar"></i> <strong>Prox. Cita:</strong> <span>28 Julio 2007 - 9:30 AM</span> </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-xs-12 bottom text-center">
-                
-                <div class="col-xs-12 col-sm-12 emphasis">
-                  <a href="{{ action('PatientController@show', 2) }}" class="btn btn-success">
-                    <i class="fa fa-eye"> </i> Detalle
-                  </a>
-                  <!-- <a href="" class="btn btn-warning"><i class="fa fa-pencil"> </i> Editar</a> -->
-                </div>
-              </div>
-            </div>
-          </div>
-
+          @endforeach
         </div>
 
       </div>
