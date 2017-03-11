@@ -107,7 +107,7 @@
                       <div class="profile_title">
                         <div class="col-md-6">
                           <!-- <h2>User Activity Report</h2> -->
-                          <h2>Progreso de Paciente</h2>
+                          <h2>Progreso de Paciente   Peso/Mes</h2>
                         </div>
                         <!-- <div class="col-md-6">
                           <div id="reportrange" class="pull-right" style="margin-top: 5px; background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #E6E9ED">

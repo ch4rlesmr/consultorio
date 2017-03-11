@@ -21,53 +21,42 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";*/
 div.right-col {
-  min-height: 0 !important;
-}
+  min-height: 0 !important; }
 
 small.info-field {
   font-size: 13px;
   font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
-  line-height: 20px;
-}
+  line-height: 20px; }
 
 .form-control-feedback-input {
-  margin-top: 25px;
-}
+  margin-top: 25px; }
 
 div.thumbnail.selected p {
   color: white;
   font-weight: bold;
-  line-height: 25px;
-}
+  line-height: 25px; }
 
 .form-control.has-feedback-left {
-  padding-left: 40px;
-}
+  padding-left: 40px; }
 
 .image_picker_image {
-  max-height: 150px;
-}
+  max-height: 150px; }
 
 .form-control-feedback {
-  z-index: 1;
-}
+  z-index: 1; }
 
 .stepContainer {
   height: auto !important;
-  overflow-x: visible !important;
-}
+  overflow-x: visible !important; }
 
 .manage-rows-form {
-  margin-top: 12px;
-}
+  margin-top: 12px; }
 
 .rm-field, .rm-field-habit, .rm-field-medicine {
-  display: none;
-}
+  display: none; }
 
 .form-group {
-  min-height: 80px;
-}
+  min-height: 80px; }
 
 .item .alert {
   display: block;
@@ -75,19 +64,14 @@ div.thumbnail.selected p {
   margin: 0;
   border-radius: 0;
   padding: 0 3px;
-  width: auto;
-}
-
-.item .alert::after {
-  content: none;
-}
+  width: auto; }
+  .item .alert::after {
+    content: none; }
 
 table.inventory-list tr td {
-  vertical-align: middle;
-}
+  vertical-align: middle; }
 
 .modal-footer {
-  text-align: center;
-}
+  text-align: center; }
 
 /*# sourceMappingURL=app.css.map */
