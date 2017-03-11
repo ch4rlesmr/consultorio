@@ -280,7 +280,12 @@ $('#searchOldPatients').click(function () {
 
 function loadResultPatientTable(patientsResult) {
 	var table = $('#result-search-patient tbody');
+	$("#result-search-patient tbody").find("tr").remove();
 	for (var patient = 0; patient < patientsResult.length; patient++) {
-		table.append('<tr><td>'+ patient.id_number +'</td><td>'+ patient.name + ' ' + patient.last_name +'</td></tr>');
+		table.append('<tr data-patient="' + patientsResult[patient].id + '">' + 
+		'<td>'+ patientsResult[patient].id_number +'</td>' + 
+		'<td>'+ patientsResult[patient].name + ' ' + patientsResult[patient].last_name +'</td>' + 
+		'<td><a href=""class="btn btn-success"><i class="fa fa-calendar"></i> <strong>Asignar</strong></a></td>' + 
+		'</tr>');
 	}
 }

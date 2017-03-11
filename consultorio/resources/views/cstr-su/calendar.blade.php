@@ -166,16 +166,16 @@
                         <table class="table table-striped jambo_table" id="result-search-patient">
                           <thead>
                             <tr class="headings" style="text-transform:uppercase;">
-                              <th class="text-center">Identificación</th>
+                              <th class="text-center" width="25%"> N° Identificación</th>
                               <th class="text-center">Nombre Paciente</th>
+                              <th class="text-center" width="25%"></th>
                             </tr>
                           </thead>
                           <tbody style="text-align: center;">
                           </tbody>
                         </table>
                       </div>
-                      <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo
-                    booth letterpress, commodo enim craft beer mlkshk aliquip</p>
+                      
                     </div>
                   </div>
                   <div class="clearfix"></div>

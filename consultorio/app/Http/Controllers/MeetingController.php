@@ -116,7 +116,7 @@ class MeetingController extends Controller
 
     public function searchPatients (Request $request) {
 
-        $patients = Patient::select(DB::raw('id_number, name, last_name'))->where(DB::raw('CONCAT(name, " ", last_name)'), 'LIKE', '%' . $request->input('name_patient') .'%')
+        $patients = Patient::select(DB::raw('id, id_number, name, last_name'))->where(DB::raw('CONCAT(name, " ", last_name)'), 'LIKE', '%' . $request->input('name_patient') .'%')
                             ->where('id_number', 'LIKE', '%'. $request->input('numer_document') .'%')
                             ->get();
 
