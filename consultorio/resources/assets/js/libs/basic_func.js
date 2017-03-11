@@ -259,3 +259,28 @@ $(function () {
 	}
 
 });
+
+$('#searchOldPatients').click(function () {
+	
+	var data = {
+		name_patient: $('#search-patient-name').val(),
+		numer_document: $('#search-document-patient').val()
+	};
+
+	console.log(data);
+
+	app.httpPost('dra/buscar_cita_paciente', data, function onSuccess (response) {
+		console.log(response.patients);
+		loadResultPatientTable(response.patients);
+	}, function onError (response) {
+		console.log(response);
+	});
+
+});
+
+function loadResultPatientTable(patientsResult) {
+	var table = $('#result-search-patient tbody');
+	for (var patient = 0; patient < patientsResult.length; patient++) {
+		table.append('<tr><td>'+ patient.id_number +'</td><td>'+ patient.name + ' ' + patient.last_name +'</td></tr>');
+	}
+}

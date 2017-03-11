@@ -51,6 +51,7 @@ Route::group(['prefix' => 'dra', 'middleware' => ['web', 'auth']], function () {
 	});
 
 	Route::get('/citas', ['uses' => 'MeetingController@listMeetings']);
+	Route::POST('/buscar_cita_paciente', ['uses' => 'MeetingController@searchPatients', "as" => 'agenda.searchPatients']);
 
 	Route::resource('paciente', 'PatientController');
 	Route::resource('inventario', 'ProductController');

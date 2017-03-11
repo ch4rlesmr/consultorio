@@ -141,8 +141,44 @@
                   <!-- </form> -->
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
-                  <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo
+                  <div class="col-md-12">
+                    <div class="x_panel">
+                      <div class="well">
+                        <form action="" class="form-horizontal form-label-left mode2">
+                          <div class="col-md-5">
+                            <label class="control-label">Nombre Paciente</label>
+                            <div>
+                              <input type="text"name="search-patient-name" id="search-patient-name" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-md-5">
+                            <label class="control-label" for="first-name">No. Identificación</label>
+                            <div>
+                              <input type="text"name="search-document-patient" id="search-document-patient" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-md-2" style ="padding-top:25px;">
+                            <button type="button" class="btn btn-success" id="searchOldPatients"><span class="fa fa-search"></span> <strong>Buscar !</strong></button>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="table-responsive">
+                        <table class="table table-striped jambo_table" id="result-search-patient">
+                          <thead>
+                            <tr class="headings" style="text-transform:uppercase;">
+                              <th class="text-center">Identificación</th>
+                              <th class="text-center">Nombre Paciente</th>
+                            </tr>
+                          </thead>
+                          <tbody style="text-align: center;">
+                          </tbody>
+                        </table>
+                      </div>
+                      <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo
                     booth letterpress, commodo enim craft beer mlkshk aliquip</p>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
                 </div>
                 
               </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Response;
+use Illuminate\Support\Facades\DB;
 use App\Patient;
 use App\Meeting;
 
@@ -111,6 +112,17 @@ class MeetingController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function searchPatients (Request $request) {
+
+        $patients = Patient::select(DB::raw('id_number, name, last_name'))->where(DB::raw('CONCAT(name, " ", last_name)'), 'LIKE', '%' . $request->input('name_patient') .'%')
+                            ->where('id_number', 'LIKE', '%'. $request->input('numer_document') .'%')
+                            ->get();
+
+        if ( $request->ajax() ) {
+            return Response::json(['patients' => $patients, 'status' => 'success'],201);
+        }
     }
 
     public function listMeetings() {
