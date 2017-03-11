@@ -5,7 +5,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Organos <!-- <small>Click to add/edit events</small> --></h3>
+                <h3>Órganos <!-- <small>Click to add/edit events</small> --></h3>
               </div>
 
             </div>
@@ -16,7 +16,7 @@
               <div class="col-md-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Organos y Sus Referencias <!-- <small>Sessions</small> --></h2>
+                    <h2>Órganos y sus Referencias <!-- <small>Sessions</small> --></h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -26,7 +26,7 @@
                       <table class="table table-striped jambo_table">
                         <thead>
                           <tr class="headings" style="text-transform:uppercase;">
-                            <th class="text-center">Organo</th>
+                            <th class="text-center">Órgano</th>
                             <th class="text-center">Elemento</th>
                             <th class="text-center">Viscera</th>
                             <th class="text-center">Tejido</th>
@@ -38,7 +38,7 @@
                             <th class="text-center">Sabor</th>
                             <th class="text-center">Olor</th>
                             <th class="text-center">Sentimiento</th>
-                            <th class="text-center">estación</th>
+                            <th class="text-center">Estación</th>
                             <th class="text-center">Clima</th>
                           </tr>
                         </thead>
@@ -47,18 +47,87 @@
                           <tr>
                             <td>Higado</td>
                             <td>Madera</td>
-                            <td>Vesicula Biliar</td>
-                            <td>Tendon</td>
+                            <td>VesÍcula Biliar</td>
+                            <td>Tendón</td>
                             <td>Uñas y Tendones</td>
                             <td>Ojo</td>
                             <td>Vista</td>
-                            <td>Lagrima</td>
+                            <td>Lágrima</td>
                             <td>Verde</td>
-                            <td>Acido</td>
+                            <td>Ácido</td>
                             <td>Rancio</td>
                             <td>Ira</td>
                             <td>Primavera</td>
                             <td>Viento</td>
+                           </tr>
+                            <tr>
+                             <td><img alt="" src="images/food/Sweet.PNG" > Corazón</td>
+                                <td> Fuego </td>
+                                <td> Intestino Delgado </td> 
+                                <td> Vasos Sanguíneos</td>
+                                <td> Cara y Pulso</td>
+                                <td> Lengua </td>
+                                <td> Lenguaje </td>
+                                <td> Sudor</td>
+                                <td> Rojo </td>
+                                <td> Amargo </td>
+                                <td> Quemado </td>
+                                <td> Alegría  </td>
+                                <td> Verano </td>
+                                <td> Calor</td>                    
+                              </tr>
+                                <tr>
+                                <td><img alt="" src="images/food/Sweet.PNG" > Bazo</td>
+                                <td> Tierra </td>
+                                <td> Estómago </td> 
+                                <td> Músculo</td>
+                                <td> Músculo y Labios</td>
+                                <td> Boca </td>
+                                <td> Gusto </td>
+                                <td> Saliva</td>
+                                <td> Amarillo </td>
+                                <td> Dulce </td>
+                                <td> Perfumado </td>
+                                <td> Pensamiento  </td>
+                                <td> Verano Largo Canícula </td>
+                                <td> Humedad</td>                               
+                              </tr>
+                                <tr>
+                                <td><img alt="" src="images/food/" > Pulmón</td>
+                                <td> Metal </td>
+                                <td> Intestino Grueso </td> 
+                                <td> Piel</td>
+                                <td> Piel y Vellosidad</td>
+                                <td> Naríz </td>
+                                <td> Olfato </td>
+                                <td> Moco</td>
+                                <td> Blanco </td>
+                                <td> Picante </td>
+                                <td> Carne Podrida </td>
+                                <td> Melancolía </td>
+                                <td> Otoño </td>
+                                <td> Seco</td>                               
+                              </tr>
+                              <tr>
+                                <td><img alt="" src="images/food/" > Riñón</td>
+                                <td> Agua </td>
+                                <td> Vejiga </td> 
+                                <td> Hueso y Médula</td>
+                                <td> Oido</td>
+                                <td> Uretra,Ano y oído </td>
+                                <td> Audición </td>
+                                <td> Humedad de la lengua</td>
+                                <td> Negro </td>
+                                <td> Salado </td>
+                                <td> Pútrido </td>
+                                <td> Miedo </td>
+                                <td> Invierno </td>
+                                <td> Frio</td>                               
+                              </tr>                   
+
+
+
+
                           <!-- Terminar aqui -->
                         </tbody>
                       </table>

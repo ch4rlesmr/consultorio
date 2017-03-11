@@ -113,14 +113,15 @@
                           @foreach ($meetings as $meeting)
                             <tr>
                               <td>{{ $meeting->start_meeting }}</td>
-                              <td>{{ $meeting->patient->name . ' ' . $meeting->patient->last_name }}</td>
+                              <td><a href="#" type="button" class="btn btn-default" data-toggle="modal" data-target="#inventoryDetail"> {{ $meeting->patient->name . ' ' . $meeting->patient->last_name }}  </a>   </td>
+                            
                               <td>{{ $meeting->patient->id_number }}</td>
                               <td>{{ $meeting->meetingType() }}</td>
                               <td>{{ $meeting->meeting_status }}</td>
                               <td data-meeting-id="{{ $meeting->id }}">
-                              <a href="#" type="button" class="btn btn-success product_detail" data-toggle="modal" data-target="#inventoryDetail"><span class="fa fa-eye"></span>  Ver</a>
-                              <a href="" type="button" class="btn btn-warning "><span class="fa fa-pencil"></span> Editar</a>
-                              <a href="#" type="button" class="btn btn-danger product_delete" data-toggle="modal" data-target="#inventoryDelete"><span class="fa fa-trash"></span> Borrar</a>
+                              <a href="#" type="button" class="btn btn-success product_detail" data-toggle="modal" data-target="#inventoryDetail"><span class="fa fa-calendar"></span> Ir a cita </a>
+                             <!-- <a href="" type="button" class="btn btn-warning "><span class="fa fa-pencil"></span> Editar</a> -->
+                              <a href="#" type="button" class="btn btn-danger product_delete" data-toggle="modal" data-target="#inventoryDelete"><span class="fa fa-ban"></span> Cancelar</a>
                             </td>
                             </tr>
                           @endforeach

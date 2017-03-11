@@ -79,10 +79,10 @@
                                     <p>Carnes, Pescados y Mariscos</p>
                                   </td>
                                   <td>
-                                    <p>Carne de res, Cordero, Ternera, Pollo, Pavo, Conejo, Atún, Robalo, Salmon, Sardina, Trucha, Merlusa, Venado, Camaron, Almejas</p>
+                                    <p>Pollo, Pavo, Atun, Trucha, Bacalao, Salmon, Robalo, Caracoles y Pescados blancos</p>
                                   </td>
                                   <td>
-                                    <p>Cerdo,  Tocino, Bagre, Salmon ahumado, Caviar, Pulmo</p>
+                                    <p>Cerdo, Res, Cordero, Ternera, Higado, Jamon, Bagre, Merlusa</p>
                                   </td>
                                 </tr>
                                 <tr>
@@ -91,10 +91,10 @@
                                     <p>Huevos y Lacteos</p>
                                   </td>
                                   <td>
-                                    <p>Huevos 4 por semana, Leche de soya, Deslactosada, Queso descremado, Mozarella, Maduros con paipa, Fibra, Cabra, Oveja y soya, Yogurt fitness y griego, Helado dietetico</p>
+                                    <p>Huevos 4 por semana, Leche de soya, deslactosada, Queso descremado, Mozarella, Maduros como paipa, Fibra, Cabra, Oveja y soya, Yogurt fitness y griego, Helado dietetico</p>
                                   </td>
                                   <td>
-                                    <p>Leche entera,  Queso crema, Yogurt, Queso suizo, Doble crema, Campesino, Helado, Sueros</p>
+                                    <p>Leche entera,  Queso crema, Yogurt, Queso suizo, Doble crema, Campesino, Helado, Sueros, Queso parmesano</p>
                                   </td>
                                 </tr>
                                 <tr>
@@ -106,7 +106,7 @@
                                     <p>Aceite de oliva, Girasol, Canola, Linasa</p>
                                   </td>
                                   <td>
-                                    <p>Maiz, Mani, Algodón, Manteca</p>
+                                    <p>Maiz, Mani, Algodón, Manteca de cerdo</p>
                                   </td>
                                 </tr>
                                 <tr>
@@ -115,10 +115,10 @@
                                     <p>Nueces y Semillas</p>
                                   </td>
                                   <td>
-                                    <p>Almendras, Avellanas, Semilla de girasol</p>
+                                    <p>Almendras, Nueces y Mani</p>
                                   </td>
                                   <td>
-                                    <p>Mani, Nueces, Pistachos</p>
+                                    <p> Pistachos</p>
                                   </td>
                                 </tr>
                                 <tr>
@@ -127,10 +127,10 @@
                                     <p>Leguminosas</p>
                                   </td>
                                   <td>
-                                    <p>Arvejas, Garbanzos</p>
+                                    <p>Arvejas, Lenteja, Frijol rojo</p>
                                   </td>
                                   <td>
-                                    <p>Lenteja, Frijol, Habas</p>
+                                    <p>Garbanzo, Habas, Frijol blanco</p>
                                   </td>
                                 </tr>
                                 <tr>
@@ -139,10 +139,10 @@
                                     <p>Cereales y Panes</p>
                                   </td>
                                   <td>
-                                    <p>Arroz blanco, Cebada, Pan de centeno, Arabe, Quinoa, Soya, Granola dietetica</p>
+                                    <p>Arroz blanco, Cebada, Pan de centeno, Maiz, Avena y Arabe</p>
                                   </td>
                                   <td>
-                                    <p>Harina de trigo, Maiz, Avena, Harina, Integrales</p>
+                                    <p>Harina de trigo, Granola, Multicereales, Integrales</p>
                                   </td>
                                 </tr>
                                 <tr>
@@ -151,10 +151,10 @@
                                     <p>Tuberculos</p>
                                   </td>
                                   <td>
-                                    <p>Ñame, Yuca, Platano</p>
+                                    <p>Yuca, Platano</p>
                                   </td>
                                   <td>
-                                    <p>Papa</p>
+                                    <p>Papa, Ñame</p>
                                   </td>
                                 </tr>
                                 <tr>
@@ -163,10 +163,10 @@
                                     <p>Vegetales</p>
                                   </td>
                                   <td>
-                                    <p>Acelga, Ajo, Brocoli, Calabaza, Cebolla, Perejil, Lechuga, Rabano, Pimenton, Tomate, Pepino, Zanahoria, Ahuyama, Calabacin, Cilantro, Apio, Espinaca, Champiñon, Berros, Nopal, Alcachofas, Esparragos, Abichuelas</p>
+                                    <p>Pepino, Zanahoria, Ahuyama, Calabacin, Cilantro, Apio, Espinaca, Champiñon, Berros, Nopal, Alcachofas, Esparragos, habichuelas</p>
                                   </td>
                                   <td>
-                                    <p>Berenjena, Coliflor, Repollo, Aguacate, Maiz, Col, Brotes de alfalfa, Aceitunas</p>
+                                    <p>Coliflor, Repollo, Aceitunas, Tomate, Col, Brotes de alfalfa, Pimenton</p>
                                   </td>
                                 </tr>
                                 <tr>
@@ -175,10 +175,10 @@
                                     <p>Frutas</p>
                                   </td>
                                   <td>
-                                    <p>Kiwi, Higos, Uvas, Durazno, Carambolo, Ciruela, Piña, Guayaba, Papaya, Patilla, Arandanos, Granadilla, Cereza, Mango, Pera verde, Lima, Toronja, Guanabana, Feijoa, Manzana verde</p>
+                                    <p>Kiwi, Higos, Uvas, Durazno, Carambolo, Ciruela, Piña, Guayaba, Papaya, Patilla, Arandanos, Granadilla, Cereza, Naranja, Mango, Manzana verde, Pera verde, Lima, Toronja, Guanabana</p>
                                   </td>
                                   <td>
-                                    <p>Naranja, Mora, Fresa, Banano, Mandarina</p>
+                                    <p>Banano, Coco, Mango, Papaya, Mandarina, Manzana roja, Feijoa</p>
                                   </td>
                                 </tr>
                                 <tr>
@@ -187,10 +187,10 @@
                                     <p>Especias y Condimentos</p>
                                   </td>
                                   <td>
-                                    <p>Ajo, Azafran, Clavo, Cominos, Pimentón, Mostaza, Salsa inglesa, Mayonesa, Salsa de soya</p>
+                                    <p>Ajo, Encurtidos, Salsa de soya, Mostaza</p>
                                   </td>
                                   <td>
-                                    <p>Canela, Nuez moscada, Pimienta, Vinagre, Salsa de tomate</p>
+                                    <p>Alcaparras, Pimentones, Vinagre blanco, de manzana, Salsa de tomate, Salsa inglesa, Mayonesa</p>
                                   </td>
                                 </tr>
                                 <tr>
@@ -199,10 +199,10 @@
                                     <p>Infuciones</p>
                                   </td>
                                   <td>
-                                    <p>Manzanilla, Valeriana, Tomillo, Menta, Perejil, Diente de león, Jengibre</p>
+                                    <p>Manzanilla, Valeriana, Alfalfa, Cayena</p>
                                   </td>
                                   <td>
-                                    <p>Ruibardo, Alfalfa, Aloe</p>
+                                    <p>Ruibardo</p>
                                   </td>
                                 </tr>
                                 <tr>
@@ -211,10 +211,10 @@
                                     <p>Bebidas</p>
                                   </td>
                                   <td>
-                                    <p>Agua mineral, Jugo de apio, Tomate, Papaya, Cereza, Zanahoria, Piña, Arandano, Uva, Pepino, Leche deslactosada, Té verde</p>
+                                    <p>Agua mineral, Café, Jugo de apio, Toronja, Manzana, Zanahoria, Piña, Leche deslactosada, Te verde</p>
                                   </td>
                                   <td>
-                                    <p>Café, Té, Gaseosa, Cerveza, Jugos de manzana, Coles y Naranja, Aguardiente</p>
+                                    <p>Te negro, Gaseosa, Cerveza, Aguardiente, Jugos de manzana, Coles y Naranja</p>
                                   </td>
                                 </tr>
                                 <tr>
@@ -235,7 +235,7 @@
                                     <p>Vitaminas</p>
                                   </td>
                                   <td>
-                                    <p>Stevia, FructuosaK : Higado, Yemas de huevo, Verduras Calcio: Sardina, Brocoli, SalmonYodo: Algas negras, Pescado y Mariscos Algas marinas, Sal yodada.</p>
+                                    <p>B: Huevos, Salsa de soya, Pescado, C: Fresas, Cereza, Toronja, Limon, Piña, Brocoli, Calcio: Salmon, Espinaca, Sardinas, Leche de cabra, Huevos, Brocoli, Hierro: Higos, Habas, Hojas verdes, E: Mani y Hojas verdes.</p>
                                   </td>
                                   <td>
                                     <p></p>
@@ -268,7 +268,7 @@
                                   <p>Carne de res, Cordero, Ternera, Pollo, Pavo, Conejo, Atún, Robalo, Salmon, Sardina, Trucha, Merlusa, Venado, Camaron, Almejas</p>
                                 </td>
                                 <td>
-                                  <p>Cerdo,  Tocino, Bagre, Salmon ahumado, Caviar, Pulmo</p>
+                                  <p>Cerdo,  Tocino, Bagre, Salmon ahumado, Caviar, Pulmo </p>
                                 </td>
                               </tr>
                               <tr>
@@ -292,7 +292,7 @@
                                   <p>Aceite de oliva, Girasol, Canola, Linasa</p>
                                 </td>
                                 <td>
-                                  <p>Maiz, Mani, Algodón, Manteca</p>
+                                  <p>Maiz, Mani, Algodón, Manteca </p>
                                 </td>
                               </tr>
                               <tr>
@@ -349,7 +349,7 @@
                                   <p>Vegetales</p>
                                 </td>
                                 <td>
-                                  <p>Acelga, Ajo, Brocoli, Calabaza, Cebolla, Perejil, Lechuga, Rabano, Pimenton, Tomate, Pepino, Zanahoria, Ahuyama, Calabacin, Cilantro, Apio, Espinaca, Champiñon, Berros, Nopal, Alcachofas, Esparragos, Abichuelas</p>
+                                  <p>Acelga, Ajo, Brocoli, Calabaza, Cebolla, Perejil, Lechuga, Rabano, Pimenton, Tomate, Pepino, Zanahoria, Ahuyama, Calabacin, Cilantro, Apio, Espinaca, Champiñon, Berros, Nopal, Alcachofas, Esparragos, Habichuelas</p>
                                 </td>
                                 <td>
                                   <p>Berenjena, Coliflor, Repollo, Aguacate, Maiz, Col, Brotes de alfalfa, Aceitunas</p>
@@ -364,7 +364,7 @@
                                   <p>Kiwi, Higos, Uvas, Durazno, Carambolo, Ciruela, Piña, Guayaba, Papaya, Patilla, Arandanos, Granadilla, Cereza, Mango, Pera verde, Lima, Toronja, Guanabana, Feijoa, Manzana verde</p>
                                 </td>
                                 <td>
-                                  <p>Naranja, Mora, Fresa, Banano, Mandarina</p>
+                                  <p>NNaranja, Mora, Fresa, Banano, Mandarina</p>
                                 </td>
                               </tr>
                               <tr>
@@ -421,7 +421,7 @@
                                   <p>Vitaminas</p>
                                 </td>
                                 <td>
-                                  <p>Stevia, FructuosaK : Higado, Yemas de huevo, Verduras Calcio: Sardina, Brocoli, SalmonYodo: Algas negras, Pescado y Mariscos Algas marinas, Sal yodada.</p>
+                                  <p> K: Higado, Yemas de huevo, Verduras  Calcio: Sardina, Brocoli, Salmon  Yodo: Algas negras, Pescado y Mariscos Algas marinas, Sal yodada.</p>
                                 </td>
                                 <td>
                                   <p></p>
@@ -450,10 +450,10 @@
                                   <p>Carnes, Pescados y Mariscos</p>
                                 </td>
                                 <td>
-                                  <p>Carne de res, Cordero, Ternera, Pollo, Pavo, Conejo, Atún, Robalo, Salmon, Sardina, Trucha, Merlusa, Venado, Camaron, Almejas</p>
+                                  <p>Cordero, conejo, Venado, merlusa, sabalo, Salmón, Sardina, Trucha, Bagre, Ternera, Higado</p>
                                 </td>
                                 <td>
-                                  <p>Cerdo,  Tocino, Bagre, Salmon ahumado, Caviar, Pulmo</p>
+                                  <p>pollo, cerdo, gallina, tocino, pato, camarones, Róbalo, Langostino, Ostras</p>
                                 </td>
                               </tr>
                               <tr>
@@ -462,10 +462,10 @@
                                   <p>Huevos y Lacteos</p>
                                 </td>
                                 <td>
-                                  <p>Huevos 4 por semana, Leche de soya, Deslactosada, Queso descremado, Mozarella, Maduros con paipa, Fibra, Cabra, Oveja y soya, Yogurt fitness y griego, Helado dietetico</p>
+                                  <p>Huevos 4 por semana, leche de soya, deslactosada, Queso descremado, Mozarella, Maduros como paipa, Fibra, Cabra, Oveja y Soya, Yogurt Fitness y Griego, Helado Dietetico. </p>
                                 </td>
                                 <td>
-                                  <p>Leche entera,  Queso crema, Yogurt, Queso suizo, Doble crema, Campesino, Helado, Sueros</p>
+                                  <p>Leche entera,  queso crema, yogurt, Queso Suizo, Doble crema, Campesino, Helado, Sueros, Queso Parmesano</p>
                                 </td>
                               </tr>
                               <tr>
@@ -474,10 +474,10 @@
                                   <p>Aceites y Grasas</p>
                                 </td>
                                 <td>
-                                  <p>Aceite de oliva, Girasol, Canola, Linasa</p>
+                                  <p>Aceite de oliva, Linasa</p>
                                 </td>
                                 <td>
-                                  <p>Maiz, Mani, Algodón, Manteca</p>
+                                  <p>Maiz, Girasol, Algodón</p>
                                 </td>
                               </tr>
                               <tr>
@@ -486,10 +486,10 @@
                                   <p>Nueces y Semillas</p>
                                 </td>
                                 <td>
-                                  <p>Almendras, Avellanas, Semilla de girasol</p>
+                                  <p>Almendras</p>
                                 </td>
                                 <td>
-                                  <p>Mani, Nueces, Pistachos</p>
+                                  <p>Mani,Pistachos</p>
                                 </td>
                               </tr>
                               <tr>
@@ -498,10 +498,10 @@
                                   <p>Leguminosas</p>
                                 </td>
                                 <td>
-                                  <p>Arvejas, Garbanzos</p>
+                                  <p>Arvejas, Habichuela, Frijol rojo y blanco</p>
                                 </td>
                                 <td>
-                                  <p>Lenteja, Frijol, Habas</p>
+                                  <p>Garbanzo, Lenteja, Frijol moteado</p>
                                 </td>
                               </tr>
                               <tr>
@@ -510,10 +510,10 @@
                                   <p>Cereales y Panes</p>
                                 </td>
                                 <td>
-                                  <p>Arroz blanco, Cebada, Pan de centeno, Arabe, Quinoa, Soya, Granola dietetica</p>
+                                  <p>Arroz blanco, Avena, Granola,  Salvado, Pasta</p>
                                 </td>
                                 <td>
-                                  <p>Harina de trigo, Maiz, Avena, Harina, Integrales</p>
+                                  <p>Harina de trigo, Cebada, Maiz, Centeno, Integrales</p>
                                 </td>
                               </tr>
                               <tr>
@@ -522,10 +522,10 @@
                                   <p>Tuberculos</p>
                                 </td>
                                 <td>
-                                  <p>Ñame, Yuca, Platano</p>
+                                  <p>Papa, Yuca</p>
                                 </td>
                                 <td>
-                                  <p>Papa</p>
+                                  <p>Ñame, Platano</p>
                                 </td>
                               </tr>
                               <tr>
@@ -534,10 +534,10 @@
                                   <p>Vegetales</p>
                                 </td>
                                 <td>
-                                  <p>Acelga, Ajo, Brocoli, Calabaza, Cebolla, Perejil, Lechuga, Rabano, Pimenton, Tomate, Pepino, Zanahoria, Ahuyama, Calabacin, Cilantro, Apio, Espinaca, Champiñon, Berros, Nopal, Alcachofas, Esparragos, Abichuelas</p>
+                                  <p>Acelga, ajo, brocoli, cebolla, Perejil, Lechuga, Rabano, Berenjena, Pepino, Zanahoria, Pimenton, Calabacin, Cilantro, Apio, Espinaca, Chamiñon, Berros, Nopal, Esparragos, Abichuelas, Coliflor</p>
                                 </td>
                                 <td>
-                                  <p>Berenjena, Coliflor, Repollo, Aguacate, Maiz, Col, Brotes de alfalfa, Aceitunas</p>
+                                  <p>Ahuyama, Calabaza, Rábano, Alcachofa, Aguacate, Tomate, Aceitunas, Maiz</p>
                                 </td>
                               </tr>
                               <tr>
@@ -546,10 +546,10 @@
                                   <p>Frutas</p>
                                 </td>
                                 <td>
-                                  <p>Kiwi, Higos, Uvas, Durazno, Carambolo, Ciruela, Piña, Guayaba, Papaya, Patilla, Arandanos, Granadilla, Cereza, Mango, Pera verde, Lima, Toronja, Guanabana, Feijoa, Manzana verde</p>
+                                  <p>Kiwi, higos, uvas, durazno, carambolo, Ciruela, piña, guayaba, papaya, patilla, arandanos, granadilla, cereza, mango, mandarina, manzana roja, feijoa, naranja, manzana verde, banano, coco, mango, papaya, pera verde, lima, toronja, guanabana</p>
                                 </td>
                                 <td>
-                                  <p>Naranja, Mora, Fresa, Banano, Mandarina</p>
+                                  <p>Carambolo, Coco, Granada</p>
                                 </td>
                               </tr>
                               <tr>
@@ -558,10 +558,10 @@
                                   <p>Especias y Condimentos</p>
                                 </td>
                                 <td>
-                                  <p>Ajo, Azafran, Clavo, Cominos, Pimentón, Mostaza, Salsa inglesa, Mayonesa, Salsa de soya</p>
+                                  <p>curry, jengibre, perejil, rabano, ajo, aji, Azafran, Salsa inglesa, Mostaza, Mayonesa Light</p>
                                 </td>
                                 <td>
-                                  <p>Canela, Nuez moscada, Pimienta, Vinagre, Salsa de tomate</p>
+                                  <p>Salsa de tomate, Canela, Maizana</p>
                                 </td>
                               </tr>
                               <tr>
@@ -570,10 +570,10 @@
                                   <p>Infuciones</p>
                                 </td>
                                 <td>
-                                  <p>Manzanilla, Valeriana, Tomillo, Menta, Perejil, Diente de león, Jengibre</p>
+                                  <p>Manzanilla, perejil, marrubio, valerian, Jengibre</p>
                                 </td>
                                 <td>
-                                  <p>Ruibardo, Alfalfa, Aloe</p>
+                                  <p>Genencian, Tilo</p>
                                 </td>
                               </tr>
                               <tr>
@@ -582,10 +582,10 @@
                                   <p>Bebidas</p>
                                 </td>
                                 <td>
-                                  <p>Agua mineral, Jugo de apio, Tomate, Papaya, Cereza, Zanahoria, Piña, Arandano, Uva, Pepino, Leche deslactosada, Té verde</p>
+                                  <p>te, café, vino blanco, tinto, te negro, Jugos de apio, manzana, papaya, cereza, piña</p>
                                 </td>
                                 <td>
-                                  <p>Café, Té, Gaseosa, Cerveza, Jugos de manzana, Coles y Naranja, Aguardiente</p>
+                                  <p>Licores, Gaseosas, Agua mineral, Jugo de tomate</p>
                                 </td>
                               </tr>
                               <tr>
@@ -594,10 +594,10 @@
                                   <p>Otros</p>
                                 </td>
                                 <td>
-                                  <p>Stevia, Fructuosa</p>
+                                  <p>Fructuosa</p>
                                 </td>
                                 <td>
-                                  <p>Encurtidos, Dulces y Vinagres</p>
+                                  <p>Stevia, Sacarina</p>
                                 </td>
                               </tr>
                               <tr>
@@ -606,7 +606,7 @@
                                   <p>Vitaminas</p>
                                 </td>
                                 <td>
-                                  <p>Stevia, FructuosaK : Higado, Yemas de huevo, Verduras Calcio: Sardina, Brocoli, SalmonYodo: Algas negras, Pescado y Mariscos Algas marinas, Sal yodada.</p>
+                                  <p>No requieren de suplementos</p>
                                 </td>
                                 <td>
                                   <p></p>
@@ -635,168 +635,181 @@
                                   <p>Carnes, Pescados y Mariscos</p>
                                 </td>
                                 <td>
-                                  <p>Carne de res, Cordero, Ternera, Pollo, Pavo, Conejo, Atún, Robalo, Salmon, Sardina, Trucha, Merlusa, Venado, Camaron, Almejas</p>
+                                  <p>Cordero, Conejo, Higado, Pavo, Faisán, Carnero</p>
                                 </td>
                                 <td>
-                                  <p>Cerdo,  Tocino, Bagre, Salmon ahumado, Caviar, Pulmo</p>
+                                  <p>Cerdo, Carne de res, Pollo, Gallina, Ternera, Venado, Corazón, Jamón, Codorniz, Pato, Tocino, Ganso</p>
                                 </td>
                               </tr>
                               <tr>
                                 <td>2</td>
                                 <td>
-                                  <p>Huevos y Lacteos</p>
+                                  <p>Pescados y Mariscos</p>
                                 </td>
                                 <td>
-                                  <p>Huevos 4 por semana, Leche de soya, Deslactosada, Queso descremado, Mozarella, Maduros con paipa, Fibra, Cabra, Oveja y soya, Yogurt fitness y griego, Helado dietetico</p>
+                                  <p>Salmón, Sardina, Trucha, Atún, Merluza, Sábalo, Mejillones, Caracoles, Calamares, Caviar, Bacalao</p>
                                 </td>
                                 <td>
-                                  <p>Leche entera,  Queso crema, Yogurt, Queso suizo, Doble crema, Campesino, Helado, Sueros</p>
+                                  <p>Bagre, Carpa, Camarones, Almejas, Anchoas, Tortuga, Cangrejo, Róbalo, Ostras</p>
                                 </td>
                               </tr>
                               <tr>
                                 <td>3</td>
                                 <td>
-                                  <p>Aceites y Grasas</p>
+                                  <p>Huevos y Lacteos/p>
                                 </td>
                                 <td>
-                                  <p>Aceite de oliva, Girasol, Canola, Linasa</p>
+                                  <p>Huevos 4 por semana, Leche de soya, Leche deslactosada, Queso descremado,  Queso campesino, Queso soya, Yogurt fitness</p>
                                 </td>
                                 <td>
-                                  <p>Maiz, Mani, Algodón, Manteca</p>
+                                  <p>Leche entera, Queso parmesano, Sorbetes, Mantequilla, Panela, Helado, Queso mozarella</p>
                                 </td>
                               </tr>
                               <tr>
                                 <td>4</td>
                                 <td>
-                                  <p>Nueces y Semillas</p>
+                                  <p>Aceites y Grasas</p>
                                 </td>
                                 <td>
-                                  <p>Almendras, Avellanas, Semilla de girasol</p>
+                                  <p>Aceite de oliva, Aceite de Linaza</p>
                                 </td>
                                 <td>
-                                  <p>Mani, Nueces, Pistachos</p>
+                                  <p>Aceite de maiz, Aceite de girasol, Aceite de algodón, Aceite de mani, Manteca de cerdo</p>
                                 </td>
                               </tr>
                               <tr>
                                 <td>5</td>
                                 <td>
-                                  <p>Leguminosas</p>
+                                  <p>Nueces y Semillas</p>
                                 </td>
                                 <td>
-                                  <p>Arvejas, Garbanzos</p>
+                                  <p>Almendras, Pistachos, Mani</p>
                                 </td>
                                 <td>
-                                  <p>Lenteja, Frijol, Habas</p>
+                                  <p>Avellanas</p>
                                 </td>
                               </tr>
                               <tr>
                                 <td>6</td>
                                 <td>
-                                  <p>Cereales y Panes</p>
+                                  <p>Leguminosas</p>
                                 </td>
                                 <td>
-                                  <p>Arroz blanco, Cebada, Pan de centeno, Arabe, Quinoa, Soya, Granola dietetica</p>
+                                  <p>Lenteja, Frijol, Arvejas, Habas</p>
                                 </td>
                                 <td>
-                                  <p>Harina de trigo, Maiz, Avena, Harina, Integrales</p>
+                                  <p>Garbanzo, Frijol rojo</p>
                                 </td>
                               </tr>
                               <tr>
                                 <td>7</td>
                                 <td>
-                                  <p>Tuberculos</p>
+                                  <p> Cereales y Panes</p>
                                 </td>
                                 <td>
-                                  <p>Ñame, Yuca, Platano</p>
+                                  <p>Arroz, Avena, Cebada, Centeno, Pan integral, Germen de trigo</p>
                                 </td>
                                 <td>
-                                  <p>Papa</p>
+                                  <p>Hojuelas de maiz, Pan de maiz, Maiz blanco ni amarillo, Integrales</p>
                                 </td>
                               </tr>
                               <tr>
                                 <td>8</td>
                                 <td>
-                                  <p>Vegetales</p>
+                                  <p>Tuberculos</p>
                                 </td>
                                 <td>
-                                  <p>Acelga, Ajo, Brocoli, Calabaza, Cebolla, Perejil, Lechuga, Rabano, Pimenton, Tomate, Pepino, Zanahoria, Ahuyama, Calabacin, Cilantro, Apio, Espinaca, Champiñon, Berros, Nopal, Alcachofas, Esparragos, Abichuelas</p>
+                                  <p>Papa, Yuca</p>
                                 </td>
                                 <td>
-                                  <p>Berenjena, Coliflor, Repollo, Aguacate, Maiz, Col, Brotes de alfalfa, Aceitunas</p>
+                                  <p>Ñame, Platano</p>
                                 </td>
                               </tr>
                               <tr>
                                 <td>9</td>
                                 <td>
-                                  <p>Frutas</p>
+                                  <p>Vegetales</p>
                                 </td>
                                 <td>
-                                  <p>Kiwi, Higos, Uvas, Durazno, Carambolo, Ciruela, Piña, Guayaba, Papaya, Patilla, Arandanos, Granadilla, Cereza, Mango, Pera verde, Lima, Toronja, Guanabana, Feijoa, Manzana verde</p>
+                                  <p>Acelga, Ajo, Brócoli, Coliflor, Rábano, Berenjena, Cebolla, Pepino, Zanahoria, Lechuga, Tomate, Nabos, Espinaca, Calabaza, Esparragos</p>
                                 </td>
                                 <td>
-                                  <p>Naranja, Mora, Fresa, Banano, Mandarina</p>
+                                  <p>Aguacate, Hongo shitake</p>
                                 </td>
                               </tr>
                               <tr>
                                 <td>10</td>
                                 <td>
-                                  <p>Especias y Condimentos</p>
+                                  <p>Frutas</p>
                                 </td>
                                 <td>
-                                  <p>Ajo, Azafran, Clavo, Cominos, Pimentón, Mostaza, Salsa inglesa, Mayonesa, Salsa de soya</p>
+                                  <p>AKiwi, Higos, Uvas, Durazno, Piña, Lima, Ciruelas verdes y rojas, Papaya, Patilla, Arandanos, Granadilla, Cereza, Guanabana, Mandarina, Manzanas, Feijoa, Mora, Pasas, Melón, Pera verde</p>
                                 </td>
                                 <td>
-                                  <p>Canela, Nuez moscada, Pimienta, Vinagre, Salsa de tomate</p>
+                                  <p>Coco, Guayaba, Mango, Naranja, Plátano</p>
                                 </td>
                               </tr>
                               <tr>
                                 <td>11</td>
                                 <td>
-                                  <p>Infuciones</p>
+                                  <p>Especias y Condimentos</p>
                                 </td>
                                 <td>
-                                  <p>Manzanilla, Valeriana, Tomillo, Menta, Perejil, Diente de león, Jengibre</p>
+                                  <p>Curry, Jengibre, Perejil, Azafrán, Salsa inglesa, Mostaza, Mayonesa light, Tomillo, Vainilla, Papricka, Comino, Miel</p>
                                 </td>
                                 <td>
-                                  <p>Ruibardo, Alfalfa, Aloe</p>
+                                  <p>Ají, Anis, Alcaparras, Aceitunas, Pimienta, Salsa de tomate, Encurtidos, Vinagre</p>
                                 </td>
                               </tr>
                               <tr>
                                 <td>12</td>
                                 <td>
-                                  <p>Bebidas</p>
+                                  <p>Infuciones</p>
                                 </td>
                                 <td>
-                                  <p>Agua mineral, Jugo de apio, Tomate, Papaya, Cereza, Zanahoria, Piña, Arandano, Uva, Pepino, Leche deslactosada, Té verde</p>
+                                  <p>Manzanilla, Té, Perejil, Ginseng, Jengibre</p>
                                 </td>
                                 <td>
-                                  <p>Café, Té, Gaseosa, Cerveza, Jugos de manzana, Coles y Naranja, Aguardiente</p>
+                                  <p>Tilo, Riubarbo</p>
                                 </td>
                               </tr>
                               <tr>
                                 <td>13</td>
                                 <td>
-                                  <p>Otros</p>
+                                  <p>Bebidas/p>
                                 </td>
                                 <td>
-                                  <p>Stevia, Fructuosa</p>
+                                  <p>Te, Café, Te verde, Agua mineral, Vino blanco y tinto, Cerveza</p>
                                 </td>
                                 <td>
-                                  <p>Encurtidos, Dulces y Vinagres</p>
+                                  <p>Gaseosas, Licores destilados, Té negro</p>
                                 </td>
                               </tr>
                               <tr>
                                 <td>14</td>
                                 <td>
-                                  <p>Vitaminas</p>
+                                  <p>Otros</p>
                                 </td>
                                 <td>
-                                  <p>Stevia, FructuosaK : Higado, Yemas de huevo, Verduras Calcio: Sardina, Brocoli, SalmonYodo: Algas negras, Pescado y Mariscos Algas marinas, Sal yodada.</p>
+                                  <p>Agua con limón, Té verde, Stevia o Miel.</p>
                                 </td>
                                 <td>
-                                  <p></p>
+                                  <p>Artificiales, Fructosas</p>
                                 </td>
                               </tr>
+                              <tr>
+                                <td>15</td>
+                                <td>
+                                  <p>Vitamina</p>
+                                </td>
+                                <td>
+                                  <p>Vitamina C (Piña, Brocoli, Cereza, Fresa, Limón) Zinc (Huevo, Pavo, Legumbres) Bromelia (Piña).</p>
+                                </td>
+                                <td>
+                                  <p>, </p>
+                                </td>
+                              </tr>
+
                             </tbody>
                           </table>
                         </div>
