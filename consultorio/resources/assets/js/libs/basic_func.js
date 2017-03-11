@@ -259,3 +259,33 @@ $(function () {
 	}
 
 });
+
+$('#searchOldPatients').click(function () {
+	
+	var data = {
+		name_patient: $('#search-patient-name').val(),
+		numer_document: $('#search-document-patient').val()
+	};
+
+	console.log(data);
+
+	app.httpPost('dra/buscar_cita_paciente', data, function onSuccess (response) {
+		console.log(response.patients);
+		loadResultPatientTable(response.patients);
+	}, function onError (response) {
+		console.log(response);
+	});
+
+});
+
+function loadResultPatientTable(patientsResult) {
+	var table = $('#result-search-patient tbody');
+	$("#result-search-patient tbody").find("tr").remove();
+	for (var patient = 0; patient < patientsResult.length; patient++) {
+		table.append('<tr data-patient="' + patientsResult[patient].id + '">' + 
+		'<td>'+ patientsResult[patient].id_number +'</td>' + 
+		'<td>'+ patientsResult[patient].name + ' ' + patientsResult[patient].last_name +'</td>' + 
+		'<td><a href=""class="btn btn-success"><i class="fa fa-calendar"></i> <strong>Asignar</strong></a></td>' + 
+		'</tr>');
+	}
+}
