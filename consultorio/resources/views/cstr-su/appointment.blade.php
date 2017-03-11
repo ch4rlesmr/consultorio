@@ -40,31 +40,16 @@
                       <form action="" class="form-horizontal form-label-left">
 
                         <div class="col-md-5 col-md-offset-1">
-                          <label class="control-label">Referencia</label>
-                          <div>
-                            <input type="text" id="reference-inventory" name="reference-inventory" class="form-control">
-                          </div>
-                        </div>
-
-                        <div class="col-md-5">
-                          <label class="control-label">Elemento</label>
+                          <label class="control-label">No. Identificación</label>
                           <div>
                             <input type="text" id="name-inventory" name="name-inventory" class="form-control">
                           </div>
                         </div>
 
-                        <div class="col-md-5 col-md-offset-1">
-                          <label class="control-label">Tipo</label>
-                          <div>
-                            <select class="select2_single form-control" tabindex="0" name="type-inventory" id="type-inventory">
-                              <option selected="true" disabled="disabled">Escoger Tipo</option>
-                              
-                            </select>
-                          </div>
-                        </div>
+
 
                         <div class="col-md-5">
-                          <label class="control-label" for="first-name">Estado</label>
+                          <label class="control-label" for="first-name">Estado Cita</label>
                           <div>
                             <select class="select2_single form-control" tabindex="0" name="status-inventory" id="status-inventory" name="status-inventory">
                               <option selected="true" disabled="disabled">Escoger Estado</option>
@@ -88,7 +73,7 @@
                 <div class="x_panel">
 
                   <div class="x_title">
-                    <h2>Inventario de Equipos y Mobiliario <!-- <small>Sessions</small> --></h2>
+                    <h2>Detalle Búsqueda Cita <!-- <small>Sessions</small> --></h2>
                     <!-- <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -104,9 +89,10 @@
                       <li><a class="close-link"><i class="fa fa-close"></i></a>
                       </li>
                     </ul> -->
-                    <a href="" class="pull-right btn btn-success">
+                   <!-- <a href="" class="pull-right btn btn-success">
                       <i class="fa fa-plus-circle" aria-hidden="true"></i> <strong>Añadir Nuevo Producto</strong>
                     </a>
+                  -->
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -119,7 +105,7 @@
                             <th class="text-center">Nombre Paciente</th>
                             <th class="text-center">Nº Identificación</th>
                             <th class="text-center">Tipo Cita</th>
-                            <th class="text-center">Confirmación</th>
+                            <th class="text-center">Estado</th>
                             <th width="28%" class="text-center">Opciones</th>
                           </tr>
                         </thead>
@@ -147,7 +133,7 @@
                       
                     </div>
                     <div class="col-md-6">
-                      <a href="" class="btn btn-primary pull-right"><span class="fa fa-file-excel-o"></span> <strong>Descargar Lista de Inventario</strong></a>
+                      <a href="" class="btn btn-primary pull-right"><span class="fa fa-file-excel-o"></span> <strong>Descargar Listado de Citas</strong></a>
                       
                     </div>
 
