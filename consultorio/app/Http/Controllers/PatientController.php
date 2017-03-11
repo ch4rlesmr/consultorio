@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Response;
+use Illuminate\Support\Facades\DB;
 use App\Eps;
 use App\BloodType;
 use App\AcademicLevel;
@@ -22,12 +23,16 @@ use App\Diagnosis;
 
 class PatientController extends Controller {
 
-	public function index () {
-		return view('cstr-su.patients');
+	public function index (Request $request) {
+
+		$patients = Patient::search($request->input('document-patient'), $request->input('name-patient'), $request->input('phone-patient'))->get();
+
+		return view( 'cstr-su.patients', ["patients" => $patients] );
 	}
 
 	public function show ($id) {
-		return view('cstr-su.patient_detail');
+		$patient = Patient::find($id);
+		return view( 'cstr-su.patient_detail', ['patient' => $patient] );
 	}
 
 	public function create () {
@@ -178,12 +183,14 @@ class PatientController extends Controller {
 		$planningPatient->patient_id = $patient->id;
 		$planningPatient->save();
 
-		$menstruationPatient = new MenstrualPeriod();
-		$menstruationPatient->type = $request->input("menstruation-type");
-		$menstruationPatient->frecuency = $request->input("menstruation-frecuency");
-		$menstruationPatient->duration = $request->input("menstruation-duration");
-		$menstruationPatient->patient_id = $patient->id;
-		$menstruationPatient->save();
+		if( ($request->input("menstruation-frecuency") !== null) && ($request->input("menstruation-duration"))  ) {
+			$menstruationPatient = new MenstrualPeriod();
+			$menstruationPatient->type = $request->input("menstruation-type");
+			$menstruationPatient->frecuency = $request->input("menstruation-frecuency");
+			$menstruationPatient->duration = $request->input("menstruation-duration");
+			$menstruationPatient->patient_id = $patient->id;
+			$menstruationPatient->save();
+		}
 
 		//STEP 5
 		$patientDiagnosis = new Diagnosis();
@@ -204,7 +211,7 @@ class PatientController extends Controller {
 
 		$patientDiagnosis->save();
 
-		dd($request);
+		return redirect()->route('paciente.index');
 
 	}
 

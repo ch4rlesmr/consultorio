@@ -81,7 +81,7 @@ class RegisterController extends Controller
         $user->password = bcrypt($request->input('password'));//Hash::make
         $user->role = $request->input('role');
         $user->remember_token = $request->input('_token');
-        //$register = $user->save();
+        $register = $user->save();
 
         //return view ('/');
         return redirect()->route('login');
