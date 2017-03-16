@@ -46,6 +46,18 @@ $(window).load(function() {
             startAgenda = moment(start._d).format('YYYY-MM-DD hh:mm');
             console.log('formato fecha hora: ' + startAgenda);
 
+            $('#result-search-patient tbody').on('click', '.meeting-assignment', function () {
+              console.log($(this).parent());
+
+              var id = $(this).parent().attr('data-patient-id');
+              
+              $('.form-date-assignment-hidden input#old-patient-id').attr('value', id);
+              $('.form-date-assignment-hidden input#date-meeting-old-patient').attr('value', startAgenda);
+
+              console.log($('.form-date-assignment-hidden').html());
+              $('.form-date-assignment-hidden').submit();
+            });
+
             // $("#register_calendar_patient #save_new_patient").on("click", function() {
             $("#register_calendar_patient").on("submit", function() {
               
@@ -132,32 +144,66 @@ $(window).load(function() {
           },
           //editable: false, --> para arrastrar los eventos
           // editable: false,
-          events: [{
-            title: 'All Day Event',
-            start: new Date(y, m, 1)
-          }, {
-            title: 'Long Event',
-            start: new Date(y, m, d - 5),
-            end: new Date(y, m, d - 2)
-          }, {
-            title: 'Meeting',
-            start: new Date(y, m, d, 10, 30),
-            allDay: false
-          }, {
-            title: 'Lunch',
-            start: new Date(y, m, d + 14, 12, 0),
-            end: new Date(y, m, d, 14, 0),
-            allDay: false
-          }, {
-            title: 'Birthday Party',
-            start: new Date(y, m, d + 1, 19, 0),
-            end: new Date(y, m, d + 1, 22, 30),
-            allDay: false
-          }, {
-            title: 'Click for Google',
-            start: new Date(y, m, 28),
-            end: new Date(y, m, 29),
-            url: 'http://google.com/'
-          }]
+          events: function(start, end, timezone, callback) {
+
+            $.ajax({
+              url: app.host + 'dra/list',
+              type: 'GET',
+              success: function (response) {
+                var events = [];
+                console.log(response);
+                $.each(response.meetings, function (index, value){
+                  events.push({
+                    title: value['name'] + ' ' + value['last_name'] , //
+                    start: value['start_meeting'],//moment(start._d).format('YYYY-MM-DD hh:mm')
+                    end: value['end_meeting'],
+                    allDay: false
+                  });
+                });
+                events.push({
+                  title: 'Birthday Party',
+                  start: new Date(y, m, d + 1, 19, 0),
+                  end: new Date(y, m, d + 1, 22, 30),
+                  allDay: false
+                });
+                callback(events);
+              }, error: function (e, x, y) {
+                console.log(e);
+                console.log(x);
+                console.log(y);
+              }
+            });
+
+          }
         });
       });
+
+/*
+[{
+  title: 'All Day Event',
+  start: new Date(y, m, 1)
+}, {
+  title: 'Long Event',
+  start: new Date(y, m, d - 5),
+  end: new Date(y, m, d - 2)
+}, {
+  title: 'Meeting',
+  start: new Date(y, m, d, 10, 30),
+  allDay: false
+}, {
+  title: 'Lunch',
+  start: new Date(y, m, d + 14, 12, 0),
+  end: new Date(y, m, d, 14, 0),
+  allDay: false
+}, {
+  title: 'Birthday Party',
+  start: new Date(y, m, d + 1, 19, 0),
+  end: new Date(y, m, d + 1, 22, 30),
+  allDay: false
+}, {
+  title: 'Click for Google',
+  start: new Date(y, m, 28),
+  end: new Date(y, m, 29),
+  url: 'http://google.com/'
+}]
+*/

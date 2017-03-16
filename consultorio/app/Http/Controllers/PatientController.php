@@ -41,7 +41,7 @@ class PatientController extends Controller {
 		$academicLevels = AcademicLevel::all();
 		$feelings = Feeling::all();
 		$planningMethods = PlanningMethod::all();
-		$foods = Food::all();
+		$foods = Food::orderBy('name', 'ASC')->get();
 		return view('cstr-su.new_patient', ["epsList" => $epsList,"blood_types"=>$bloodTypes,
 			"academic_levels"=>$academicLevels,"feelings"=>$feelings,"planning_methods"=>$planningMethods,
 			"foods"=>$foods]);

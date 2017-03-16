@@ -78,10 +78,18 @@
                               <span class="fa fa-file-text form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                             </div>
 
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group item">
+                              <small class="info-field">Calificación</small>
+                              <br>
+                              <div class="starrr star-rating"></div>
+                              <input type="hidden" name="rating-tracing" id="rating-tracing">
+                            </div>
+
+                            <div class="clearfix"></div>
                             <div class="" id="medicine">
                               <div class="medicines-container" id="medicine-row" data-row="1">
 
-                                <div class="col-md-8 col-sm-8 col-xs-12 form-group item">
+                                <div class="col-md-4 col-sm-8 col-xs-12 form-group item">
                                   <small class="info-field">Nombre Medicina</small>
                                   <input type="text" class="form-control has-feedback-left medicine-name" placeholder="Nombre Medicina" name="medicine-name">
                                   <span class="fa fa-file-text form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
@@ -90,11 +98,17 @@
                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group item">
                                   <small class="info-field has-feedback-left">Tipo Medicina</small>
                                   <select class="select2_single form-control has-feedback-left medicine-type" tabindex="0" name="medicine-type" required>
-                                    <option value="M">Medicamento</option>
-                                    <option value="V">Vitamina</option>
-                                    <option value="O">Otro</option>
+                                    @foreach (App\Medication::all_medications_types() as $key => $value)
+                                      <option value="{{ $key }}">{{ $value }}</option>
+                                    @endforeach
                                   </select>
                                   <span class="fa fa-list-alt form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
+                                </div>
+
+                                <div class="col-md-4 col-sm-8 col-xs-12 form-group item">
+                                  <small class="info-field">Dosis</small>
+                                  <input type="text" class="form-control has-feedback-left medicine-doses" placeholder="Dosis Medicina" name="medicine-doses">
+                                  <span class="fa fa-file-text form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                 </div>
 
                               </div>
@@ -106,8 +120,8 @@
                               </div>
 
                             <div class="col-md-12 col-sm-6 col-xs-12 form-group item">
-                              <small class="info-field">Tratamiento</small>
-                              <input type="text" class="form-control has-feedback-left" placeholder="Marca" name="trademark-inventory" id="trademark-inventory" value="{{ isset( $product ) ? $product->trademark : '' }}">
+                              <small class="info-field">Diagnostico</small>
+                              <input type="text" class="form-control has-feedback-left" placeholder="Diagnostico" name="diagnoses-tracing" id="diagnoses-tracing" required>
                               <span class="fa fa-file-text form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                             </div>
 

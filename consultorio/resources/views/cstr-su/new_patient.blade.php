@@ -6,6 +6,8 @@
             <div class="page-title">
               <div class="title_left">
                 <h3>Paciente</h3>
+                {{ $meeting }}
+                {{ $patient }}
               </div>
 
               <!-- <div class="title_right">
@@ -148,9 +150,11 @@
                             </div>
                           </div>
                         </form>
-
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum voluptate officiis praesentium est pariatur atque doloremque voluptatibus id quod, at aliquid alias temporibus, maxime quia asperiores! Delectus, eius. Ea, provident.  
                       </div> -->
-                      @if(isset($patient))
+                      @if ( isset($patient) && isset($meeting) )
+                        {!! Form::open(array("route"=>[ "cita.guardar_tratamiento", $patient->id, $meeting->id ], "method"=>"POST","id"=>"form_patient")) !!}
+                      @elseif ( isset($patient) )
                         {!! Form::open(array("route"=>["paciente.update", $patient->id], "method"=>"PUT","id"=>"form_patient")) !!}
                       @else
                         {!! Form::open(array("route"=>"paciente.store", "method"=>"POST","id"=>"form_patient", "novalidate" => "novalidate", "autocomplete" => "off")) !!}
@@ -163,13 +167,13 @@
                           			<div class="x_panel">
   	                        			<div class="col-md-6 col-sm-6 col-xs-12 form-group item">
   	                        				<small class="info-field">Nombres</small>
-  	                        				<input data-validate-length-range="2" data-validate-words="1" type="text" class="form-control has-feedback-left" placeholder="Nombres" name="name-patient" id="name-patient" required>
+  	                        				<input data-validate-length-range="2" data-validate-words="1" type="text" class="form-control has-feedback-left" placeholder="Nombres" name="name-patient" id="name-patient" required @if( isset($patient->name) ) value="{{ $patient->name }}" @endif />
                                     <span class="fa fa-file-text form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
   	                        			</div>
 
   	                        			<div class="col-md-6 col-sm-6 col-xs-12 form-group item">
   	                        				<small class="info-field">Apellidos</small>
-  	                        				<input data-validate-length-range="2" data-validate-words="1" type="text" class="form-control has-feedback-left" placeholder="Apellidos" name="lastname-patient" id="lastname-patient" required>
+  	                        				<input data-validate-length-range="2" data-validate-words="1" type="text" class="form-control has-feedback-left" placeholder="Apellidos" name="lastname-patient" id="lastname-patient" required @if( isset($patient->last_name) ) value="{{ $patient->last_name }}" @endif />
                                     <span class="fa fa-file-text form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
   	                        			</div>
 
@@ -189,7 +193,13 @@
                          						<small class="info-field has-feedback-left">Tipo Documento</small>
   					                        <select class="select2_single form-control has-feedback-left" tabindex="0" name="type-document" id="type-document" required>
                                       @foreach (App\Patient::all_types_id() as $key => $value)
-    						                        <option value="{{ $key }}">{{ $value}}</option>
+    						                        <option value="{{ $key }}" 
+                                        @if ( isset($patient) )
+                                          @if ( $key === $patient->type_id_number )
+                                            {{ 'selected' }}
+                                          @endif
+                                        @endif
+                                        >{{ $value}}</option>
     						                      @endforeach
   					                        </select>
                                     <span class="fa fa-list-alt form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
@@ -197,31 +207,31 @@
 
                           				<div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback item">
                        						<small class="info-field">No. Documento</small>
-                       						<input data-validate-length-range="6" type="text" class="form-control has-feedback-left num_input" placeholder="No. Documento" name="number-document" id="number-document" required>
+                       						<input data-validate-length-range="6" type="text" class="form-control has-feedback-left num_input" placeholder="No. Documento" name="number-document" id="number-document" required @if( isset($patient->id_number) ) value="{{ $patient->id_number }}" @endif />
                           					<span class="fa fa-slack form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                         					</div>
 
                         					<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback item">
                         						<small class="info-field">Dirección</small>
-  					                        <input data-validate-length-range="2" type="text" class="form-control has-feedback-left" placeholder="Dirección" name="address-patient" id="address-patient" required>
+  					                        <input data-validate-length-range="2" type="text" class="form-control has-feedback-left" placeholder="Dirección" name="address-patient" id="address-patient" required @if( isset($patient->address) ) value="{{ $patient->address }}" @endif />
   					                        <span class="fa fa-home form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                         					</div>
 
                                   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback item">
                                     <small class="info-field">Telefono</small>
-                                    <input data-validate-length-range="6" type="text" class="form-control has-feedback-left" placeholder="Telefono" name="phone-patient" id="phone-patient" required>
+                                    <input data-validate-length-range="6" type="text" class="form-control has-feedback-left" placeholder="Telefono" name="phone-patient" id="phone-patient" required @if( isset($patient->phone) ) value="{{ $patient->phone }}" @endif />
                                     <span class="fa fa-phone-square form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                   </div>
 
                                   <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback item">
                                     <small class="info-field">Ocupación</small>
-                                    <input type="text" class="form-control has-feedback-left" placeholder="Ocupación" name="job-patient" id="job-patient" required>
+                                    <input type="text" class="form-control has-feedback-left" placeholder="Ocupación" name="job-patient" id="job-patient" required @if( isset($patient->job) ) value="{{ $patient->job }}" @endif />
                                     <span class="fa fa-home form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                   </div>
                     
                       					<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback item">
                       						  <small class="info-field">Correo Electronico</small>
-                          					<input type="email" class="form-control has-feedback-left" placeholder="Correo Electrónico" name="email-patient" id="email-patient" required>
+                          					<input type="email" class="form-control has-feedback-left" placeholder="Correo Electrónico" name="email-patient" id="email-patient" required @if( isset($patient->email) ) value="{{ $patient->email }}" @endif />
                           					<span class="fa fa-envelope form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                         					</div>
 
@@ -808,6 +818,12 @@
                                       <span class="fa fa-file-text form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                     </div>
 
+                                    <div class="col-md-4 col-sm-6 col-xs-12 form-group item">
+                                      <small class="info-field">Contextura Paciente</small>
+                                      <input type="text" class="form-control has-feedback-left" placeholder="Contextura" name="contexture-sign" id="contexture-sign" required>
+                                      <span class="fa fa-file-text form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
+                                    </div>
+
                                     <h2 class="col-md-12 StepTitle">Tratamiento</h2>
                                     <div class="col-md-12 col-sm-6 col-xs-12 form-group item">
                                       <small class="info-field">Diagnostico</small>
@@ -820,10 +836,10 @@
                                       <textarea class="form-control" rows="5" name="treatment-description" id="treatment-description" required></textarea>
                                     </div>
 
-                                    <div class="x_panel" id="medicines">
+                                    <div class="x_panel" id="medicines" style="margin-top:25px;">
                                       <div class="medicines-container" id="medicine-row" data-row="1">
 
-                                        <div class="col-md-8 col-sm-8 col-xs-12 form-group item">
+                                        <div class="col-md-4 col-sm-8 col-xs-12 form-group item">
                                           <small class="info-field">Nombre Medicina</small>
                                           <input type="text" class="form-control has-feedback-left medicine-name" placeholder="Nombre Medicina" name="medicine-name">
                                           <span class="fa fa-file-text form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
@@ -832,11 +848,17 @@
                                         <div class="col-md-4 col-sm-4 col-xs-12 form-group item">
                                           <small class="info-field has-feedback-left">Tipo Medicina</small>
                                           <select class="select2_single form-control has-feedback-left medicine-type" tabindex="0" name="medicine-type" required>
-                                            <option value="M">Medicamento</option>
-                                            <option value="V">Vitamina</option>
-                                            <option value="O">Otro</option>
+                                            @foreach (App\Medication::all_medications_types() as $key => $value)
+                                              <option value="{{ $key }}">{{ $value }}</option>
+                                            @endforeach
                                           </select>
                                           <span class="fa fa-list-alt form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
+                                        </div>
+
+                                        <div class="col-md-4 col-sm-8 col-xs-12 form-group item">
+                                          <small class="info-field">Dosis Medicina</small>
+                                          <input type="text" class="form-control has-feedback-left medicine-name" placeholder="Dosis" name="medicine-doses">
+                                          <span class="fa fa-file-text form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                         </div>
 
                                       </div>

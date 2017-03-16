@@ -52,7 +52,7 @@ class LoginController extends Controller
             $user = Auth::user();
 
             if ($user->isSuperadmin()){
-                 return redirect()->route('agenda.index');
+                 return redirect()->route('agenda.calendario');
             } else {
                 return redirect()->route('citas');
             }

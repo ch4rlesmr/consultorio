@@ -21,7 +21,7 @@ class RedirectIfAuthenticated
             $user = Auth::user();
 
             if ($user->isSuperadmin()){
-                return redirect()->route('dra.calendario');
+                return redirect()->route('agenda.calendario');
             } else {
                 return redirect()->route('citas');
             }

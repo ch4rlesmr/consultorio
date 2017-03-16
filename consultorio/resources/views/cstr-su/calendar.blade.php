@@ -7,7 +7,6 @@
               <div class="title_left">
                 <h3>Calendario <!-- <small>Click to add/edit events</small> --></h3>
               </div>
-
               <!-- <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                   <div class="input-group">
@@ -174,6 +173,10 @@
                           <tbody style="text-align: center;">
                           </tbody>
                         </table>
+                        {!! Form::open(array("action"=>"MeetingController@store", "method"=>"POST", "class" => "form-date-assignment-hidden")) !!}
+                          <input type="hidden" name="old-patient-id" id="old-patient-id">
+                          <input type="hidden" name="date-meeting-old-patient" id="date-meeting-old-patient">
+                        {!! Form::close() !!}
                       </div>
                       
                     </div>

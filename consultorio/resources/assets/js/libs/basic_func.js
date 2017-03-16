@@ -110,6 +110,12 @@ $(function () {
 		// hide_select: false
 	});
 
+	$('.star-rating').starrr({
+		change: function(e, value){
+			$('#rating-tracing').val(value);
+		}
+	});
+
 	$('#dob-patient').change(function () {
 		var dateString = $(this).val().toString();
 
@@ -264,7 +270,7 @@ $('#searchOldPatients').click(function () {
 	
 	var data = {
 		name_patient: $('#search-patient-name').val(),
-		numer_document: $('#search-document-patient').val()
+		nubmer_document: $('#search-document-patient').val()
 	};
 
 	console.log(data);
@@ -282,10 +288,10 @@ function loadResultPatientTable(patientsResult) {
 	var table = $('#result-search-patient tbody');
 	$("#result-search-patient tbody").find("tr").remove();
 	for (var patient = 0; patient < patientsResult.length; patient++) {
-		table.append('<tr data-patient="' + patientsResult[patient].id + '">' + 
+		table.append('<tr>' + 
 		'<td>'+ patientsResult[patient].id_number +'</td>' + 
 		'<td>'+ patientsResult[patient].name + ' ' + patientsResult[patient].last_name +'</td>' + 
-		'<td><a href=""class="btn btn-success"><i class="fa fa-calendar"></i> <strong>Asignar</strong></a></td>' + 
+		'<td data-patient-id="' + patientsResult[patient].id + '"><a href="#" class="btn btn-success btn-xs meeting-assignment"><i class="fa fa-calendar"></i> <strong>Asignar</strong></a></td>' + 
 		'</tr>');
 	}
 }

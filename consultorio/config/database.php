@@ -41,7 +41,8 @@ return [
     | All database work in Laravel is done through the PHP PDO facilities
     | so make sure you have the driver for your particular database of
     | choice installed on your machine before you begin development.
-    |
+    |tratamientos perfil citas asignadas
+    paso 1 secretaria
     */
 
     'connections' => [
@@ -58,7 +59,8 @@ return [
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'oxibustion'),
             'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', ''),
+            'password' => env('DB_PASSWORD', 'root'),
+            'unix_socket' => '/opt/lampp/var/mysql/mysql.sock',
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',

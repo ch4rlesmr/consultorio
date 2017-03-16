@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Patient;
+use App\Medications;
 
 class Meeting extends Model {
     
@@ -11,6 +12,10 @@ class Meeting extends Model {
 
     public function patient () {
     	return $this->belongsTo('App\Patient', 'patient_id');
+    }
+
+    public function medications () {
+        return $this->belongsTo('App\Medications', 'meeting_id');
     }
 
     public function meetingType() {
