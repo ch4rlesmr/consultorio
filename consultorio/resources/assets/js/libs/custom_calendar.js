@@ -13,7 +13,7 @@ $(window).load(function() {
           header: {
             left: 'prev, next, today',
             center: 'title',
-            right: 'month,agendaWeek,agendaDay,listMonth'
+            right: 'month,agendaWeek,agendaDay'
           },
           defaultView: 'agendaDay',
           navLinks: true,
@@ -32,6 +32,7 @@ $(window).load(function() {
           slotDuration: '00:20:00',
           axisFormat: 'hh:mm p',
           slotMinutes: 20,
+          contentHeight: 760,
           ignoreTimezone: true,
           timezone: "local",
 
@@ -53,9 +54,14 @@ $(window).load(function() {
               
               $('.form-date-assignment-hidden input#old-patient-id').attr('value', id);
               $('.form-date-assignment-hidden input#date-meeting-old-patient').attr('value', startAgenda);
+              // validateMeetingAJAX(id);
 
               console.log($('.form-date-assignment-hidden').html());
               $('.form-date-assignment-hidden').submit();
+              /*$('.form-date-assignment-hidden').on('submit', function () {
+                console.warn('test front-end asignacion de cita');
+                return false;
+              });*/
             });
 
             // $("#register_calendar_patient #save_new_patient").on("click", function() {
@@ -157,6 +163,8 @@ $(window).load(function() {
                     title: value['name'] + ' ' + value['last_name'] , //
                     start: value['start_meeting'],//moment(start._d).format('YYYY-MM-DD hh:mm')
                     end: value['end_meeting'],
+                    textColor: 'red',
+                    color: 'green',
                     allDay: false
                   });
                 });
@@ -175,6 +183,7 @@ $(window).load(function() {
             });
 
           }
+
         });
       });
 

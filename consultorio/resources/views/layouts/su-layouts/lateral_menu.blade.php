@@ -67,7 +67,7 @@
                   <li><a><i class="fa fa-child"></i> Paciente <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{ action('PatientController@index') }}">Todos los Pacientes</a></li>
-                      <li><a href="{{ action('PatientController@create') }}">Nuevo Paciente</a></li>
+                      <!-- <li><a href="{{ action('PatientController@create') }}">Nuevo Paciente</a></li> -->
                     </ul>
                   </li>
                   <li><a href="{{ url('dra/restricciones') }}"><i class="fa fa-exclamation"></i> Restricciones <!-- <span class="fa fa-chevron-down"></span> --></a>

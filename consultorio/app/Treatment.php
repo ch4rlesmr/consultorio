@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Meeting;
+use App\Sign;
 
 class Treatment extends Model {
     protected $table = "treatments";
@@ -15,6 +17,10 @@ class Treatment extends Model {
 
     public function sign () {
     	$this->belongsTo('App\Sign', 'sign_id');
+    }
+
+    public function meeting () {
+        return $this->hasOne('App\Meeting', 'treatment_id');
     }
 
 }

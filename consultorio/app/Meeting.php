@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Patient;
 use App\Medications;
+use App\Treatment;
+use App\Tracing;
 
 class Meeting extends Model {
     
@@ -14,8 +16,16 @@ class Meeting extends Model {
     	return $this->belongsTo('App\Patient', 'patient_id');
     }
 
+    public function treatment () {
+        return $this->belongsTo('App\Treatment', 'treatment_id');
+    }
+
+    public function tracing () {
+        return $this->belongsTo('App\Tracing', 'tracing_id');
+    }
+
     public function medications () {
-        return $this->belongsTo('App\Medications', 'meeting_id');
+        return $this->hasMany('App\Medication', 'meeting_id');
     }
 
     public function meetingType() {

@@ -30,7 +30,7 @@ elixir(function (mix) {
 		'libs/fastclick.js', 'libs/nprogress.js',
 		'libs/moment.min.js', 'libs/fullcalendar.min.js',
 		'libs/es.js', 'libs/jquery.smartWizard.js', 'libs/dropzone.min.js',// 'libs/dropzone-amd-module.min.js',
-		'libs/image-picker.js', 'libs/validator.js', 'libs/jquery-numeric.js', 'libs/starrr.js'],
+		'libs/image-picker.js', 'libs/validator.js', 'libs/jquery-numeric.js', 'libs/starrr.js', 'libs/Chart.min.js'],
 			'public/js/lib/libs.js'); 
 
 	mix.scripts(['libs/custom_calendar.js', 'libs/basic_func.js', 'libs/custom.min.js', 'libs/_inventario.js'],

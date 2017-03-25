@@ -20,19 +20,57 @@ use App\MenstrualPeriod;
 use App\PlanningMethod;
 use App\PlanningPatient;
 use App\Diagnosis;
+use App\Meeting;
+use App\Treatment;
+use App\Tracing;
+use App\Sign;
 
 class PatientController extends Controller {
 
 	public function index (Request $request) {
 
-		$patients = Patient::search($request->input('document-patient'), $request->input('name-patient'), $request->input('phone-patient'))->get();
+		$patients = Patient::search($request->input('document-patient'), 
+							$request->input('name-patient'), $request->input('phone-patient'), 
+							$request->input('type-patient'))->paginate(20);
 
 		return view( 'cstr-su.patients', ["patients" => $patients] );
 	}
 
 	public function show ($id) {
+
 		$patient = Patient::find($id);
-		return view( 'cstr-su.patient_detail', ['patient' => $patient] );
+		$meetings = Meeting::where('patient_id', $patient->id)->orderBy('created_at', 'DESC')->get();
+
+		$dates = Meeting::where('patient_id', $patient->id)->orderBy('created_at', 'ASC')->pluck('start_meeting');
+		$datesValues = array();
+
+		foreach ($dates as $date) {
+			// array_push( $datesValues, $date );
+			$datePush = Carbon::createFromFormat('Y-m-d h:i:s', $date);
+			array_push( $datesValues, $datePush->format('F d Y') );
+		}
+
+		$treatment_id = $patient->meetings->where('tracing_id', null)->first()->treatment_id;
+
+		if ( $treatment_id !== null ) {
+			$treatment = Treatment::find($treatment_id);
+			$initialW = Sign::find($treatment->sign_id)->weight;
+		
+			$tracing_id = $patient->meetings->where('treatment_id', null)->pluck('tracing_id');
+			$evolutions = Tracing::findMany($tracing_id)->pluck('evolution')->toArray();
+
+			array_unshift($evolutions, $initialW);
+
+			return view( 'cstr-su.patient_detail', 
+				['patient' => $patient, 'meetings' => $meetings,
+				'weightValues' => implode(',', $evolutions),
+				'datesValues' => implode(',', $datesValues)] );
+
+		} else 
+
+		return view( 'cstr-su.patient_detail', 
+				['patient' => $patient, 'meetings' => $meetings]);
+
 	}
 
 	public function create () {

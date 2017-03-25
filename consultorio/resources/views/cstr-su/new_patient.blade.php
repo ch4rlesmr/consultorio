@@ -6,8 +6,6 @@
             <div class="page-title">
               <div class="title_left">
                 <h3>Paciente</h3>
-                {{ $meeting }}
-                {{ $patient }}
               </div>
 
               <!-- <div class="title_right">
@@ -857,7 +855,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum voluptate offici
 
                                         <div class="col-md-4 col-sm-8 col-xs-12 form-group item">
                                           <small class="info-field">Dosis Medicina</small>
-                                          <input type="text" class="form-control has-feedback-left medicine-name" placeholder="Dosis" name="medicine-doses">
+                                          <input type="text" class="form-control has-feedback-left medicine-doses" placeholder="Dosis" name="medicine-doses">
                                           <span class="fa fa-file-text form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                         </div>
 

@@ -22,6 +22,10 @@ use App\MenstrualPeriod;
 use App\PlanningMethod;
 use App\PlanningPatient;
 use App\Diagnosis;
+use App\Sign;
+use App\Medication;
+use App\Treatment;
+use App\Tracing;
 
 class MeetingController extends Controller
 {
@@ -31,15 +35,20 @@ class MeetingController extends Controller
      * @return \Illuminate\Http\Response
      */
     public static function index() {
-        $meetings = Meeting::whereDate('start_meeting', '>=', Carbon::now()->format('Y-m-d'))->orderBy('start_meeting', 'DESC')->get();
+        // $meetings = Meeting::whereDate('start_meeting', '>=', Carbon::now()->format('Y-m-d'))->orderBy('start_meeting', 'DESC')->get();
         // return view('cstr-su.appointment', ['meetings' => $meetings]);
-        return view('cstr-su.appointment', ['meetings' => Meeting::all()]);
+        $meetings = Meeting::orderBy('start_meeting', 'DESC')->get();
+        return view('cstr-su.appointment', ['meetings' => $meetings]);
     }
 
     public function listEvents (Request $request) {
 
+        $query = DB::table('meetings')->join('patients', 'meetings.patient_id', '=', 'patients.id')->select('meetings.*', 'patients.name', 'patients.last_name')->get();
+
         if ($request->ajax()) {
-            return Response::json( ['meetings' => $meetings = Meeting::all(), 'status' => 'success'] );
+            //return Response::json( ['meetings' => $meetings = Meeting::all(), 'status' => 'success'] );
+            return Response::json( ['meetings' => $query, 'status' => 'success'] );
+
         }
         
     }
@@ -62,10 +71,19 @@ class MeetingController extends Controller
      */
     public function store(Request $request) {
 
+
         $patientOld = Patient::where( 'id_number', $request->input('number-document') );
         $patient = new Patient();
-        $startMeeting = Carbon::createFromFormat( 'Y-m-d H:i', $request->input('date-agenda') );
-        $endMeeting = new Carbon();
+
+        if ( $request->has('date-agenda') ) {
+            $startMeeting = Carbon::createFromFormat( 'Y-m-d H:i', $request->input('date-agenda') );
+        } else if ( $request->has('date-meeting-old-patient') ) {
+            $startMeeting = Carbon::createFromFormat( 'Y-m-d H:i', $request->input('date-meeting-old-patient') );
+        }
+
+        // $startMeeting = Carbon::createFromFormat( 'Y-m-d H:i', $request->input('date-agenda') );
+        $endMeeting = clone $startMeeting;
+        $meeting = new Meeting();
         
         if ( $patientOld->count() > 0 ) {
             if ( ($patientOld->first()->id_number === $request->input('number-document') ) && ( $patientOld->first()->type_id_number === $request->input('type-document') ) ) {
@@ -73,7 +91,11 @@ class MeetingController extends Controller
             }
         } else if ( $request->has('old-patient-id') ) {
             $patient = Patient::find($request->input('old-patient-id'));
-            $endMeeting = $startMeeting->addMinutes(20);
+            $endMeeting->addMinutes(20);
+
+            $tracing = new Tracing();
+            $tracing->save();
+            $meeting->tracing_id = $tracing->id;
 
         } else {
 
@@ -86,11 +108,16 @@ class MeetingController extends Controller
             $patient->address = $request->input('address-patient');
 
             $saved = $patient->save();
-            $endMeeting = $startMeeting->addMinutes(40);
+            $endMeeting->addMinutes(40);
+
+            $treatment = new Treatment();
+            $treatment->description = "";
+            $treatment->save();
+            $meeting->treatment_id = $treatment->id;
 
         }
 
-        $meeting = new Meeting();
+        
         // Carbon::createFromFormat('Y-m-d H:i', '2017-03-13 09:40');
         $meeting->start_meeting = $startMeeting->toDateTimeString();
         $meeting->end_meeting = $endMeeting->toDateTimeString();
@@ -107,9 +134,26 @@ class MeetingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function show($id) {
+        $meeting = Meeting::find($id);
+
+        if ( $meeting->treatment_id !== NULL ) {
+
+            $treatment = Treatment::find( $meeting->treatment_id );
+            $sign = Sign::find( $treatment->sign_id );
+
+            return view( 'cstr-su.meeting_detail', 
+                ['meeting' => $meeting, 'treatment' => $treatment, 'sign' => $sign] );
+
+        } else if ( $meeting->tracing_id !== NULL ) {
+
+            $tracing = Tracing::find( $meeting->tracing_id );
+
+            return view( 'cstr-su.meeting_detail', 
+                ['meeting' => $meeting, 'tracing' => $tracing] );
+
+        }
+
     }
 
     /**
@@ -118,9 +162,10 @@ class MeetingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($id) {
+        $meeting = Meeting::find($id);
+        return view( 'cstr-su.edit_appointment', 
+                ['meeting' => $meeting] );
     }
 
     /**
@@ -148,8 +193,14 @@ class MeetingController extends Controller
 
     public function searchPatients (Request $request) {
 
+        $patientsAvailableIds = Meeting::select('patient_id')
+                                ->where('meeting_status', '<>', 'ACTV')
+                                ->get();
+
         $patients = Patient::select(DB::raw('id, id_number, name, last_name'))->where(DB::raw('CONCAT(name, " ", last_name)'), 'LIKE', '%' . $request->input('name_patient') .'%')
                             ->where('id_number', 'LIKE', '%'. $request->input('numer_document') .'%')
+                            ->where('patient_status', '=', 'OLD')
+                            ->whereIn('id', $patientsAvailableIds)
                             ->get();
 
         if ( $request->ajax() ) {
@@ -157,12 +208,18 @@ class MeetingController extends Controller
         }
     }
 
+    public function validateMeeting (Request $request) {
+        if ( $request->ajax() ) {
+            return Response::json(['Validar cita' => 'success'],201);
+        }
+    }
+
     public function listMeetings() {
         return view('cstr-su.calendar');
     }
 
-    public function createTracingMeeting () {
-        return view('cstr-su.new_tracing');
+    public function createTracingMeeting ($meetingId) {
+        return view( 'cstr-su.new_tracing', ['meeting' => Meeting::find($meetingId)] );
     }
 
     public function createTreatment ($meetingId) {
@@ -187,6 +244,8 @@ class MeetingController extends Controller
 
     public function storeTreatment (Request $request, $patientId, $meetingId) {
         
+        $meeting = Meeting::find($meetingId);
+        $allInfo = array();
         $patient = Patient::find($patientId);
         //STEP 1
         $name = $request->input("name-patient");
@@ -222,9 +281,11 @@ class MeetingController extends Controller
         $patient->academic_level_id = $idLevelAcdemic;
         $patient->economic_level = $economicLevel;
         $patient->job = $job;
+        $patient->eps_id = $idEps;
         $patient->patient_status = 'OLD';
 
         $saved = $patient->save();
+        array_push($allInfo, $patient);
 
 
         //STEP 2
@@ -266,6 +327,7 @@ class MeetingController extends Controller
         $inspection->others = $others;
         $inspection->patient_id = $patient->id;
 
+        array_push($allInfo, $inspection);
         $inspection->save();
 
         //STEP 3
@@ -285,6 +347,7 @@ class MeetingController extends Controller
             $alimentObject->food_id = $foodId;
             $alimentObject->patient_id = $patient->id;
 
+            array_push($allInfo, $alimentObject);
             $alimentObject->save();
 
         }
@@ -304,6 +367,7 @@ class MeetingController extends Controller
             $habitPatient->habit_description = $habit->description;
             $habitPatient->patient_id = $patient->id;
 
+            array_push($allInfo, $habitPatient);
             $habitPatient->save();
 
         }
@@ -312,6 +376,8 @@ class MeetingController extends Controller
         $planningPatient->planning_method_id = $request->input("planify-method");
         $planningPatient->description = $request->input("method-description");
         $planningPatient->patient_id = $patient->id;
+
+        array_push($allInfo, $planningPatient);
         $planningPatient->save();
 
         if( ($request->input("menstruation-frecuency") !== null) && ($request->input("menstruation-duration"))  ) {
@@ -320,6 +386,8 @@ class MeetingController extends Controller
             $menstruationPatient->frecuency = $request->input("menstruation-frecuency");
             $menstruationPatient->duration = $request->input("menstruation-duration");
             $menstruationPatient->patient_id = $patient->id;
+
+            array_push($allInfo, $menstruationPatient);
             $menstruationPatient->save();
         }
 
@@ -340,7 +408,51 @@ class MeetingController extends Controller
         $patientDiagnosis->type_nails = $request->input("nails-type");
         $patientDiagnosis->patient_id = $patient->id;
 
+        array_push($allInfo, $patientDiagnosis);
         $patientDiagnosis->save();
+
+        //STEP 6
+        $treatmentSign = new Sign();
+        $treatmentSign->weight = $request->input('weight-patient');
+        $treatmentSign->size = $request->input('size-patient');
+        $treatmentSign->imc = $request->input('imc-patient');
+        $treatmentSign->contexture = $request->input('contexture-sign');
+        $treatmentSign->blood_presure = $request->input('blood-pressure');
+        $treatmentSign->heart_rate = $request->input('heart-rate');
+        $treatmentSign->breathing_rate = $request->input('breathing-frequency');
+        $treatmentSign->save();
+
+        array_push($allInfo, $treatmentSign);
+
+        $treatmentPatient = $meeting->treatment;
+        $treatmentPatient->diagnosis = $request->input('patient-diagnostic');
+        $treatmentPatient->description = $request->input('treatment-description');
+        $treatmentPatient->sign_id = $treatmentSign->id;
+        $treatmentPatient->save();
+
+        $medicines = $request->input("input_medicines");
+        $medicines = json_decode($medicines);
+        print_r($medicines);
+
+        foreach($medicines as $medicine){
+            $medicinePatient = new Medication();
+
+            $medicinePatient->medicine_name = $medicine->name;
+            $medicinePatient->dose = $medicine->doses;
+            $medicinePatient->medicine_type = $medicine->type;
+            $medicinePatient->meeting_id = $meeting->id;
+            $medicinePatient->save();
+
+            array_push($allInfo, $medicine);
+            // $habitPatient->save();
+
+        }
+
+        $meeting->treatment_id = $treatmentPatient->id;
+        $meeting->meeting_status = 'DONE';
+        $meeting->save();
+
+        // $patientDiagnosis->save();
 
         return redirect()->route('paciente.index');
     }
@@ -357,8 +469,35 @@ class MeetingController extends Controller
 
     }
 
-    public function storeTracing (Request $request) {
+    public function storeTracing (Request $request, $patientId, $meetingId) {
+
+        $tracing = Meeting::find($meetingId)->tracing;
+        $tracing->evolution = $request->input('tracing-weight');
+        $tracing->diagnosis = $request->input('diagnoses-tracing');
+        $tracing->considerations = $request->input('tracing-description');
+        $tracing->qualification = $request->input('rating-tracing');
+        $tracing->save();
+
+        $medicines = $request->input("input_medicines");
+        $medicines = json_decode($medicines);
         
+        foreach($medicines as $medicine){
+            $medicinePatient = new Medication();
+
+            $medicinePatient->medicine_name = $medicine->name;
+            $medicinePatient->dose = $medicine->doses;
+            $medicinePatient->medicine_type = $medicine->type;
+            $medicinePatient->meeting_id = $meetingId;
+            
+            $medicinePatient->save();
+
+        }
+
+        $meeting = Meeting::find($meetingId);
+        $meeting->meeting_status = 'DONE';
+        $meeting->save();
+
+        return redirect()->route('agenda.index');
     }
 
     public function editTracing ($meetingId) {

@@ -13,7 +13,7 @@ $(window).load(function() {
           header: {
             left: 'prev, next, today',
             center: 'title',
-            right: 'month,agendaWeek,agendaDay,listMonth'
+            right: 'month,agendaWeek,agendaDay'
           },
           defaultView: 'agendaDay',
           navLinks: true,
@@ -32,6 +32,7 @@ $(window).load(function() {
           slotDuration: '00:20:00',
           axisFormat: 'hh:mm p',
           slotMinutes: 20,
+          contentHeight: 760,
           ignoreTimezone: true,
           timezone: "local",
 
@@ -53,9 +54,14 @@ $(window).load(function() {
               
               $('.form-date-assignment-hidden input#old-patient-id').attr('value', id);
               $('.form-date-assignment-hidden input#date-meeting-old-patient').attr('value', startAgenda);
+              // validateMeetingAJAX(id);
 
               console.log($('.form-date-assignment-hidden').html());
               $('.form-date-assignment-hidden').submit();
+              /*$('.form-date-assignment-hidden').on('submit', function () {
+                console.warn('test front-end asignacion de cita');
+                return false;
+              });*/
             });
 
             // $("#register_calendar_patient #save_new_patient").on("click", function() {
@@ -157,6 +163,8 @@ $(window).load(function() {
                     title: value['name'] + ' ' + value['last_name'] , //
                     start: value['start_meeting'],//moment(start._d).format('YYYY-MM-DD hh:mm')
                     end: value['end_meeting'],
+                    textColor: 'red',
+                    color: 'green',
                     allDay: false
                   });
                 });
@@ -175,6 +183,7 @@ $(window).load(function() {
             });
 
           }
+
         });
       });
 
@@ -320,9 +329,19 @@ $(function () {
 	});
 
 	$('.star-rating').starrr({
+		rating: 2,
 		change: function(e, value){
-			$('#rating-tracing').val(value);
+			
+			if ( value == undefined ) { 
+				$('#rating-tracing').val(0);
+			} else
+				$('#rating-tracing').val(value);
 		}
+	});
+
+	$('.starrr-readonly').starrr({
+		readOnly: true,
+		rating: $('#qualification').val()
 	});
 
 	$('#dob-patient').change(function () {
@@ -432,7 +451,6 @@ $(function () {
 
 	$('.add-field-medicine').click(function (e) {
 		e.preventDefault();
-		alert('agregar medicina');
 		var rowFields = $('#medicine .medicines-container').first().clone();
 		$(rowFields).find('input, textarea').val("");
 		next_medicine ++;
@@ -503,6 +521,61 @@ function loadResultPatientTable(patientsResult) {
 		'<td data-patient-id="' + patientsResult[patient].id + '"><a href="#" class="btn btn-success btn-xs meeting-assignment"><i class="fa fa-calendar"></i> <strong>Asignar</strong></a></td>' + 
 		'</tr>');
 	}
+}
+
+function validateMeetingAJAX (patientId) {
+	var data = { id: patientId };
+	app.httpPost('dra/valida_cita', data, function onSuccess (response) {
+		console.log(response);
+	}, function onError (response) {
+		console.log(response);
+	});
+}
+
+Chart.defaults.global.legend = {
+        enabled: false
+      };
+
+var ctx = document.getElementById("lineChart");
+
+if (ctx !== null) {
+
+	ctx = ctx.getContext("2d");
+	ctx.canvas.height = 100;
+
+	var dates = $('#date-meetings').data('date-meetings').split(',');
+	var weights = $('#weight-values').data('weight-values').split(',');
+
+	var lineChart = new Chart(ctx, {
+		type: 'line',
+		data: {
+		  // labels: ["January", "February", "March", "April", "May", "June", "July"],
+		  labels: dates,
+		  datasets: [{
+		    label: "Peso (Kg)",
+		    backgroundColor: "rgba(38, 185, 154, 0.31)",
+		    borderColor: "rgba(38, 185, 154, 0.7)",
+		    pointBorderColor: "rgba(38, 185, 154, 0.7)",
+		    pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
+		    pointHoverBackgroundColor: "#fff",
+		    pointHoverBorderColor: "rgba(220,220,220,1)",
+		    pointBorderWidth: 1,
+		    data: weights
+		    // data: [31, 74, 6, 39, 20, 85, 7]
+		  }/*, {
+		    label: "My Second dataset",
+		    backgroundColor: "rgba(3, 88, 106, 0.3)",
+		    borderColor: "rgba(3, 88, 106, 0.70)",
+		    pointBorderColor: "rgba(3, 88, 106, 0.70)",
+		    pointBackgroundColor: "rgba(3, 88, 106, 0.70)",
+		    pointHoverBackgroundColor: "#fff",
+		    pointHoverBorderColor: "rgba(151,187,205,1)",
+		    pointBorderWidth: 1,
+		    data: [82, 23, 66, 9, 99, 4, 2]
+		  }*/]
+		},
+	});
+
 }
 function countChecked(){"all"===checkState&&$(".bulk_action input[name='table_records']").iCheck("check"),"none"===checkState&&$(".bulk_action input[name='table_records']").iCheck("uncheck");var e=$(".bulk_action input[name='table_records']:checked").length;e?($(".column-title").hide(),$(".bulk-actions").show(),$(".action-cnt").html(e+" Records Selected")):($(".column-title").show(),$(".bulk-actions").hide())}!function(e,t){var n=function(e,t,n){var i;return function(){function c(){n||e.apply(a,o),i=null}var a=this,o=arguments;i?clearTimeout(i):n&&e.apply(a,o),i=setTimeout(c,t||100)}};jQuery.fn[t]=function(e){return e?this.bind("resize",n(e)):this.trigger(t)}}(jQuery,"smartresize");var CURRENT_URL=window.location.href.split("?")[0],$BODY=$("body"),$MENU_TOGGLE=$("#menu_toggle"),$SIDEBAR_MENU=$("#sidebar-menu"),$SIDEBAR_FOOTER=$(".sidebar-footer"),$LEFT_COL=$(".left_col"),$RIGHT_COL=$(".right_col"),$NAV_MENU=$(".nav_menu"),$FOOTER=$("footer");$(document).ready(function(){var e=function(){$RIGHT_COL.css("min-height",$(window).height());var e=$BODY.outerHeight(),t=$BODY.hasClass("footer_fixed")?-10:$FOOTER.height(),n=$LEFT_COL.eq(1).height()+$SIDEBAR_FOOTER.height(),i=n>e?n:e;i-=$NAV_MENU.height()+t,$RIGHT_COL.css("min-height",i)};$SIDEBAR_MENU.find("a").on("click",function(t){var n=$(this).parent();n.is(".active")?(n.removeClass("active active-sm"),$("ul:first",n).slideUp(function(){e()})):(n.parent().is(".child_menu")||($SIDEBAR_MENU.find("li").removeClass("active active-sm"),$SIDEBAR_MENU.find("li ul").slideUp()),n.addClass("active"),$("ul:first",n).slideDown(function(){e()}))}),$MENU_TOGGLE.on("click",function(){$BODY.hasClass("nav-md")?($SIDEBAR_MENU.find("li.active ul").hide(),$SIDEBAR_MENU.find("li.active").addClass("active-sm").removeClass("active")):($SIDEBAR_MENU.find("li.active-sm ul").show(),$SIDEBAR_MENU.find("li.active-sm").addClass("active").removeClass("active-sm")),$BODY.toggleClass("nav-md nav-sm"),e()}),$SIDEBAR_MENU.find('a[href="'+CURRENT_URL+'"]').parent("li").addClass("current-page"),$SIDEBAR_MENU.find("a").filter(function(){return this.href==CURRENT_URL}).parent("li").addClass("current-page").parents("ul").slideDown(function(){e()}).parent().addClass("active"),$(window).smartresize(function(){e()}),e(),$.fn.mCustomScrollbar&&$(".menu_fixed").mCustomScrollbar({autoHideScrollbar:!0,theme:"minimal",mouseWheel:{preventDefault:!0}})}),$(document).ready(function(){$(".collapse-link").on("click",function(){var e=$(this).closest(".x_panel"),t=$(this).find("i"),n=e.find(".x_content");e.attr("style")?n.slideToggle(200,function(){e.removeAttr("style")}):(n.slideToggle(200),e.css("height","auto")),t.toggleClass("fa-chevron-up fa-chevron-down")}),$(".close-link").click(function(){var e=$(this).closest(".x_panel");e.remove()})}),$(document).ready(function(){$('[data-toggle="tooltip"]').tooltip({container:"body"})}),$(".progress .progress-bar")[0]&&$(".progress .progress-bar").progressbar(),$(document).ready(function(){if($(".js-switch")[0]){var e=Array.prototype.slice.call(document.querySelectorAll(".js-switch"));e.forEach(function(e){new Switchery(e,{color:"#26B99A"})})}}),$(document).ready(function(){$("input.flat")[0]&&$(document).ready(function(){$("input.flat").iCheck({checkboxClass:"icheckbox_flat-green",radioClass:"iradio_flat-green"})})}),$("table input").on("ifChecked",function(){checkState="",$(this).parent().parent().parent().addClass("selected"),countChecked()}),$("table input").on("ifUnchecked",function(){checkState="",$(this).parent().parent().parent().removeClass("selected"),countChecked()});var checkState="";$(".bulk_action input").on("ifChecked",function(){checkState="",$(this).parent().parent().parent().addClass("selected"),countChecked()}),$(".bulk_action input").on("ifUnchecked",function(){checkState="",$(this).parent().parent().parent().removeClass("selected"),countChecked()}),$(".bulk_action input#check-all").on("ifChecked",function(){checkState="all",countChecked()}),$(".bulk_action input#check-all").on("ifUnchecked",function(){checkState="none",countChecked()}),$(document).ready(function(){$(".expand").on("click",function(){$(this).next().slideToggle(200),$expand=$(this).find(">:first-child"),"+"==$expand.text()?$expand.text("-"):$expand.text("+")})}),"undefined"!=typeof NProgress&&($(document).ready(function(){NProgress.start()}),$(window).load(function(){NProgress.done()}));
 
@@ -584,14 +657,16 @@ $(document).ready(function() {
         var medicines = [];
         $("#medicines .medicines-container").each(function(){
             var medicine = {};
-            var nameMedicine = $(this).find("medicine-name").val();
-            var typeMedicine = $(this).find("medicine-type").val();
+            var nameMedicine = $(this).find(".medicine-name").val();
+            var typeMedicine = $(this).find(".medicine-type").val();
+            var medicineDoses = $(this).find(".medicine-doses").val();
 
             medicine.name = nameMedicine;
             medicine.type = typeMedicine;
+            medicine.doses = medicineDoses;
             medicines.push(medicine);
         });
-        $("#input_medicines").val(JSON.stringify(habits));
+        $("#input_medicines").val(JSON.stringify(medicines));
 
         $("#form_patient").submit();
     }
@@ -686,7 +761,7 @@ $(document).ready(function() {
     /*Validacion de formularios*/
     validator.message['date'] = 'not a real date';
 
-    $('form, #register_calendar_patient')
+    $('form, #register_calendar_patient, .tracing')
     .on('blur', 'input[required], input.optional, select[required], select.required', validator.checkField)
     .on('change', 'input.datepicker, select[required], select.required', validator.checkField)
     .on('keypress', 'input[required][pattern]', validator.keypress);
@@ -711,45 +786,34 @@ $(document).ready(function() {
       return false;
     });
 
-    // var myDropzone = new Dropzone("div#dropZoneArea");
+    $('form.tracing').submit(function (e) {
+        var medicines = [];
+        $("#medicine .medicines-container").each(function(){
+            var medicine = {};
+            var nameMedicine = $(this).find(".medicine-name").val();
+            var typeMedicine = $(this).find(".medicine-type").val();
+            var medicineDoses = $(this).find(".medicine-doses").val();
 
+            medicine.name = nameMedicine;
+            medicine.type = typeMedicine;
+            medicine.doses = medicineDoses;
+            medicines.push(medicine);
+        });
+        $("#input_medicines").val(JSON.stringify(medicines));
 
-    // Dropzone.options.realDropzone = {
-    //     maxFilesize: 5,
-    //     addRemoveLinks: true,
-    //     dictResponseError: 'Server not Configured',
-    //     acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
-    //     init:function(){
-    //       var self = this;
-    //       // config
-    //       self.options.addRemoveLinks = true;
-    //       self.options.dictRemoveFile = "Delete";
-    //       //New file added
-    //       self.on("addedfile", function (file) {
-    //         console.log('new file added ', file);
-    //       });
-    //       // Send file starts
-    //       self.on("sending", function (file) {
-    //         console.log('upload started', file);
-    //         $('.meter').show();
-    //       });
-          
-    //       // File upload Progress
-    //       self.on("totaluploadprogress", function (progress) {
-    //         console.log("progress ", progress);
-    //         $('.roller').width(progress + '%');
-    //       });
+        e.preventDefault();
+        var submit = true;
 
-    //       self.on("queuecomplete", function (progress) {
-    //         $('.meter').delay(999).slideUp(999);
-    //       });
-          
-    //       // On removing file
-    //       self.on("removedfile", function (file) {
-    //         console.log(file);
-    //       });
-    //     }
-    //   };
+        // evaluate the form using generic validaing
+        if (!validator.checkAll($(this))) {
+          submit = false;
+        }
+
+        if (submit)
+          this.submit();
+
+        return false;
+    });
 
 });
 

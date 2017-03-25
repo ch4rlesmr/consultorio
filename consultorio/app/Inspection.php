@@ -30,5 +30,39 @@ class Inspection extends Model
 
     public function feeling(){
         return $this->belongsTo("App\Feeling","feeling_id");
-    }    
+    }
+
+    public function getTimeUnit() {
+        switch ( $this->hlar_time ) {
+            case 'D':
+                return 'Días';
+                break;
+            case 'M':
+                return 'Meses';
+                break;
+            case 'Y':
+                return 'Años';
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+    }
+
+    public function getIntegrity() {
+        switch ( $this->integrity ) {
+            case 'COMPLETE':
+                return 'Completo';
+                break;
+            case 'INCOMPLETE':
+                return 'Incompleto';
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+    }
+
 }

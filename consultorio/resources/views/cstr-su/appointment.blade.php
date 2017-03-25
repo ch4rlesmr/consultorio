@@ -112,8 +112,8 @@
                         <tbody style="text-align: center;">
                           @foreach ($meetings as $meeting)
                             <tr>
-                              <td>{{ $meeting->start_meeting }}</td>
-                              <td><a href="#" type="button"><strong>{{ $meeting->patient->name . ' ' . $meeting->patient->last_name }}</strong></a> &nbsp; {{ $meeting->patient->patient_status }} </td>
+                              <td>{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $meeting->start_meeting)->toDayDateTimeString() }}</td>
+                              <td><a href="{{ action( 'PatientController@show', $meeting->patient->id ) }}" class="btn btn-default btn-xs"><strong>{{ $meeting->patient->name . ' ' . $meeting->patient->last_name }}</strong></a></td>
                               <td>{{ $meeting->patient->id_number }}</td>
                               <td>{{ $meeting->meetingType() }}</td>
                               <td>
@@ -126,13 +126,19 @@
                                 @endif
                               </td>
                               <td data-meeting-id="{{ $meeting->id }}">
-                                @if ( $meeting->patient->patient_status === 'NEW' )
-                                  <a href="{{ route( 'cita.tratamiento', $meeting->id ) }}" class="btn btn-success product_detail"><span class="fa fa-calendar"></span> Ir a cita </a>
-                                @else
-                                  <a href="{{ route( 'cita.seguimiento', $meeting->id ) }}" class="btn btn-success product_detail"><span class="fa fa-calendar"></span> Ir a cita </a>
+                                @if ( $meeting->meeting_status == 'ACTV' )
+                                  @if ( $meeting->patient->patient_status === 'NEW' )
+                                    <a href="{{ route( 'cita.tratamiento', $meeting->id ) }}" class="btn btn-success product_detail"><span class="fa fa-calendar"></span> Ir a cita </a>
+                                    <a href="#" type="button" class="btn btn-danger product_delete" data-toggle="modal" data-target="#inventoryDelete"><span class="fa fa-ban"></span> Cancelar</a>
+                                  @else
+                                    <a href="{{ route( 'cita.seguimiento', $meeting->id ) }}" class="btn btn-success product_detail"><span class="fa fa-calendar"></span> Ir a cita </a>
+                                    <a href="#" type="button" class="btn btn-danger product_delete" data-toggle="modal" data-target="#inventoryDelete"><span class="fa fa-ban"></span> Cancelar</a>
+                                  @endif
+                                @elseif ( $meeting->meeting_status == 'DONE' )
+                                    <a href="{{ route( 'agenda.show', $meeting->id ) }}" class="btn btn-primary product_detail"><span class="fa fa-eye"></span> Detalle de cita </a>
                                 @endif
                              <!-- <a href="" type="button" class="btn btn-warning "><span class="fa fa-pencil"></span> Editar</a> -->
-                              <a href="#" type="button" class="btn btn-danger product_delete" data-toggle="modal" data-target="#inventoryDelete"><span class="fa fa-ban"></span> Cancelar</a>
+                              
                               </td>
                             </tr>
                           @endforeach

@@ -111,9 +111,19 @@ $(function () {
 	});
 
 	$('.star-rating').starrr({
+		rating: 2,
 		change: function(e, value){
-			$('#rating-tracing').val(value);
+			
+			if ( value == undefined ) { 
+				$('#rating-tracing').val(0);
+			} else
+				$('#rating-tracing').val(value);
 		}
+	});
+
+	$('.starrr-readonly').starrr({
+		readOnly: true,
+		rating: $('#qualification').val()
 	});
 
 	$('#dob-patient').change(function () {
@@ -223,7 +233,6 @@ $(function () {
 
 	$('.add-field-medicine').click(function (e) {
 		e.preventDefault();
-		alert('agregar medicina');
 		var rowFields = $('#medicine .medicines-container').first().clone();
 		$(rowFields).find('input, textarea').val("");
 		next_medicine ++;
@@ -294,4 +303,59 @@ function loadResultPatientTable(patientsResult) {
 		'<td data-patient-id="' + patientsResult[patient].id + '"><a href="#" class="btn btn-success btn-xs meeting-assignment"><i class="fa fa-calendar"></i> <strong>Asignar</strong></a></td>' + 
 		'</tr>');
 	}
+}
+
+function validateMeetingAJAX (patientId) {
+	var data = { id: patientId };
+	app.httpPost('dra/valida_cita', data, function onSuccess (response) {
+		console.log(response);
+	}, function onError (response) {
+		console.log(response);
+	});
+}
+
+Chart.defaults.global.legend = {
+        enabled: false
+      };
+
+var ctx = document.getElementById("lineChart");
+
+if (ctx !== null) {
+
+	ctx = ctx.getContext("2d");
+	ctx.canvas.height = 100;
+
+	var dates = $('#date-meetings').data('date-meetings').split(',');
+	var weights = $('#weight-values').data('weight-values').split(',');
+
+	var lineChart = new Chart(ctx, {
+		type: 'line',
+		data: {
+		  // labels: ["January", "February", "March", "April", "May", "June", "July"],
+		  labels: dates,
+		  datasets: [{
+		    label: "Peso (Kg)",
+		    backgroundColor: "rgba(38, 185, 154, 0.31)",
+		    borderColor: "rgba(38, 185, 154, 0.7)",
+		    pointBorderColor: "rgba(38, 185, 154, 0.7)",
+		    pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
+		    pointHoverBackgroundColor: "#fff",
+		    pointHoverBorderColor: "rgba(220,220,220,1)",
+		    pointBorderWidth: 1,
+		    data: weights
+		    // data: [31, 74, 6, 39, 20, 85, 7]
+		  }/*, {
+		    label: "My Second dataset",
+		    backgroundColor: "rgba(3, 88, 106, 0.3)",
+		    borderColor: "rgba(3, 88, 106, 0.70)",
+		    pointBorderColor: "rgba(3, 88, 106, 0.70)",
+		    pointBackgroundColor: "rgba(3, 88, 106, 0.70)",
+		    pointHoverBackgroundColor: "#fff",
+		    pointHoverBorderColor: "rgba(151,187,205,1)",
+		    pointBorderWidth: 1,
+		    data: [82, 23, 66, 9, 99, 4, 2]
+		  }*/]
+		},
+	});
+
 }

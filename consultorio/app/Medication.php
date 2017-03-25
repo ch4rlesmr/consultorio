@@ -18,4 +18,28 @@ class Medication extends Model {
     	//['MDCN', 'VTMN', 'SYRP', 'INJT', 'OTHER']
     }
 
+    public function getMedicationType () {
+    	switch ( $this->medicine_type ) {
+    		case 'MDCN':
+    			return 'Medicamento';
+    			break;
+    		case 'VTMN':
+    			return 'Vitamina';
+    			break;
+    		case 'SYRP':
+    			return 'Jarabe';
+    			break;
+    		case 'INJT':
+    			return 'Inyección';
+    			break;
+    		case 'OTHER':
+    			return 'Otro';
+    			break;
+    		
+    		default:
+    			# code...
+    			break;
+    	}
+    }
+
 }

@@ -40,12 +40,16 @@ Route::group(['prefix' => 'dra', 'middleware' => ['web', 'auth']], function () {
 		return view('cstr-su.new_patient');
 	})->name('dra.paciente_nuevo');*/
 
+	Route::get('/detalle_cita', function () {
+		return view('cstr-su.meeting_detail');
+	});
+
 	Route::get('/{meetingId}/nuevo_seguimiento', 
 		['uses' => 'MeetingController@createTracingMeeting', 
 		'as' => 'cita.seguimiento']);
 
-	Route::get('/{patientId}/{meetingId}/guardar_seguimiento', 
-		['uses' => 'MeetingController@storeTracingMeeting', 
+	Route::POST('/{patientId}/{meetingId}/guardar_seguimiento', 
+		['uses' => 'MeetingController@storeTracing', 
 		'as' => 'cita.guardar_seguimiento']);
 
 	Route::get('/{meetingId}/nuevo_tratamiento', 
@@ -60,6 +64,7 @@ Route::group(['prefix' => 'dra', 'middleware' => ['web', 'auth']], function () {
 	Route::get('/list', ['uses' => 'MeetingController@listEvents']);
 	Route::get('/calendario', ['uses' => 'MeetingController@listMeetings', 'as' => 'agenda.calendario']);
 	Route::POST('/buscar_cita_paciente', ['uses' => 'MeetingController@searchPatients', "as" => 'agenda.searchPatients']);
+	Route::POST('/valida_cita', ['uses' => 'MeetingController@validateMeeting', "as" => 'agenda.validateMeeting']);
 
 	Route::resource('paciente', 'PatientController');
 	Route::resource('inventario', 'ProductController');

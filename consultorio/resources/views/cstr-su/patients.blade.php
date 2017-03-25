@@ -44,16 +44,19 @@
               </div>
 
               <div class="col-md-5 col-md-offset-1">
-                <label class="control-label">Fecha Próxima Cita</label>
+                <label class="control-label" for="first-name">Telefono</label>
                 <div>
-                  <input type="text" id="date-patient" name="date-patient" class="form-control datepicker" readonly>
+                  <input type="text" id="phone-patient" name="phone-patient" class="form-control">
                 </div>
               </div>
 
               <div class="col-md-5">
-                <label class="control-label" for="first-name">Telefono</label>
+                <label class="control-label">Tipo Paciente</label>
                 <div>
-                  <input type="text" id="phone-patient" name="phone-patient" class="form-control">
+                  <select id="type-patient" name="type-patient" class="form-control">
+                    <option value="OLD">Antiguo</option>
+                    <option value="NEW">Nuevo</option>
+                  </select>
                 </div>
               </div>
 
@@ -71,9 +74,7 @@
 
         <div class="x_title">
           <h2>Pacientes</h2>
-          <a href="{{ action('PatientController@create') }}" class="pull-right btn btn-success">
-            <i class="fa fa-plus-circle" aria-hidden="true"></i> <strong>Añadir Nuevo Paciente</strong>
-          </a>
+          <!-- <a href="{{ action('PatientController@create') }}" class="pull-right btn btn-success"><i class="fa fa-plus-circle" aria-hidden="true"></i> <strong>Añadir Nuevo Paciente</strong></a> -->
         
           <div class="clearfix"></div>
         </div>
@@ -93,15 +94,18 @@
               <div class="col-sm-12">
                 <div class="left col-xs-7">
                   <h2>{{ $patient->name . ' ' . $patient->last_name }}</h2>
-                  <p><strong>Tratamiento: </strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit </p>
+                  <p><strong>Estado: </strong> {{ $patient->getStatus() }} </p>
                 </div>
-                <div class="right col-xs-5 text-center">
-                  <img src="/images/user.png" alt="" class="img-circle img-responsive">
+                <div class="right col-xs-5 text-center" style="position:absolute; right:0;">
+                  <img src="/images/{{ $patient->getImagePatient() }}" alt="" class="img-circle img-responsive">
                 </div>
                 <div class="left col-xs-12">
                   <ul class="list-unstyled">
                     <li><i class="fa fa-phone"></i> <strong>Telefono:</strong> <span>{{ $patient->phone }}</span></li>
-                    <li><i class="fa fa-calendar"></i> <strong>Prox. Cita:</strong> <span>28 Julio 2007 - 9:30 AM</span> </li>
+                    @if ( isset( $patient->birthdate ) )
+                    <li><i class="fa fa-slack user-profile-icon"></i> <strong>Edad: </strong>{{ Carbon\Carbon::createFromFormat('Y-m-d', $patient->birthdate)->diff(Carbon\Carbon::now())->format('%y Años') }}</li>
+                    @endif
+                    <li><i class="fa fa-list-alt user-profile-icon"></i> <strong>Identificación: </strong>{{ $patient->type_id_number . ' ' . $patient->id_number }}</li>
                   </ul>
                 </div>
               </div>
@@ -116,7 +120,12 @@
           </div>
           @endforeach
         </div>
-
+        {{ $patients->appends([
+          'document-patient' => Request::get('document-patient'),
+          'name-patient' => Request::get('name-patient'),
+          'phone-patient' => Request::get('phone-patient'),
+          'type-patient' => Request::get('type-patient'),
+        ]) }}
       </div>
     </div>
   </div>

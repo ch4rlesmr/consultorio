@@ -34,19 +34,12 @@
                           <img class="img-responsive avatar-view" src="/images/user.png" alt="Avatar" title="Change the avatar">
                         </div>
                       </div>
-                      <h3>Pedro Pablo Paez Pinto</h3>
+                      <h3>{{ $meeting->patient->name . ' ' . $meeting->patient->last_name }}</h3>
 
                       <ul class="list-unstyled user_data">
-                        <li><i class="fa fa-map-marker user-profile-icon"></i> <strong>Edad: </strong>24
-                        </li>
-
-                        <li>
-                          <i class="fa fa-briefcase user-profile-icon"></i> <strong>Documento: </strong>C.C. 591579
-                        </li>
-
-                        <li>
-                          <i class="fa fa-briefcase user-profile-icon"></i> <strong>Tipo Sangre: </strong>B
-                        </li>
+                        <li><i class="fa fa-slack user-profile-icon"></i> <strong>Edad: </strong>{{ Carbon\Carbon::createFromFormat('Y-m-d', $meeting->patient->birthdate)->diff(Carbon\Carbon::now())->format('%y Años') }}</li>
+                        <li><i class="fa fa-list-alt user-profile-icon"></i> <strong>Identificación: </strong>{{ $meeting->patient->type_id_number . ' ' . $meeting->patient->id_number }}</li>
+                        <li><i class="fa fa-plus-square user-profile-icon"></i> <strong>Tipo Sangre: </strong>{{ $meeting->patient->blood_type->blood_group }}</li>
                       </ul>
 
                       <a class="btn btn-success"><i class="fa fa-eye m-right-xs"></i> <strong>Detalle Paciente</strong></a>
@@ -63,12 +56,12 @@
                         <div class="col-md-10">
                           <div id="reportrange" class="pull-right" style="margin-top: 5px; background: #fff; padding: 5px 10px; border: 1px solid #E6E9ED">
                             <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                            <strong>February 8, 2017</strong>
+                            <strong>{{ Carbon\Carbon::createFromFormat( 'Y-m-d H:i:s', $meeting->start_meeting )->toDayDateTimeString() }}</strong>
                           </div>
                         </div>
                       </div>
                       
-                      {{ Form::open( array( 'method' => 'POST', 'class' => 'form-horizontal form-label-left tracing', 'novalidate' => 'novalidate' ) ) }}
+                      {{ Form::open( array("route"=>[ "cita.guardar_seguimiento", $meeting->patient->id, $meeting->id ], 'method' => 'POST', 'class' => 'form-horizontal form-label-left tracing', 'novalidate' => 'novalidate' ) ) }}
                             
                         <div class="col-md-12 col-sm-12 col-xs-12">
                           <div class="">
@@ -82,7 +75,7 @@
                               <small class="info-field">Calificación</small>
                               <br>
                               <div class="starrr star-rating"></div>
-                              <input type="hidden" name="rating-tracing" id="rating-tracing">
+                              <input type="hidden" name="rating-tracing" id="rating-tracing" value="2">
                             </div>
 
                             <div class="clearfix"></div>
@@ -127,7 +120,7 @@
 
                             <div class="col-md-12 col-sm-6 col-xs-12 form-group item">
                               <small class="info-field">Descripción Tratamiento </small>
-                              <textarea class="form-control" rows="4" placeholder="Observación" name="description-inventory">{{ isset( $product ) ? $product->observation : '' }}</textarea>
+                              <textarea class="form-control" rows="4" placeholder="Observación" name="tracing-description" required></textarea>
                             </div>
 
                             <div class="form-group pull-right">

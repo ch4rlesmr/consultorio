@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use App\Aliment;
 use App\Meeting;
+use App\Eps;
+use App\HabitPatient;
+use App\PlanningPatient;
+use App\MenstrualPeriod;
+use App\Diagnosis;
 
 //SELECT CONCAT(`name`, ' ', `last_name`) as `fullname` FROM `patients` HAVING `fullname` LIKE '%karen%'
 
@@ -19,11 +24,12 @@ class Patient extends Model
         'type_id_number', 'id_number', 'job'
     ];
 
-    public function scopeSearch($query, $document, $name, $phone) {
+    public function scopeSearch($query, $document, $name, $phone, $type) {
         
         $query = $query->where('id_number', 'LIKE', '%' . $document .'%');
         $query = $query->select(DB::raw('*'))->where(DB::raw('CONCAT(name, " ", last_name)'), 'LIKE', '%' . $name .'%');
         $query = $query->where('phone', 'LIKE', '%' . $phone . '%');
+        $query = $query->where('patient_status', 'LIKE', $type);
         
         return $query;
     }
@@ -58,6 +64,94 @@ class Patient extends Model
 
     public function meetings () {
         return $this->hasMany('App\Meeting', 'patient_id');
+    }
+
+    public function eps () {
+        return $this->belongsTo('App\Eps', 'eps_id');
+    }
+
+    public function habits() {
+        return $this->hasMany('App\HabitPatient', 'patient_id');
+    }
+
+    public function plannings_patient () {
+        return $this->hasOne("App\PlanningPatient","patient_id");
+    }
+
+    public function menstrual_period() {
+        return $this->hasOne('App\MenstrualPeriod', 'patient_id');
+    }
+
+    public function diagnostic () {
+        return $this->hasOne('App\Diagnosis', 'patient_id');
+    }
+
+    public function getCivilStatus () {
+        switch ( $this->civil_status ) {
+            case 'SIN':
+                return 'Soltero';
+                break;
+            case 'MAR':
+                return 'Casado';
+                break;
+            case 'DIV':
+                return 'Divorciado';
+                break;
+            case 'WID':
+                return 'Viudo';
+                break;
+            case 'FRU':
+                return 'Unión Libre';
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+    }
+
+    public function getGender () {
+        switch ( $this->gender ) {
+            case 'F':
+                return 'Femenino';
+                break;
+            case 'M':
+                return 'Masculino';
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+    }
+
+    public function getStatus () {
+        switch ( $this->patient_status ) {
+            case 'NEW':
+                return 'Tratamiento';
+                break;
+            case 'OLD':
+                return 'Seguimiento';
+            
+            default:
+                # code...
+                break;
+        }
+    }
+
+    public function getImagePatient() {
+        switch ( $this->gender ) {
+            case 'F':
+                return 'patient_f.png';
+                break;
+            case 'M':
+                return 'patient_m.png';
+                break;
+            
+            default:
+                # code...
+                break;
+        }
     }
 
 }
