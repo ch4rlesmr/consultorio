@@ -49,7 +49,7 @@
                       <div class="profile_img">
                         <div id="crop-avatar">
                           <!-- Current avatar -->
-                          <img class="img-responsive avatar-view" src="/images/{{ $patient->getImagePatient() }}" alt="Avatar" title="Change the avatar">
+                          <img class="img-responsive avatar-view" src="{{ asset('/images/'.$patient->getImagePatient()) }}" alt="Avatar" title="Change the avatar">
                         </div>
                       </div>
                       <h3>{{ $patient->name . ' ' . $patient->last_name }}</h3>
@@ -451,7 +451,7 @@
                                       <tr>
                                         <td>{{ $aliment->getDetail() }}</td>
                                         <td>{{ $aliment->getPlace() }}</td>
-                                        <td>{{ App\Food::find( $aliment->food_id )->name }}</td>
+                                        <td>{{ $aliment->food_description }}</td>
                                       </tr>
                                       @endforeach
                                     </tbody>
@@ -624,7 +624,7 @@
                                       </tr>
                                       <tr>
                                         <th scope="row">Lengua:</th>
-                                        <td>{{ $patient->diagnostic->getTongueType() }}</td>
+                                        <td>{{ $patient->diagnostic->type_tongue }}</td>
                                       </tr>
                                       <tr>
                                         <th scope="row">Ojos:</th>

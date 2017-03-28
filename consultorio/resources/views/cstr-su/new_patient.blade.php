@@ -478,11 +478,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum voluptate offici
 
                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group item">
                                       <small class="info-field">Alimento</small>
-                                      <select class="select2_single form-control has-feedback-left food_id" tabindex="0" name="food_id" required>
-                                        @foreach($foods as $food)
-                                          <option value="{{ $food->id }}">{{ $food->name }}</option>
-                                        @endforeach
-                                      </select>
+                                      <input class="select2_single form-control has-feedback-left food_id" placeholder="Alimentos" tabindex="0" name="food_id" required>
                                       <span class="fa fa-file-text form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                                     </div>
                                   </div>
@@ -685,9 +681,9 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum voluptate offici
 
                                       <div class="col-md-12 col-sm-12 col-xs-12 form-group item">
                                         <select class="image-picker" name="face-type" id="face-type" required>
-                                          <option data-img-src="/images/body_parts/face_type/f_redonda.png"value="RE">Redonda</option>
-                                          <option data-img-src="/images/body_parts/face_type/f_frenteAlta.png"value="FA">Frente Alta</option>
-                                          <option data-img-src="/images/body_parts/face_type/f_mandibulaPronunciada.png"value="MP">Mandibula Pronunciada</option>
+                                          <option data-img-src="{{ asset('/images/body_parts/face_type/f_redonda.png') }}"value="RE">Redonda</option>
+                                          <option data-img-src="{{ asset('/images/body_parts/face_type/f_frenteAlta.png') }}"value="FA">Frente Alta</option>
+                                          <option data-img-src="{{ asset('/images/body_parts/face_type/f_mandibulaPronunciada.png') }}"value="MP">Mandibula Pronunciada</option>
                                           <!-- <option data-img-src="/images/body_parts/face_type/1_rectangle.png"value="3">Hexagonal</option>
                                           <option data-img-src="/images/body_parts/face_type/1_rectangle.png"value="4">Otro</option> -->
                                         </select>
@@ -698,11 +694,11 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum voluptate offici
                                     <div class="tab-pane" id="tongue">
                                       <p class="lead">Lengua</p>
                                       <div class="col-md-12 col-sm-12 col-xs-12 form-group item">
-                                        <select class="image-picker" name="tongue-type" id="tongue-type" required>
-                                          <option data-img-src="/images/body_parts/tongue_type/1_rounded.png" value="RE">Redondeada</option>
-                                          <option data-img-src="/images/body_parts/tongue_type/1_rounded.png" value="PU">Puntuda</option>
-                                          <option data-img-src="/images/body_parts/tongue_type/1_rounded.png" value="OT">Otra</option>
-                                        </select>
+                                        <div class="col-md-8">
+                                          <small class="info-field">Descripcion lengua</small>
+                                          <input type="text" class="form-control has-feedback-left" placeholder="Lengua" name="tongue-type" id="tongue-type" required>
+                                          <span class="fa fa-file-text form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
+                                        </div>
                                       </div>
                                     </div>
 
@@ -710,12 +706,12 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum voluptate offici
                                       <p class="lead">Ojos</p>
                                       <div class="col-md-12 col-sm-12 col-xs-12 form-group item">
                                         <select class="image-picker" name="eyes-type" id="eyes-type" required>
-                                          <option data-img-src="/images/body_parts/eye_type/e_equilibradosSanos.png" value="ES">Equilibrados y Sanos</option>
-                                          <option data-img-src="/images/body_parts/eye_type/e_sanpakuYin.png" value="SYING">Sanpaku Ying</option>
-                                          <option data-img-src="/images/body_parts/eye_type/e_sanpakuYang.png" value="SYANG">Sanpaku Yang</option>
-                                          <option data-img-src="/images/body_parts/eye_type/e_saltones.png" value="SALT">Saltones</option>
-                                          <option data-img-src="/images/body_parts/eye_type/e_parisLondres.png" value="PL">París y Londres</option>
-                                          <option data-img-src="/images/body_parts/eye_type/e_bizcos.png" value="BI">Bizcos</option>
+                                          <option data-img-src="{{ asset('/images/body_parts/eye_type/e_equilibradosSanos.png') }}" value="ES">Equilibrados y Sanos</option>
+                                          <option data-img-src="{{ asset('/images/body_parts/eye_type/e_sanpakuYin.png') }}" value="SYING">Sanpaku Ying</option>
+                                          <option data-img-src="{{ asset('/images/body_parts/eye_type/e_sanpakuYang.png') }}" value="SYANG">Sanpaku Yang</option>
+                                          <option data-img-src="{{ asset('/images/body_parts/eye_type/e_saltones.png') }}" value="SALT">Saltones</option>
+                                          <option data-img-src="{{ asset('/images/body_parts/eye_type/e_parisLondres.png') }}" value="PL">París y Londres</option>
+                                          <option data-img-src="{{ asset('/images/body_parts/eye_type/e_bizcos.png') }}" value="BI">Bizcos</option>
                                         </select>
                                       </div>
                                     </div>
@@ -724,8 +720,8 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum voluptate offici
                                       <p class="lead">Nariz</p>
                                       <div class="col-md-12 col-sm-12 col-xs-12 form-group item">
                                         <select class="image-picker" name="nose-type" id="nose-type" required>
-                                          <option data-img-src="/images/body_parts/nose_type/n_puntiaguda.png"value="PD">Puntiaguda y Delgada</option>
-                                          <option data-img-src="/images/body_parts/nose_type/n_dilatada.png"value="DPR">Dilatada con Puntos Rojos</option>
+                                          <option data-img-src="{{ asset('/images/body_parts/nose_type/n_puntiaguda.png') }}"value="PD">Puntiaguda y Delgada</option>
+                                          <option data-img-src="{{ asset('/images/body_parts/nose_type/n_dilatada.png') }}"value="DPR">Dilatada con Puntos Rojos</option>
                                           <!-- <option data-img-src="/images/body_parts/tongue_type/1_rounded.png"value="2">Otra</option> -->
                                         </select>
                                       </div>
@@ -735,10 +731,10 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum voluptate offici
                                       <p class="lead">Labios</p>
                                       <div class="col-md-12 col-sm-12 col-xs-12 form-group item">
                                         <select class="image-picker" name="lips-type" id="lips-type" required>
-                                          <option data-img-src="/images/body_parts/lips_type/l_sanos.png" value="SU">Sanos y Uniformemente desarrollados</option>
-                                          <option data-img-src="/images/body_parts/lips_type/l_superiorGrueso.png" value="SGID">Superior Grueso, Inferior Delgado</option>
-                                          <option data-img-src="/images/body_parts/lips_type/l_inferiorGrueso.png" value="SDIG">Superior Delgado, Inferior Grueso</option>
-                                          <option data-img-src="/images/body_parts/lips_type/l_mismoGrosor.png" value="MG">Del mismo Grosor</option>
+                                          <option data-img-src="{{ asset('/images/body_parts/lips_type/l_sanos.png') }}" value="SU">Sanos y Uniformemente desarrollados</option>
+                                          <option data-img-src="{{ asset('/images/body_parts/lips_type/l_superiorGrueso.png') }}" value="SGID">Superior Grueso, Inferior Delgado</option>
+                                          <option data-img-src="{{ asset('/images/body_parts/lips_type/l_inferiorGrueso.png') }}" value="SDIG">Superior Delgado, Inferior Grueso</option>
+                                          <option data-img-src="{{ asset('/images/body_parts/lips_type/l_mismoGrosor.png') }}" value="MG">Del mismo Grosor</option>
                                         </select>
                                       </div>
                                     </div>
@@ -747,14 +743,14 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum voluptate offici
                                       <p class="lead">Uñas</p>
                                       <div class="col-md-12 col-sm-12 col-xs-12 form-group item">
                                         <select class="image-picker" name="nails-type" id="nails-type" required>
-                                          <option data-img-src="/images/body_parts/nails_type/n_triangular.png" value="TCYING">Triangular - Constitución Ying</option>
-                                          <option data-img-src="/images/body_parts/nails_type/n_redonda.png" value="RCYANG">Redonda - Constitución Yang</option>
-                                          <option data-img-src="/images/body_parts/nails_type/n_estriasVerticales.png" value="EVH">Estrias Verticales - Hepáticos</option>
-                                          <option data-img-src="/images/body_parts/nails_type/n_cuadrada.png" value="HTA">Cuadrada - HTA</option>
-                                          <option data-img-src="/images/body_parts/nails_type/n_curvada.png" value="CPR">Curvada- Pulmonar, Respiratorio</option>
-                                          <option data-img-src="/images/body_parts/nails_type/n_acucarachada.png" value="AATAB">Acucarachada - Anemia Tensión Arterial Baja</option>
-                                          <option data-img-src="/images/body_parts/nails_type/n_protuberanciaTransversal.png" value="PTL">Protuberancia Transversal - Lombrices</option>
-                                          <option data-img-src="/images/body_parts/nails_type/u_grietas.png" value="GDMD">Grietas - Desnutrición Mala Digestión</option>
+                                          <option data-img-src="{{ asset('/images/body_parts/nails_type/n_triangular.png') }}" value="TCYING">Triangular - Constitución Ying</option>
+                                          <option data-img-src="{{ asset('/images/body_parts/nails_type/n_redonda.png') }}" value="RCYANG">Redonda - Constitución Yang</option>
+                                          <option data-img-src="{{ asset('/images/body_parts/nails_type/n_estriasVerticales.png') }}" value="EVH">Estrias Verticales - Hepáticos</option>
+                                          <option data-img-src="{{ asset('/images/body_parts/nails_type/n_cuadrada.png') }}" value="HTA">Cuadrada - HTA</option>
+                                          <option data-img-src="{{ asset('/images/body_parts/nails_type/n_curvada.png') }}" value="CPR">Curvada- Pulmonar, Respiratorio</option>
+                                          <option data-img-src="{{ asset('/images/body_parts/nails_type/n_acucarachada.png') }}" value="AATAB">Acucarachada - Anemia Tensión Arterial Baja</option>
+                                          <option data-img-src="{{ asset('/images/body_parts/nails_type/n_protuberanciaTransversal.png') }}" value="PTL">Protuberancia Transversal - Lombrices</option>
+                                          <option data-img-src="{{ asset('/images/body_parts/nails_type/u_grietas.png') }}" value="GDMD">Grietas - Desnutrición Mala Digestión</option>
                                         </select>
                                       </div>
                                     </div>

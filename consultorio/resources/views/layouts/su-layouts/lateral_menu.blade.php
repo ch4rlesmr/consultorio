@@ -9,7 +9,7 @@
             <!-- menu profile quick info -->
             <div class="profile">
               <div class="profile_pic">
-                <img src="/images/admin.png" alt="..." class="img-circle profile_img">
+                <img src="{{ asset('/images/admin.png') }}" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Bienvenida,</span>
@@ -70,18 +70,21 @@
                       <!-- <li><a href="{{ action('PatientController@create') }}">Nuevo Paciente</a></li> -->
                     </ul>
                   </li>
+                  @if ( !Auth::user()->isAdmin() )
                   <li><a href="{{ url('dra/restricciones') }}"><i class="fa fa-exclamation"></i> Restricciones <!-- <span class="fa fa-chevron-down"></span> --></a>
                     <!-- <ul class="nav child_menu">
                       <li><a href="#">Chart JS</a></li>
                       <li><a href="#">Chart JS2</a></li>
                     </ul> -->
                   </li>
+
                   <li><a href="{{ url('dra/organos') }}"><i class="fa fa-heart"></i> Organos <!-- <span class="fa fa-chevron-down"></span> --></a>
                     <!-- <ul class="nav child_menu">
                       <li><a href="#">Fixed Sidebar</a></li>
                       <li><a href="#">Fixed Footer</a></li>
                     </ul> -->
                   </li>
+                  @endif
                   <li><a href="{{ action('ProductController@index') }}"><i class="fa fa-archive"></i> Inventario <!-- <span class="fa fa-chevron-down"></span> --></a>
                     <!-- <ul class="nav child_menu">
                       <li><a href="#">Equipos</a></li>

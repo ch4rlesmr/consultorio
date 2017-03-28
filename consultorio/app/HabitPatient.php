@@ -10,7 +10,7 @@ class HabitPatient extends Model
     protected $table = "habit_patients";
 
     public static function frecuencies(){
-    	return ['DAY'=>'Diario','HALFDAY'=>'Media de por medio','WEEK'=>'Semanal','MONTH'=>'Mensual','YEAR'=>'Anual'];
+    	return ['DAY'=>'Diario','HALFDAY'=>'día de por medio','WEEK'=>'Semanal','MONTH'=>'Mensual','YEAR'=>'Anual'];
     }
 
     public static function units(){

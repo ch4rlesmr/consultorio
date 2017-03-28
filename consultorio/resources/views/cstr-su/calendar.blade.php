@@ -1,6 +1,7 @@
 @extends('layouts.su_main_layout')
 
 @section('content')
+
 <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
@@ -199,31 +200,17 @@
 
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title" id="myModalLabel2">Edit Calendar Entry</h4>
+            <h4 class="modal-title" id="myModalLabel2">¿ Cancelar Cita ?</h4>
           </div>
           <div class="modal-body">
-
-            <div id="testmodal2" style="padding: 5px 20px;">
-              <form id="antoform2" class="form-horizontal calender" role="form">
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Title</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="title2" name="title2">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Description</label>
-                  <div class="col-sm-9">
-                    <textarea class="form-control" style="height:55px;" id="descr2" name="descr"></textarea>
-                  </div>
-                </div>
-
-              </form>
-            </div>
+            <h4>Desea realmente cancelar la cita programada</h4>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default antoclose2" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary antosubmit2">Save changes</button>
+            <!-- <button type="button" class="btn btn-default antoclose2" data-dismiss="modal">Close</button> -->
+            {{ Form::open( array( 'route' => 'cita.eliminar', 'type' => 'POST' ) ) }}
+            <input type="hidden" id="delete-meeting" name="id-meeting">
+            <button type="submit" class="btn btn-danger antosubmit2"><i class="fa fa-calendar"></i> Cancelar cita</button>
+            {{ Form::close() }}
           </div>
         </div>
       </div>

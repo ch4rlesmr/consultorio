@@ -50,10 +50,12 @@ class PatientController extends Controller {
 			array_push( $datesValues, $datePush->format('F d Y') );
 		}
 
-		$treatment_id = $patient->meetings->where('tracing_id', null)->first()->treatment_id;
+		$meetingTreatment = $patient->meetings->where('tracing_id', null)->where('meeting_status', '=', 'DONE')->first();
+		// $treatment_id = $patient->meetings->where('tracing_id', null)->where('meeting_status', '=', 'DONE')->first()->treatment_id;
 
-		if ( $treatment_id !== null ) {
-			$treatment = Treatment::find($treatment_id);
+		if ( isset($meetingTreatment->treatment_id)  ) {
+			$treatment = Treatment::find($meetingTreatment->treatment_id);
+			
 			$initialW = Sign::find($treatment->sign_id)->weight;
 		
 			$tracing_id = $patient->meetings->where('treatment_id', null)->pluck('tracing_id');

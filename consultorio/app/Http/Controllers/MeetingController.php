@@ -186,9 +186,18 @@ class MeetingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Request $request) {
+        $meeting = Meeting::find($request->input('id-meeting'));
+        if ($meeting->meeting_status == 'ACTV') {
+            $patient = Patient::find($meeting->patient_id);
+            $meeting->delete();
+            if ( $patient->patient_status == 'NEW' ) {
+                $patient->delete();
+            }
+                
+            return redirect()->route('agenda.index');
+        } else 
+            return redirect()->route('agenda.index');
     }
 
     public function searchPatients (Request $request) {
@@ -198,13 +207,13 @@ class MeetingController extends Controller
                                 ->get();
 
         $patients = Patient::select(DB::raw('id, id_number, name, last_name'))->where(DB::raw('CONCAT(name, " ", last_name)'), 'LIKE', '%' . $request->input('name_patient') .'%')
-                            ->where('id_number', 'LIKE', '%'. $request->input('numer_document') .'%')
+                            ->where('id_number', 'LIKE', '%'. $request->input('nubmer_document') .'%')
                             ->where('patient_status', '=', 'OLD')
-                            ->whereIn('id', $patientsAvailableIds)
+                            // ->whereIn('id', $patientsAvailableIds)
                             ->get();
 
         if ( $request->ajax() ) {
-            return Response::json(['patients' => $patients, 'status' => 'success'],201);
+            return Response::json(['patients' => $patients, 'status' => 'success', 'name' => $request->input('name_patient'), 'number' => $request->input('numer_document')],201);
         }
     }
 
@@ -223,7 +232,7 @@ class MeetingController extends Controller
     }
 
     public function createTreatment ($meetingId) {
-        $epsList = Eps::all();
+        $epsList = Eps::orderBy('eps_name', 'ASC')->get();
         $bloodTypes = BloodType::all();
 
         $academicLevels = AcademicLevel::all();
@@ -344,7 +353,7 @@ class MeetingController extends Controller
 
             $alimentObject->detail = $moment;
             $alimentObject->place_food = $place;
-            $alimentObject->food_id = $foodId;
+            $alimentObject->food_description = $foodId;
             $alimentObject->patient_id = $patient->id;
 
             array_push($allInfo, $alimentObject);
@@ -430,6 +439,8 @@ class MeetingController extends Controller
         $treatmentPatient->sign_id = $treatmentSign->id;
         $treatmentPatient->save();
 
+        array_push($allInfo, $treatmentPatient);
+
         $medicines = $request->input("input_medicines");
         $medicines = json_decode($medicines);
         print_r($medicines);
@@ -444,7 +455,6 @@ class MeetingController extends Controller
             $medicinePatient->save();
 
             array_push($allInfo, $medicine);
-            // $habitPatient->save();
 
         }
 
@@ -452,7 +462,9 @@ class MeetingController extends Controller
         $meeting->meeting_status = 'DONE';
         $meeting->save();
 
-        // $patientDiagnosis->save();
+        $patientDiagnosis->save();
+
+        //dd( $allInfo );
 
         return redirect()->route('paciente.index');
     }
@@ -509,3 +521,4 @@ class MeetingController extends Controller
     }
 
 }
+//Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi dolorum, cum doloribus, hic libero perferendis ut vitae nam ipsa, atque sapiente incidunt eligendi expedita voluptate quia culpa tempora accusamus est.

@@ -1,23 +1,25 @@
-INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES (1, 'Colmédica E.P.S. S', 'Colmédica E.P.S. S', '13/02/2017 05:00:00', '06/02/2017 05:00:00');
-INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES (2, 'Salud Total S.A. Entidad Promotora de Salud', 'Salud Total S.A. Entidad Promotora de Salud', '13/02/2017 05:00:00', '06/02/2017 05:00:00');
-INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES (3, 'Cafesalud Medicina Prepagada S.A. S  ', 'Cafesalud Medicina Prepagada S.A. S  ', '13/02/2017 05:00:00', '06/02/2017 05:00:00');
-INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES (4, 'Entidad Promotora de Salud Sanitas S.A.', 'Entidad Promotora de Salud Sanitas S.A.', '13/02/2017 05:00:00', '06/02/2017 05:00:00');
-INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES (5, 'Instituto de Seguros Sociales Entidad Promotora de Salud', 'Instituto de Seguros Sociales Entidad Promotora de Salud', '13/02/2017 05:00:00', '06/02/2017 05:00:00');
-INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES (6, 'Compensar Entidad Promotora de Salud', 'Compensar Entidad Promotora de Salud', '13/02/2017 05:00:00', '06/02/2017 05:00:00');
-INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES (7, 'E.P.S. Programa Comfenalco Antioquia', 'E.P.S. Programa Comfenalco Antioquia', '13/02/2017 05:00:00', '06/02/2017 05:00:00');
-INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES (8, 'Susalud E.P.S.', 'Susalud E.P.S.', '13/02/2017 05:00:00', '06/02/2017 05:00:00');
-INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES (9, 'Comfenalco Valle E.P.S.', 'Comfenalco Valle E.P.S.', '13/02/2017 05:00:00', '06/02/2017 05:00:00');
-INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES (10, ' Entidad Promotora de Salud Organismo Cooperativo SALUDCOOP', ' Entidad Promotora de Salud Organismo Cooperativo SALUDCOOP', '13/02/2017 05:00:00', '06/02/2017 05:00:00');
-INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES (11, 'Humana Vivir S.A. EPS ARS', 'Humana Vivir S.A. EPS ARS', '13/02/2017 05:00:00', '06/02/2017 05:00:00');
-INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES (12, 'Programa Servicios Médico Colpatria S.A. Entidad Promotora de Salud', 'Programa Servicios Médico Colpatria S.A. Entidad Promotora de Salud', '13/02/2017 05:00:00', '06/02/2017 05:00:00');
-INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES (13, 'Coomeva Entidad Promotora de Salud S.A. S', 'Coomeva Entidad Promotora de Salud S.A. S', '13/02/2017 05:00:00', '06/02/2017 05:00:00');
-INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES (14, 'Entidad Promotora de Salud Famisanar Limitada CAFAM-COLSUBSIDIO', 'Entidad Promotora de Salud Famisanar Limitada CAFAM-COLSUBSIDIO', '13/02/2017 05:00:00', '06/02/2017 05:00:00');
-INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES (15, 'Entidad Promotora de Salud Servicio Occidental de Salud S.A - S.O.S', 'Entidad Promotora de Salud Servicio Occidental de Salud S.A - S.O.S', '13/02/2017 05:00:00', '06/02/2017 05:00:00');
-INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES (16, 'Cruz Blanca Entidad Promotora de Salud S.A.', 'Cruz Blanca Entidad Promotora de Salud S.A.', '13/02/2017 05:00:00', '06/02/2017 05:00:00');
-INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES (17, 'Solsalud E.P.S. S.A.', 'Solsalud E.P.S. S.A.', '13/02/2017 05:00:00', '06/02/2017 05:00:00');
-INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES (18, 'Salud Colombia Entidad Promotora de Salud S.A.', 'Salud Colombia Entidad Promotora de Salud S.A.', '13/02/2017 05:00:00', '06/02/2017 05:00:00');
-INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES (19, 'Salud Vida S.A. Entidad Promotora de Salud', 'Salud Vida S.A. Entidad Promotora de Salud', '13/02/2017 05:00:00', '06/02/2017 05:00:00');
-INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES (20, 'Red Salud Atención Humana E.P.S. S.A.', 'Red Salud Atención Humana E.P.S. S.A.', '13/02/2017 05:00:00', '06/02/2017 05:00:00');
-INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES (21, 'Empresas Públicas de Medellín Departamento Médico', 'Empresas Públicas de Medellín Departamento Médico', '13/02/2017 05:00:00', '06/02/2017 05:00:00');
-INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES (22, 'Fondo de Pasivo Social de Ferrocarriles Nacionales de Colombia', 'Fondo de Pasivo Social de Ferrocarriles Nacionales de Colombia', '13/02/2017 05:00:00', '06/02/2017 05:00:00');
-INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES (23, 'Fondo de Solidaridad y Garantía - Ministerio de Salud', 'Fondo de Solidaridad y Garantía - Ministerio de Salud', '13/02/2017 05:00:00', '06/02/2017 05:00:00');
+INSERT INTO `eps` (`id`, `eps_name`, `eps_abbreviation`, `created_at`, `updated_at`) VALUES
+(1, 'Colmédica E.P.S. S', 'Colmédica E.P.S. S', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 'Salud Total S.A. Entidad Promotora de Salud', 'Salud Total S.A. Entidad Promotora de Salud', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 'Cafesalud Medicina Prepagada S.A. S  ', 'Cafesalud Medicina Prepagada S.A. S  ', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(4, 'Entidad Promotora de Salud Sanitas S.A.', 'Entidad Promotora de Salud Sanitas S.A.', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(5, 'Instituto de Seguros Sociales Entidad Promotora de Salud', 'Instituto de Seguros Sociales Entidad Promotora de Salud', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(6, 'Compensar Entidad Promotora de Salud', 'Compensar Entidad Promotora de Salud', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(7, 'E.P.S. Programa Comfenalco Antioquia', 'E.P.S. Programa Comfenalco Antioquia', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(8, 'Susalud E.P.S.', 'Susalud E.P.S.', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(9, 'Comfenalco Valle E.P.S.', 'Comfenalco Valle E.P.S.', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(10, 'Entidad Promotora de Salud Organismo Cooperativo SALUDCOOP', ' Entidad Promotora de Salud Organismo Cooperativo SALUDCOOP', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(11, 'Humana Vivir S.A. EPS ARS', 'Humana Vivir S.A. EPS ARS', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(12, 'Programa Servicios Médico Colpatria S.A. Entidad Promotora de Salud', 'Programa Servicios Médico Colpatria S.A. Entidad Promotora de Salud', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(13, 'Coomeva Entidad Promotora de Salud S.A. S', 'Coomeva Entidad Promotora de Salud S.A. S', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(14, 'Entidad Promotora de Salud Famisanar Limitada CAFAM-COLSUBSIDIO', 'Entidad Promotora de Salud Famisanar Limitada CAFAM-COLSUBSIDIO', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(15, 'Entidad Promotora de Salud Servicio Occidental de Salud S.A - S.O.S', 'Entidad Promotora de Salud Servicio Occidental de Salud S.A - S.O.S', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(16, 'Cruz Blanca Entidad Promotora de Salud S.A.', 'Cruz Blanca Entidad Promotora de Salud S.A.', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(17, 'Solsalud E.P.S. S.A.', 'Solsalud E.P.S. S.A.', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(18, 'Salud Colombia Entidad Promotora de Salud S.A.', 'Salud Colombia Entidad Promotora de Salud S.A.', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(19, 'Salud Vida S.A. Entidad Promotora de Salud', 'Salud Vida S.A. Entidad Promotora de Salud', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(20, 'Red Salud Atención Humana E.P.S. S.A.', 'Red Salud Atención Humana E.P.S. S.A.', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(21, 'Empresas Públicas de Medellín Departamento Médico', 'Empresas Públicas de Medellín Departamento Médico', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(22, 'Fondo de Pasivo Social de Ferrocarriles Nacionales de Colombia', 'Fondo de Pasivo Social de Ferrocarriles Nacionales de Colombia', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(23, 'Fondo de Solidaridad y Garantía - Ministerio de Salud', 'Fondo de Solidaridad y Garantía - Ministerio de Salud', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(24, 'Sistema Universitario de Seguridad Social (Unisalud)', 'Sistema Universitario de Seguridad Social (Unisalud)', '0000-00-00 00:00:00', '0000-00-00 00:00:00');

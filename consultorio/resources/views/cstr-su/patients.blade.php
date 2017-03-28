@@ -97,7 +97,7 @@
                   <p><strong>Estado: </strong> {{ $patient->getStatus() }} </p>
                 </div>
                 <div class="right col-xs-5 text-center" style="position:absolute; right:0;">
-                  <img src="/images/{{ $patient->getImagePatient() }}" alt="" class="img-circle img-responsive">
+                  <img src="{{ asset('/images/'.$patient->getImagePatient()) }}" alt="" class="img-circle img-responsive">
                 </div>
                 <div class="left col-xs-12">
                   <ul class="list-unstyled">
@@ -112,7 +112,9 @@
               <div class="col-xs-12 bottom text-center">
                 
                 <div class="col-xs-12 col-sm-12 emphasis">
+                  @if ( !Auth::user()->isAdmin() )
                   <a href="{{ action( 'PatientController@show', $patient->id ) }}" class="btn btn-success"><i class="fa fa-eye"> </i> Detalle</a>
+                  @endif
                   <!-- <a href="" class="btn btn-warning"><i class="fa fa-pencil"> </i> Editar</a> -->
                 </div>
               </div>

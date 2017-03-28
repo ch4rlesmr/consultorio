@@ -130,6 +130,8 @@ $(window).load(function() {
             console.log(view.name + ' --> nombre de vista');
             if ( view.name !== 'month' ) {
             $('#fc_edit').click();
+            //alert(calEvent.id);
+            $('#delete-meeting').val(calEvent.id);
 
             categoryClass = $("#event_type").val();
 
@@ -163,7 +165,8 @@ $(window).load(function() {
                     title: value['name'] + ' ' + value['last_name'] , //
                     start: value['start_meeting'],//moment(start._d).format('YYYY-MM-DD hh:mm')
                     end: value['end_meeting'],
-                    textColor: 'red',
+                    id: value['id'],
+                    textColor: 'white',
                     color: 'green',
                     allDay: false
                   });
@@ -175,10 +178,6 @@ $(window).load(function() {
                   allDay: false
                 });
                 callback(events);
-              }, error: function (e, x, y) {
-                console.log(e);
-                console.log(x);
-                console.log(y);
               }
             });
 

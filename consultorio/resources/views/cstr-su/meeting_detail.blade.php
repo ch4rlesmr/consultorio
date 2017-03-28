@@ -31,11 +31,7 @@
                       <div class="profile_img">
                         <div id="crop-avatar">
                           <!-- Current avatar -->
-                          @if ( $meeting->patient->gender == 'M' )
-                            <img class="img-responsive avatar-view" src="/images/patient_m.png" alt="Avatar" title="Change the avatar">
-                          @elseif ( $meeting->patient->gender == 'F' )
-                            <img class="img-responsive avatar-view" src="/images/patient_f.png" alt="Avatar" title="Change the avatar">
-                          @endif
+                          <img class="img-responsive avatar-view" src="{{ asset('/images/'.$meeting->patient->getImagePatient()) }}" alt="Avatar" title="Change the avatar">
                         </div>
                       </div>
                       <h3>{{ $meeting->patient->name . ' ' . $meeting->patient->last_name }}</h3>

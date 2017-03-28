@@ -48,6 +48,8 @@ Route::group(['prefix' => 'dra', 'middleware' => ['web', 'auth']], function () {
 		['uses' => 'MeetingController@createTracingMeeting', 
 		'as' => 'cita.seguimiento']);
 
+	Route::POST( '/borrar_cita', ['uses' => 'MeetingController@destroy', 'as' => 'cita.eliminar'] );
+
 	Route::POST('/{patientId}/{meetingId}/guardar_seguimiento', 
 		['uses' => 'MeetingController@storeTracing', 
 		'as' => 'cita.guardar_seguimiento']);

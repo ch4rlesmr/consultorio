@@ -106,14 +106,20 @@
                             <th class="text-center">Nº Identificación</th>
                             <th class="text-center">Tipo Cita</th>
                             <th class="text-center">Estado</th>
+                            @if ( !Auth::user()->isAdmin() )
                             <th width="28%" class="text-center">Opciones</th>
+                            @endif
                           </tr>
                         </thead>
                         <tbody style="text-align: center;">
                           @foreach ($meetings as $meeting)
                             <tr>
                               <td>{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $meeting->start_meeting)->toDayDateTimeString() }}</td>
+                              @if ( !Auth::user()->isAdmin() )
                               <td><a href="{{ action( 'PatientController@show', $meeting->patient->id ) }}" class="btn btn-default btn-xs"><strong>{{ $meeting->patient->name . ' ' . $meeting->patient->last_name }}</strong></a></td>
+                              @else
+                              <td><span class="btn btn-default btn-xs"><strong>{{ $meeting->patient->name . ' ' . $meeting->patient->last_name }}</strong></span></td>
+                              @endif
                               <td>{{ $meeting->patient->id_number }}</td>
                               <td>{{ $meeting->meetingType() }}</td>
                               <td>
@@ -125,6 +131,7 @@
                                   <i class="fa fa-check-circle" style="font-size:35px; color:#2e6da4;"></i>
                                 @endif
                               </td>
+                              @if ( !Auth::user()->isAdmin() )
                               <td data-meeting-id="{{ $meeting->id }}">
                                 @if ( $meeting->meeting_status == 'ACTV' )
                                   @if ( $meeting->patient->patient_status === 'NEW' )
@@ -140,6 +147,7 @@
                              <!-- <a href="" type="button" class="btn btn-warning "><span class="fa fa-pencil"></span> Editar</a> -->
                               
                               </td>
+                              @endif
                             </tr>
                           @endforeach
                           
@@ -151,7 +159,7 @@
                       
                     </div>
                     <div class="col-md-6">
-                      <a href="" class="btn btn-primary pull-right"><span class="fa fa-file-excel-o"></span> <strong>Descargar Listado de Citas</strong></a>
+                      <!-- <a href="" class="btn btn-primary pull-right"><span class="fa fa-file-excel-o"></span> <strong>Descargar Listado de Citas</strong></a> -->
                       
                     </div>
 

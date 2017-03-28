@@ -31,7 +31,7 @@
                       <div class="profile_img">
                         <div id="crop-avatar">
                           <!-- Current avatar -->
-                          <img class="img-responsive avatar-view" src="/images/user.png" alt="Avatar" title="Change the avatar">
+                          <img class="img-responsive avatar-view" src="{{ asset('/images/'.$meeting->patient->getImagePatient()) }}" alt="Avatar" title="Change the avatar">
                         </div>
                       </div>
                       <h3>{{ $meeting->patient->name . ' ' . $meeting->patient->last_name }}</h3>
