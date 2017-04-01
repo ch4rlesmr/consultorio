@@ -41,12 +41,14 @@ class PatientController extends Controller {
 		$patient = Patient::find($id);
 		$meetings = Meeting::where('patient_id', $patient->id)->orderBy('created_at', 'DESC')->get();
 
-		$dates = Meeting::where('patient_id', $patient->id)->orderBy('created_at', 'ASC')->pluck('start_meeting');
+		$dates = Meeting::where('patient_id', $patient->id)->where('meeting_status', 'DONE')
+				->orderBy('created_at', 'ASC')->pluck('start_meeting');
+		//dd(['meetings' => $meetings, 'dates' => $dates ]);
 		$datesValues = array();
 
 		foreach ($dates as $date) {
 			// array_push( $datesValues, $date );
-			$datePush = Carbon::createFromFormat('Y-m-d h:i:s', $date);
+			$datePush = Carbon::createFromFormat('Y-m-d H:i:s', $date);
 			array_push( $datesValues, $datePush->format('F d Y') );
 		}
 

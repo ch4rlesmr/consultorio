@@ -44,7 +44,7 @@ $(window).load(function() {
 
             $('#fc_create').click();
 
-            startAgenda = moment(start._d).format('YYYY-MM-DD hh:mm');
+            startAgenda = moment(start._d).format('YYYY-MM-DD HH:mm');
             console.log('formato fecha hora: ' + startAgenda);
 
             $('#result-search-patient tbody').on('click', '.meeting-assignment', function () {
@@ -160,23 +160,24 @@ $(window).load(function() {
               success: function (response) {
                 var events = [];
                 console.log(response);
+
                 $.each(response.meetings, function (index, value){
+                  var eventColor = 'green';
+                  if (value['meeting_status'] == 'DONE') {
+                    eventColor = '#337ab7';
+                  }
+
                   events.push({
                     title: value['name'] + ' ' + value['last_name'] , //
                     start: value['start_meeting'],//moment(start._d).format('YYYY-MM-DD hh:mm')
                     end: value['end_meeting'],
                     id: value['id'],
                     textColor: 'white',
-                    color: 'green',
+                    color: eventColor,
                     allDay: false
                   });
                 });
-                events.push({
-                  title: 'Birthday Party',
-                  start: new Date(y, m, d + 1, 19, 0),
-                  end: new Date(y, m, d + 1, 22, 30),
-                  allDay: false
-                });
+                
                 callback(events);
               }
             });

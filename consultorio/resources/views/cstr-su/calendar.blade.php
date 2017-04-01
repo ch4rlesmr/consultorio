@@ -146,15 +146,15 @@
                       <div class="well">
                         <form action="" class="form-horizontal form-label-left mode2">
                           <div class="col-md-5">
-                            <label class="control-label">Nombre Paciente</label>
-                            <div>
-                              <input type="text"name="search-patient-name" id="search-patient-name" class="form-control">
-                            </div>
-                          </div>
-                          <div class="col-md-5">
                             <label class="control-label" for="first-name">No. Identificación</label>
                             <div>
                               <input type="text"name="search-document-patient" id="search-document-patient" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-md-5">
+                            <label class="control-label">Nombre Paciente</label>
+                            <div>
+                              <input type="text"name="search-patient-name" id="search-patient-name" class="form-control">
                             </div>
                           </div>
                           <div class="col-md-2" style ="padding-top:25px;">

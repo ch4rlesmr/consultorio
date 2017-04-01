@@ -61,7 +61,7 @@
                             <td>Viento</td>
                            </tr>
                             <tr>
-                             <td><img alt="" src="images/food/Sweet.PNG" > Corazón</td>
+                             <td>Corazón</td>
                                 <td> Fuego </td>
                                 <td> Intestino Delgado </td> 
                                 <td> Vasos Sanguíneos</td>
@@ -77,7 +77,7 @@
                                 <td> Calor</td>                    
                               </tr>
                                 <tr>
-                                <td><img alt="" src="images/food/Sweet.PNG" > Bazo</td>
+                                <td>Bazo</td>
                                 <td> Tierra </td>
                                 <td> Estómago </td> 
                                 <td> Músculo</td>
@@ -93,7 +93,7 @@
                                 <td> Humedad</td>                               
                               </tr>
                                 <tr>
-                                <td><img alt="" src="images/food/" > Pulmón</td>
+                                <td>Pulmón</td>
                                 <td> Metal </td>
                                 <td> Intestino Grueso </td> 
                                 <td> Piel</td>
@@ -109,7 +109,7 @@
                                 <td> Seco</td>                               
                               </tr>
                               <tr>
-                                <td><img alt="" src="images/food/" > Riñón</td>
+                                <td>Riñón</td>
                                 <td> Agua </td>
                                 <td> Vejiga </td> 
                                 <td> Hueso y Médula</td>

@@ -12,6 +12,14 @@ class Meeting extends Model {
     
     protected $table = "meetings";
 
+    public function scopeSearch ( $query, $id_number, $meeting_status ) {
+        $query = $query->with( 'patient' )->whereHas('patient', function ( $queryPatient ) use ($id_number) {
+            $queryPatient->where( 'id_number', 'LIKE', '%' . $id_number . '%' );
+        })->where('meeting_status', 'LIKE', $meeting_status);
+
+        return $query;
+    }
+
     public function patient () {
     	return $this->belongsTo('App\Patient', 'patient_id');
     }

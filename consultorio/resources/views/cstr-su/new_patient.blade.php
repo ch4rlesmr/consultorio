@@ -580,7 +580,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum voluptate offici
                                   <h2 class="col-md-12 StepTitle">Menstruación</h2>
                                   <div class="col-md-4 col-sm-4 col-xs-12 form-group item">
                                     <small class="info-field has-feedback-left">Tipo</small>
-                                    <select class="select2_single form-control has-feedback-left" tabindex="0" name="menstruation-type" id="menstruation-type">
+                                    <select class="select2_single form-control has-feedback-left" tabindex="0" name="menstruation-type" id="menstruation-type" required>
                                       @foreach(App\MenstrualPeriod::types() as $key => $value)
                                         <option value="{{ $key }}">{{ $value }}</option>
                                       @endforeach
@@ -639,8 +639,8 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum voluptate offici
                               </div>
 
                               <div class="col-md-6 col-sm-6 col-xs-12 form-group item">
-                                <small class="info-field">Estómago - Vaso E-V</small>
-                                <input type="text" class="form-control has-feedback-left" placeholder="Estómago - Vaso" name="stomach-vessel" id="stomach-vessel" required>
+                                <small class="info-field">Estómago - Baso E-V</small>
+                                <input type="text" class="form-control has-feedback-left" placeholder="Estómago - Baso" name="stomach-vessel" id="stomach-vessel" required>
                                 <span class="fa fa-file-text form-control-feedback form-control-feedback-input left" aria-hidden="true"></span>
                               </div>
 

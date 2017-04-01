@@ -37,12 +37,12 @@
                   <div class="x_content">
                     <div class="well">
 
-                      <form action="" class="form-horizontal form-label-left">
+                      <form action="{{ route('agenda.index') }}" method="GET" class="form-horizontal form-label-left">
 
                         <div class="col-md-5 col-md-offset-1">
                           <label class="control-label">No. Identificación</label>
                           <div>
-                            <input type="text" id="name-inventory" name="name-inventory" class="form-control">
+                            <input type="text" name="id-number" class="form-control">
                           </div>
                         </div>
 
@@ -51,7 +51,7 @@
                         <div class="col-md-5">
                           <label class="control-label" for="first-name">Estado Cita</label>
                           <div>
-                            <select class="select2_single form-control" tabindex="0" name="status-inventory" id="status-inventory" name="status-inventory">
+                            <select class="select2_single form-control" name="meeting-status">
                               <option selected="true" disabled="disabled">Escoger Estado</option>
                               <option value="ACTV">Confirmada</option>
                               <option value="CANC">Cancelada</option>
@@ -170,6 +170,28 @@
           </div>
         </div>
 @endsection
+
+<div id="cancelMeetingModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title" id="myModalLabel2">¿ Cancelar Cita ?</h4>
+      </div>
+      <div class="modal-body">
+        <h4>Desea realmente cancelar la cita programada</h4>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-default antoclose2" data-dismiss="modal">Close</button> -->
+        {{ Form::open( array( 'route' => 'cita.eliminar', 'type' => 'POST' ) ) }}
+        <input type="hidden" id="delete-meeting" name="id-meeting">
+        <button type="submit" class="btn btn-danger antosubmit2"><i class="fa fa-calendar"></i> Cancelar cita</button>
+        {{ Form::close() }}
+      </div>
+    </div>
+  </div>
+</div>
 
 @section('popup')
   

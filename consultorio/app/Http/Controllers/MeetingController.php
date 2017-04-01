@@ -34,10 +34,12 @@ class MeetingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public static function index() {
+    public static function index(Request $request) {
         // $meetings = Meeting::whereDate('start_meeting', '>=', Carbon::now()->format('Y-m-d'))->orderBy('start_meeting', 'DESC')->get();
         // return view('cstr-su.appointment', ['meetings' => $meetings]);
-        $meetings = Meeting::orderBy('start_meeting', 'DESC')->get();
+        //$meetings = Meeting::search( $request->input('id-number'), $request->input('meeting-status') )->orderBy('start_meeting', 'DESC')->get();
+        $meetings = Meeting::search( $request->input('id-number'), $request->input('meeting-status') )
+                    ->orderBy('start_meeting', 'DESC')->get();
         return view('cstr-su.appointment', ['meetings' => $meetings]);
     }
 
@@ -389,7 +391,16 @@ class MeetingController extends Controller
         array_push($allInfo, $planningPatient);
         $planningPatient->save();
 
-        if( ($request->input("menstruation-frecuency") !== null) && ($request->input("menstruation-duration"))  ) {
+        if ( $request->input('menstruation-type') === 'NA' ) {
+            $menstruationPatient = new MenstrualPeriod();
+            $menstruationPatient->type = $request->input("menstruation-type");
+            $menstruationPatient->frecuency = 0;
+            $menstruationPatient->duration = 0;
+            $menstruationPatient->patient_id = $patient->id;
+
+            array_push($allInfo, $menstruationPatient);
+            $menstruationPatient->save();
+        } else if( ($request->input("menstruation-frecuency") !== null) && ($request->input("menstruation-duration"))  ) {
             $menstruationPatient = new MenstrualPeriod();
             $menstruationPatient->type = $request->input("menstruation-type");
             $menstruationPatient->frecuency = $request->input("menstruation-frecuency");

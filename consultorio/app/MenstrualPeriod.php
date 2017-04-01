@@ -8,7 +8,7 @@ use App\Patient;
 class MenstrualPeriod extends Model
 {
     public static function types(){
-    	return ['RE'=>'Regular','IRR'=>'Irregular'];
+    	return ['RE'=>'Regular','IRR'=>'Irregular', 'NA' => 'No Aplica'];
     }
 
     public function patient() {
@@ -23,7 +23,8 @@ class MenstrualPeriod extends Model
     		case 'IRR':
     			return 'Irregular';
     			break;
-    		
+            case 'NA':
+                return 'No Aplica';
     		default:
     			# code...
     			break;
