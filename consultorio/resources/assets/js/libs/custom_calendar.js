@@ -128,21 +128,28 @@ $(window).load(function() {
             console.log(calEvent, jsEvent, view);*/
 
             console.log(view.name + ' --> nombre de vista');
-            if ( view.name !== 'month' ) {
-            $('#fc_edit').click();
-            //alert(calEvent.id);
-            $('#delete-meeting').val(calEvent.id);
+            if ( view.name !== 'month' || view.name !== 'agendaWeek' ) {
 
-            categoryClass = $("#event_type").val();
+              if ( calEvent.status == 'DONE' ) {
+                $('#fc_detail').click();
+                var link = app.host + 'dra/agenda/' + calEvent.id;
+                $('#link_meeting_detail').attr( 'href', link);
 
-            $(".antosubmit2").on("click", function() {
-              calEvent.title = $("#title2").val();
+              } else {
+                $('#fc_edit').click();
+                $('#delete-meeting').val(calEvent.id);
+              }
 
-              calendar.fullCalendar('updateEvent', calEvent);
-              $('.antoclose2').click();
-            });
+              categoryClass = $("#event_type").val();
 
-            calendar.fullCalendar('unselect');
+              $(".antosubmit2").on("click", function() {
+                calEvent.title = $("#title2").val();
+
+                calendar.fullCalendar('updateEvent', calEvent);
+                $('.antoclose2').click();
+              });
+
+              calendar.fullCalendar('unselect');
 
             } else {
               $('#calendar').fullCalendar('changeView', 'agendaDay');
@@ -172,6 +179,7 @@ $(window).load(function() {
                     start: value['start_meeting'],//moment(start._d).format('YYYY-MM-DD hh:mm')
                     end: value['end_meeting'],
                     id: value['id'],
+                    status: value['meeting_status'],
                     textColor: 'white',
                     color: eventColor,
                     allDay: false

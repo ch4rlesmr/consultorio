@@ -54,7 +54,7 @@
                             <select class="select2_single form-control" name="meeting-status">
                               <option selected="true" disabled="disabled">Escoger Estado</option>
                               <option value="ACTV">Confirmada</option>
-                              <option value="CANC">Cancelada</option>
+                              <!-- <option value="CANC">Cancelada</option> -->
                               <option value="DONE">Cumplida</option>
                             </select>
                           </div>
@@ -136,10 +136,10 @@
                                 @if ( $meeting->meeting_status == 'ACTV' )
                                   @if ( $meeting->patient->patient_status === 'NEW' )
                                     <a href="{{ route( 'cita.tratamiento', $meeting->id ) }}" class="btn btn-success product_detail"><span class="fa fa-calendar"></span> Ir a cita </a>
-                                    <a href="#" type="button" class="btn btn-danger product_delete" data-toggle="modal" data-target="#inventoryDelete"><span class="fa fa-ban"></span> Cancelar</a>
+                                    <button type="button" class="btn btn-danger meeting_delete" data-toggle="modal" data-target="#cancelMeetingModal"><span class="fa fa-ban"></span> Cancelar</button>
                                   @else
                                     <a href="{{ route( 'cita.seguimiento', $meeting->id ) }}" class="btn btn-success product_detail"><span class="fa fa-calendar"></span> Ir a cita </a>
-                                    <a href="#" type="button" class="btn btn-danger product_delete" data-toggle="modal" data-target="#inventoryDelete"><span class="fa fa-ban"></span> Cancelar</a>
+                                    <button type="button" class="btn btn-danger meeting_delete" data-toggle="modal" data-target="#cancelMeetingModal"><span class="fa fa-ban"></span> Cancelar</button>
                                   @endif
                                 @elseif ( $meeting->meeting_status == 'DONE' )
                                     <a href="{{ route( 'agenda.show', $meeting->id ) }}" class="btn btn-primary product_detail"><span class="fa fa-eye"></span> Detalle de cita </a>
@@ -171,7 +171,7 @@
         </div>
 @endsection
 
-<div id="cancelMeetingModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="cancelMeetingModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
 
@@ -192,6 +192,8 @@
     </div>
   </div>
 </div>
+
+<div id="fc_edit" data-toggle="modal" data-target="#CalenderModalEdit"></div>
 
 @section('popup')
   

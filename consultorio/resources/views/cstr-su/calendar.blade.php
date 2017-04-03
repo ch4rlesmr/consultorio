@@ -216,7 +216,26 @@
       </div>
     </div>
 
+    <div id="CalenderModalDetail" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title" id="myModalLabel2">Cita ya realizada !</h4>
+          </div>
+          <div class="modal-body">
+            <h4>La cita seleccionada ya a sido confirmada y realizada, puede ver el detalle de esta.</h4>
+          </div>
+          <div class="modal-footer">
+            <a href="{{ route( 'agenda.show', '' ) }}" class="btn btn-primary" id="link_meeting_detail"><i class="fa fa-calendar"></i> Detalle de cita</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div id="fc_create" data-toggle="modal" data-target="#CalenderModalNew"></div>
     <div id="fc_edit" data-toggle="modal" data-target="#CalenderModalEdit"></div>
+    <div id="fc_detail" data-toggle="modal" data-target="#CalenderModalDetail"></div>
     <!-- /calendar modal -->
 @endsection

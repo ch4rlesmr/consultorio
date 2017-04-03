@@ -359,3 +359,8 @@ if (ctx !== null) {
 	});
 
 }
+
+$('.meeting_delete').click(function () {
+	console.info( $(this).parent().data('meeting-id') );//delete-meeting
+	$('#delete-meeting').val( $(this).parent().data('meeting-id') );
+});
