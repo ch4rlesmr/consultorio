@@ -227,7 +227,7 @@ $(window).load(function() {
 
 var app = {
 
-	host:"http://consultorio/consultorio",
+	host:"http://consultorio/consultorio/",
 
 	ajaxSetup:function(){
 	  $.ajaxSetup({
@@ -720,7 +720,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'GET',
-            url: 'http://consultorio/consultoriodra/paciente_nuevo',
+            url: 'http://consultorio/consultorio/dra/paciente_nuevo',
             data: dataValues,
             success: function (response) {
                 onSuccess(response);
