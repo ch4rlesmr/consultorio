@@ -31,7 +31,7 @@ class PatientController extends Controller {
 
 		$patients = Patient::search($request->input('document-patient'), 
 							$request->input('name-patient'), $request->input('phone-patient'), 
-							$request->input('type-patient'))->paginate(20);
+							$request->input('type-patient'))->paginate(\Config::get('consultorio.paginacion'));
 
 		return view( 'cstr-su.patients', ["patients" => $patients] );
 	}
@@ -47,9 +47,14 @@ class PatientController extends Controller {
 		$datesValues = array();
 
 		foreach ($dates as $date) {
-			// array_push( $datesValues, $date );
+			/*echo $date . ' => '. date('Y-m-d', strtotime($date)) . '<br>';
+			$dateFormatted = date('Y-m-d', strtotime($date));
+			echo $dateFormatted . '<br>';*/
+			
 			$datePush = Carbon::createFromFormat('Y-m-d H:i:s', $date);
 			array_push( $datesValues, $datePush->format('F d Y') );
+			array_push( $datesValues, $datePush );
+
 		}
 
 		$meetingTreatment = $patient->meetings->where('tracing_id', null)->where('meeting_status', '=', 'DONE')->first();

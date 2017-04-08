@@ -54,6 +54,7 @@
                 <label class="control-label">Tipo Paciente</label>
                 <div>
                   <select id="type-patient" name="type-patient" class="form-control">
+                    <option selected disabled>Seleccione estado</option>
                     <option value="OLD">Antiguo</option>
                     <option value="NEW">Nuevo</option>
                   </select>

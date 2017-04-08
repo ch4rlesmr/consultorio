@@ -225,10 +225,13 @@
             <h4 class="modal-title" id="myModalLabel2">Cita ya realizada !</h4>
           </div>
           <div class="modal-body">
-            <h4>La cita seleccionada ya a sido confirmada y realizada, puede ver el detalle de esta.</h4>
+            <h4>La cita seleccionada ya a sido confirmada y realizada, la doctora puede ver el detalle de esta.</h4>
           </div>
           <div class="modal-footer">
-            <a href="{{ route( 'agenda.show', '' ) }}" class="btn btn-primary" id="link_meeting_detail"><i class="fa fa-calendar"></i> Detalle de cita</a>
+            @if ( !Auth::user()->isAdmin() )
+              <a href="{{ route( 'agenda.show', '' ) }}" class="btn btn-primary" id="link_meeting_detail"><i class="fa fa-calendar"></i> Detalle de cita</a>
+            @endif
+            <button type="button" class="btn btn-success antoclose" data-dismiss="modal"><i class="fa fa-check-circle"></i> Aceptar</button>
           </div>
         </div>
       </div>

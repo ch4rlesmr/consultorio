@@ -131,13 +131,15 @@ class ProductController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id) {
-        $product = Product::find($id);
+    public function destroy(Request $request) {
+        $product = Product::find($request->input('product_id'));
         $deleted = $product->delete();
 
-        if($request->ajax()){
+        return redirect()->route('inventario.index');
+
+        /*if($request->ajax()){
             return Response::json(['deleted' => $deleted],201);
-         }
+         }*/
     }
 
     public function exportProductsToExcel() {

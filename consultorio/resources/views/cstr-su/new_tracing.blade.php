@@ -42,7 +42,7 @@
                         <li><i class="fa fa-plus-square user-profile-icon"></i> <strong>Tipo Sangre: </strong>{{ $meeting->patient->blood_type->blood_group }}</li>
                       </ul>
 
-                      <a class="btn btn-success"><i class="fa fa-eye m-right-xs"></i> <strong>Detalle Paciente</strong></a>
+                      <a href="{{ action( 'PatientController@show', $patient->id ) }}" class="btn btn-success"><i class="fa fa-eye m-right-xs"></i> <strong>Detalle Paciente</strong></a>
                       <br>
 
                     </div>
@@ -134,6 +134,57 @@
 
                     </div>
 
+                    <div class="x_panel">
+                      <div class="x_title">
+                        <h2>Dictamen citas anteriores</h2>&nbsp;
+                        <ul class="nav navbar-left panel_toolbox">
+
+                          <li><a class="collapse-link pull-right"><i class="fa fa-chevron-up"></i></a>
+                          </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                      </div>
+                      <div class="x_content">
+                        <ul class="messages">
+                          @foreach ( $patient->meetings->where( 'meeting_status', '=', 'DONE' ) as $meeting )
+                            <li>
+                              <i class="fa fa-paw"></i>
+                              <div class="message_date">
+                                <h3 class="date text-info">{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $meeting->start_meeting)->day }}</h3>
+                                <p class="month">
+                                  <strong>{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $meeting->start_meeting)->format('F Y') }}</strong>
+                                </p>
+                              </div>
+                              @if ( $meeting->treatment_id !== NULL )
+                                <div class="message_wrapper">
+                                  <h4 class="heading">{{ App\Treatment::find($meeting->treatment_id)->diagnosis }}</h4>
+                                  <blockquote class="message">{{ App\Treatment::find($meeting->treatment_id)->description }}</blockquote>
+                                  <h4>Peso: <strong>{{ App\Sign::find($meeting->treatment->sign_id)->weight }} Kg</strong></h4>
+                                  <!-- <br>
+                                  <p class="url">
+                                    <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
+                                    <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
+                                  </p> -->
+                                </div>
+                              @elseif ( $meeting->tracing_id !== NULL )
+                                <div class="message_wrapper">
+                                  <h4 class="heading">{{ App\Tracing::find($meeting->tracing_id)->diagnosis }}</h4>
+                                  <blockquote class="message">{{ App\Tracing::find($meeting->tracing_id)->considerations }}</blockquote>
+                                  @if ( isset($meeting->tracing->evolution) )
+                                    <h4>Peso: <strong>{{ $meeting->tracing->evolution }} Kg</strong></h4>
+                                  @endif
+                                  <!-- <br>
+                                  <p class="url">
+                                    <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
+                                    <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
+                                  </p> -->
+                                </div>
+                              @endif
+                            </li>
+                          @endforeach
+                        </ul>
+                      </div>
+                    </div>
                      
                   </div>
                 </div>

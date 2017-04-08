@@ -149,9 +149,9 @@
                                 <li>
                                   <i class="fa fa-paw"></i>
                                   <div class="message_date">
-                                    <h3 class="date text-info">{{ Carbon\Carbon::createFromFormat('Y-m-d h:i:s', $meeting->start_meeting)->day }}</h3>
+                                    <h3 class="date text-info">{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $meeting->start_meeting)->day }}</h3>
                                     <p class="month">
-                                      <strong>{{ Carbon\Carbon::createFromFormat('Y-m-d h:i:s', $meeting->start_meeting)->format('F Y') }}</strong>
+                                      <strong>{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $meeting->start_meeting)->format('F Y') }}</strong>
                                     </p>
                                   </div>
                                   @if ( $meeting->treatment_id !== NULL )

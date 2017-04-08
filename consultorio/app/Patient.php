@@ -17,6 +17,7 @@ use App\Diagnosis;
 class Patient extends Model
 {
     protected $table = 'patients';
+    //protected $dateFormat = 'Y-m-d H:i:s';
     protected $fillable = [
         'id', 'name', 'last_name', 'birthdate', 'civil_status', 'address',
         'phone', 'blood_type_id', 'gender', 'email', 'number_children',

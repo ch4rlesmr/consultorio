@@ -163,6 +163,13 @@
                       
                     </div>
 
+                    <div class="col-md-12">
+                      {{ $meetings->appends([
+                        'id-number' => Request::get('id-number'),
+                        'meeting-status' => Request::get('meeting-status')
+                      ]) }}
+                    </div>
+
                   </div>
                 </div>
               </div>

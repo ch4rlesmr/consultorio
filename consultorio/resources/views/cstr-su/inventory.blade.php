@@ -294,8 +294,11 @@
             <h4>¿ Desea realmente eliminar el elemento del inventario que fue seleccionado ?</h4>
           </div>
           <div class="modal-footer">
-            <a href="#" type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times-circle"></span> <strong>Cancelar</strong></a>
-            <a href="#" type="button" class="btn btn-success confirm_del"><span class="fa fa-check-circle"></span> <strong>Aceptar</strong></a>
+            {{ Form::open( array( 'route' => 'inventario.eliminar', 'type' => 'POST' ) ) }}
+              <input type="hidden" name="product_id" id="product_id">
+              <a href="#" type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times-circle"></span> <strong>Cancelar</strong></a>
+              <button type="submit" class="btn btn-success confirm_del"><span class="fa fa-check-circle"></span> <strong>Aceptar</strong></button>
+            {{ Form::close() }}
             <!-- <button type="button" class="btn btn-primary antosubmit">Save changes</button> -->
           </div>
         </div>

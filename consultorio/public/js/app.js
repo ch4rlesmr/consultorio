@@ -19,11 +19,11 @@ $(window).load(function() {
           navLinks: true,
           businessHours: {
             dow: [1,2,3,4,5,6],
-            start: '08:00',
-            end: '20:00'  
+            start: '06:00',
+            end: '22:00'  
           },
-          minTime: "07:00",
-          maxTime: "20:00",
+          minTime: "05:00",
+          maxTime: "23:00",
           selectable: true,
           editable: false,
           hiddenDays: [ 0 ], //--> para ocultar dias de la semana [0 al 6]
@@ -849,8 +849,11 @@ $(function () {
 		var delId = getProductId($(this));
 		var url = app.host + window.location.pathname;
 		console.log(url);
+		$('#product_id').val(delId);
 
-		$('.confirm_del').click(function () {
+		/*$('.confirm_del').click(function () {
+
+			alert('product: ' + delId);
 
 			app.httpDelete( delId, 'dra/inventario',
             function (response){
@@ -861,7 +864,7 @@ $(function () {
             console.log(response);
             });
 
-		});
+		});*/
 
 	});
 

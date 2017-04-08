@@ -39,7 +39,7 @@ class MeetingController extends Controller
         // return view('cstr-su.appointment', ['meetings' => $meetings]);
         //$meetings = Meeting::search( $request->input('id-number'), $request->input('meeting-status') )->orderBy('start_meeting', 'DESC')->get();
         $meetings = Meeting::search( $request->input('id-number'), $request->input('meeting-status') )
-                    ->orderBy('start_meeting', 'DESC')->get();
+                    ->orderBy('start_meeting', 'DESC')->paginate(\Config::get('consultorio.paginacion'));
         return view('cstr-su.appointment', ['meetings' => $meetings]);
     }
 
@@ -230,7 +230,9 @@ class MeetingController extends Controller
     }
 
     public function createTracingMeeting ($meetingId) {
-        return view( 'cstr-su.new_tracing', ['meeting' => Meeting::find($meetingId)] );
+        $meeting = Meeting::find($meetingId);
+        return view( 'cstr-su.new_tracing', 
+                    ['meeting' => $meeting, 'patient' => $meeting->patient] );
     }
 
     public function createTreatment ($meetingId) {

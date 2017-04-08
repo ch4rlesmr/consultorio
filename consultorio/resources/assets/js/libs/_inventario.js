@@ -17,8 +17,11 @@ $(function () {
 		var delId = getProductId($(this));
 		var url = app.host + window.location.pathname;
 		console.log(url);
+		$('#product_id').val(delId);
 
-		$('.confirm_del').click(function () {
+		/*$('.confirm_del').click(function () {
+
+			alert('product: ' + delId);
 
 			app.httpDelete( delId, 'dra/inventario',
             function (response){
@@ -29,7 +32,7 @@ $(function () {
             console.log(response);
             });
 
-		});
+		});*/
 
 	});
 
