@@ -65,7 +65,7 @@
                         @endif
                       </ul>
 
-                      <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                      <a href="{{ route('paciente.edit', $patient->id) }}" class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Editar información de Paciente</a>
                       <br>
 
                       <!-- start skills -->

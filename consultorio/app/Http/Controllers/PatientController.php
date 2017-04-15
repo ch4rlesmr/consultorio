@@ -82,6 +82,28 @@ class PatientController extends Controller {
 
 	}
 
+	public function edit ($id) {
+		$patient = Patient::find($id);
+		$epsList = Eps::orderBy('eps_name', 'ASC')->get();
+        $bloodTypes = BloodType::all();
+
+        $academicLevels = AcademicLevel::all();
+        $feelings = Feeling::all();
+
+        $planningMethods = PlanningMethod::all();
+        $foods = Food::orderBy('name', 'ASC')->get();
+
+        return view('cstr-su.patient_edit', 
+            ["epsList" => $epsList, "blood_types"=>$bloodTypes,
+            "academic_levels"=>$academicLevels,"feelings"=>$feelings, 
+            "planning_methods"=>$planningMethods, "foods"=>$foods,
+            'patient' => $patient]);
+	}
+
+	public function update(Request $request) {
+		dd($request);
+	}
+
 	public function create () {
 		$epsList = Eps::all();
 		$bloodTypes = BloodType::all();
@@ -208,7 +230,7 @@ class PatientController extends Controller {
 		//STEP 4
 		$habits = $request->input("input_habits");
 		$habits = json_decode($habits);
-		print_r( $habits );
+		// print_r( $habits );
 
 		foreach($habits as $habit){
 			$habitPatient = new HabitPatient();

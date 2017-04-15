@@ -378,6 +378,7 @@ $(function () {
 	$('.add-field').click(function (e) {
 		e.preventDefault();
 		var rowFields = $('#aliments .fields-container').first().clone();
+		$(rowFields).find('input').data('aliment-id', '');
 		$(rowFields).find('input').val("");
 		next_aliment ++;
 		$(rowFields).find('input, textarea, select').each(function () {
@@ -419,6 +420,7 @@ $(function () {
 	$('.add-field-habit').click(function (e) {
 		e.preventDefault();
 		var rowFields = $('#habits .habit-container').first().clone();
+		$(rowFields).find('input').data('habit-id', '');
 		$(rowFields).find('input, textarea').val("");
 		next_habit ++;
 		$(rowFields).find('input, textarea, select').each(function () {
@@ -640,9 +642,16 @@ $(document).ready(function() {
             var dayMoment = $(this).find(".day-moment").val();
             var placeMoment = $(this).find(".place-moment").val();
             var foodId = $(this).find(".food_id").val();
+            var alimentId = $(this).find(".food_id").data('aliment-id');
+
             aliment.day_moment = dayMoment;
             aliment.place = placeMoment;
             aliment.food_id = foodId;
+
+            if ( alimentId !== '' || alimentId !== undefined ) {
+                aliment.aliment_id = alimentId;
+            }
+
             aliments.push(aliment);
         });
         console.log(aliments);

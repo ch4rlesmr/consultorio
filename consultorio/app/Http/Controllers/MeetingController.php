@@ -256,6 +256,8 @@ class MeetingController extends Controller
     }
 
     public function storeTreatment (Request $request, $patientId, $meetingId) {
+
+        // dd($request);
         
         $meeting = Meeting::find($meetingId);
         $allInfo = array();
@@ -368,7 +370,7 @@ class MeetingController extends Controller
         //STEP 4
         $habits = $request->input("input_habits");
         $habits = json_decode($habits);
-        print_r( $habits );
+        //print_r( $habits );
 
         foreach($habits as $habit){
             $habitPatient = new HabitPatient();
@@ -456,7 +458,7 @@ class MeetingController extends Controller
 
         $medicines = $request->input("input_medicines");
         $medicines = json_decode($medicines);
-        print_r($medicines);
+        // print_r($medicines);
 
         foreach($medicines as $medicine){
             $medicinePatient = new Medication();

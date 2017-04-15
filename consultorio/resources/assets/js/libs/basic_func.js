@@ -152,6 +152,7 @@ $(function () {
 	$('.add-field').click(function (e) {
 		e.preventDefault();
 		var rowFields = $('#aliments .fields-container').first().clone();
+		$(rowFields).find('input').data('aliment-id', '');
 		$(rowFields).find('input').val("");
 		next_aliment ++;
 		$(rowFields).find('input, textarea, select').each(function () {
@@ -193,6 +194,7 @@ $(function () {
 	$('.add-field-habit').click(function (e) {
 		e.preventDefault();
 		var rowFields = $('#habits .habit-container').first().clone();
+		$(rowFields).find('input').data('habit-id', '');
 		$(rowFields).find('input, textarea').val("");
 		next_habit ++;
 		$(rowFields).find('input, textarea, select').each(function () {
